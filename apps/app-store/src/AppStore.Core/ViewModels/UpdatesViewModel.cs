@@ -71,6 +71,27 @@ public sealed partial class UpdatesViewModel : ObservableObject, IDisposable
     [ObservableProperty]
     public partial bool IsFixing { get; set; }
 
+    /// <summary>Which step of the check is running (1–3), for the progress bar and step card.</summary>
+    [ObservableProperty]
+    public partial int CheckStep { get; set; } = 1;
+
+    [ObservableProperty]
+    public partial string CheckStepTitle { get; set; } = "Checking that winget is working";
+
+    [ObservableProperty]
+    public partial string CheckStepDetail { get; set; } = "Step 1 of 3";
+
+    public double CheckProgress => CheckStep switch { 1 => 12, 2 => 45, _ => 78 };
+
+    partial void OnCheckStepChanged(int value) => OnPropertyChanged(nameof(CheckProgress));
+
+    private void SetStep(int step, string title, string detail)
+    {
+        CheckStep = step;
+        CheckStepTitle = title;
+        CheckStepDetail = "Step " + step.ToString(System.Globalization.CultureInfo.InvariantCulture) + " of 3 · " + detail;
+    }
+
     public int HiddenCount { get; private set; }
 
     public string UpdateAllText => Strings.UpdateAll(CheckedCount);
@@ -102,6 +123,7 @@ public sealed partial class UpdatesViewModel : ObservableObject, IDisposable
         ErrorText = string.Empty;
         try
         {
+            SetStep(1, "Checking that winget is working", "asking Windows Package Manager");
             var health = await _s.CheckHealthAsync().ConfigureAwait(true);
             if (!health.Ok)
             {
@@ -113,11 +135,13 @@ public sealed partial class UpdatesViewModel : ObservableObject, IDisposable
             }
 
             IsWingetBroken = false;
+            SetStep(2, "Reading your installed apps", "listing what's on this PC");
+            await RefreshInstalledIdsAsync().ConfigureAwait(true);
+            SetStep(3, "Looking for newer versions", "comparing " + Strings.Apps(_s.InstalledIds.Count) + " with winget");
             var updates = await Task.Run(() => _s.Pm.GetUpdatesAsync(CancellationToken.None)).ConfigureAwait(true);
             _raw = updates;
             _s.Remember(updates);
             _s.SettingsStore.Update(s => s.LastCheck = DateTimeOffset.Now);
-            _ = RefreshInstalledIdsAsync();
             ApplyFilters();
         }
         catch (WingetException ex)

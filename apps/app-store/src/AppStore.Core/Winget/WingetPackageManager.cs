@@ -56,7 +56,9 @@ public sealed class WingetPackageManager : IPackageManager, IDisposable
 
     public async Task<List<PackageItem>> GetUpdatesAsync(CancellationToken ct)
     {
-        var all = await LoadInstalledAsync(force: true, ct).ConfigureAwait(false);
+        // Step 2 of the check has just read the full list; reuse it if it is only seconds old.
+        var fresh = _installedCache is not null && DateTimeOffset.Now - _installedAt < TimeSpan.FromSeconds(20);
+        var all = await LoadInstalledAsync(force: !fresh, ct).ConfigureAwait(false);
         if (all is not null)
         {
             return all.Where(p => p.Available.Length > 0 && p.IsFromWinget).ToList();
