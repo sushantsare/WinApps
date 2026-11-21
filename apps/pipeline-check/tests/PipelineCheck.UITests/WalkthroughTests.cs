@@ -31,6 +31,24 @@ public class WalkthroughTests
             TimeSpan.FromSeconds(15), TimeSpan.FromMilliseconds(200),
             throwOnTimeout: true, timeoutMessage: $"'{automationId}' not found").Result!;
 
+    /// <summary>Selects/invokes through UI Automation (works even if the element is off-screen), mouse click as last resort.</summary>
+    private static void Activate(AutomationElement el)
+    {
+        if (el.Patterns.SelectionItem.TryGetPattern(out var sel)) { sel.Select(); return; }
+        if (el.Patterns.Invoke.TryGetPattern(out var inv)) { inv.Invoke(); return; }
+        el.Click();
+    }
+
+    /// <summary>Runner screens are small (1024×768): maximize so the whole window is visible.</summary>
+    private static void Maximize(Window win)
+    {
+        if (win.Patterns.Window.TryGetPattern(out var w) && w.CanMaximize.ValueOrDefault)
+        {
+            w.SetWindowVisualState(FlaUI.Core.Definitions.WindowVisualState.Maximized);
+            Thread.Sleep(600);
+        }
+    }
+
     private static void Shot(Window win, string name)
     {
         Thread.Sleep(900); // let transitions settle
@@ -49,6 +67,7 @@ public class WalkthroughTests
             var win = app.GetMainWindow(automation, TimeSpan.FromSeconds(30));
             Assert.NotNull(win);
             win.SetForeground();
+            Maximize(win);
 
             WaitFor(win, "HomeTitle");
             Shot(win, $"{theme}-01-home");
@@ -57,14 +76,18 @@ public class WalkthroughTests
             Retry.WhileFalse(() => WaitFor(win, "ClickCount").Name.Contains('1', StringComparison.Ordinal),
                 TimeSpan.FromSeconds(5), throwOnTimeout: true);
 
-            WaitFor(win, "NavAbout").Click();
+            Activate(WaitFor(win, "NavAbout"));
             var email = WaitFor(win, "EmailLink");
             Assert.Equal("sushant.sare@gmail.com", email.Name);
             Shot(win, $"{theme}-02-about");
 
-            WaitFor(win, "NavSettings").Click();
+            Activate(WaitFor(win, "NavSettings"));
             WaitFor(win, "SettingsTitle");
             Shot(win, $"{theme}-03-settings");
+
+            // Theme switch from Settings must apply live.
+            Activate(WaitFor(win, theme == "dark" ? "ThemeLight" : "ThemeDark"));
+            Shot(win, $"{theme}-04-settings-switched");
 
             Assert.False(app.HasExited, "App exited during the walkthrough");
         }
