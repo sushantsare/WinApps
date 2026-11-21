@@ -69,51 +69,65 @@ public class PageMatrixTests
     [MemberData(nameof(Setups))]
     public void Every_page_fits_with_sidebar_open_and_closed(string size, string theme)
     {
-        var app = Application.Launch(new ProcessStartInfo(Exe, $"--test-data --size {size} --theme {theme}"));
-        using var ui = new UIA3Automation();
         var problems = new List<string>();
-        try
+        var narrow = size.StartsWith("620", StringComparison.Ordinal);
+        if (narrow)
         {
-            var win = app.GetMainWindow(ui, TimeSpan.FromSeconds(30));
-            win.SetForeground();
-            WaitFor(win, "UpdatesList", 30);
-            var narrow = size.StartsWith("620", StringComparison.Ordinal);
-
+            // Narrow windows hide the menu behind ☰: open each page directly with --page.
             foreach (var page in Pages)
             {
-                foreach (var sidebar in narrow ? new[] { "closed" } : ["open", "closed"])
+                var tag = page[3..].ToLowerInvariant();
+                var app = Application.Launch(new ProcessStartInfo(Exe, $"--test-data --size {size} --theme {theme} --page {tag}"));
+                using var ui = new UIA3Automation();
+                try
                 {
-                    if (!narrow)
-                    {
-                        SetSidebar(win, open: sidebar == "open");
-                    }
-
-                    GoTo(win, page, narrow);
-                    Thread.Sleep(900);
-                    var name = $"{page[3..].ToLowerInvariant()}-{size}-{sidebar}-{theme}";
+                    var win = app.GetMainWindow(ui, TimeSpan.FromSeconds(30));
+                    win.SetForeground();
+                    WaitFor(win, "Nav", 30);
+                    Thread.Sleep(1500);
+                    var name = $"{tag}-{size}-closed-{theme}";
                     Capture.Element(win).ToFile(Path.Combine(Shots, name + ".png"));
                     problems.AddRange(Overflow(win, name));
                 }
+                finally
+                {
+                    app.Close();
+                }
             }
         }
-        finally
+        else
         {
-            app.Close();
+            var app = Application.Launch(new ProcessStartInfo(Exe, $"--test-data --size {size} --theme {theme}"));
+            using var ui = new UIA3Automation();
+            try
+            {
+                var win = app.GetMainWindow(ui, TimeSpan.FromSeconds(30));
+                win.SetForeground();
+                WaitFor(win, "UpdatesList", 30);
+                foreach (var page in Pages)
+                {
+                    foreach (var sidebar in new[] { "open", "closed" })
+                    {
+                        SetSidebar(win, open: sidebar == "open");
+                        GoTo(win, page);
+                        Thread.Sleep(900);
+                        var name = $"{page[3..].ToLowerInvariant()}-{size}-{sidebar}-{theme}";
+                        Capture.Element(win).ToFile(Path.Combine(Shots, name + ".png"));
+                        problems.AddRange(Overflow(win, name));
+                    }
+                }
+            }
+            finally
+            {
+                app.Close();
+            }
         }
 
         Assert.True(problems.Count == 0, "Content outside the window:\n" + string.Join("\n", problems.Take(40)));
     }
 
-    private static void GoTo(Window win, string page, bool narrow)
+    private static void GoTo(Window win, string page)
     {
-        if (narrow)
-        {
-            // Narrow: menu is behind the ☰ in the title bar.
-            var toggle = win.FindFirstDescendant(cf => cf.ByAutomationId("PaneToggleButton")) ?? win.FindFirstDescendant(cf => cf.ByAutomationId("TogglePaneButton"));
-            toggle?.Click();
-            Thread.Sleep(400);
-        }
-
         var item = WaitFor(win, page);
         if (item.Patterns.SelectionItem.TryGetPattern(out var sel))
         {
@@ -122,13 +136,6 @@ public class PageMatrixTests
         else
         {
             item.Click();
-        }
-
-        if (narrow)
-        {
-            Thread.Sleep(300);
-            // Close the overlay menu if it is still open.
-            FlaUI.Core.Input.Keyboard.Press(FlaUI.Core.WindowsAPI.VirtualKeyShort.ESCAPE);
         }
     }
 
@@ -148,10 +155,11 @@ public class PageMatrixTests
     /// <summary>Anything inside the page that is visible top-to-bottom but sticks out past the window's right edge.</summary>
     private static IEnumerable<string> Overflow(Window win, string setup)
     {
-        var frame = win.FindFirstDescendant(cf => cf.ByAutomationId("ContentFrame"));
+        // Frames have no UI Automation peer, so check everything inside the NavigationView (sidebar + page).
+        var frame = win.FindFirstDescendant(cf => cf.ByAutomationId("Nav"));
         if (frame is null)
         {
-            yield return setup + ": page frame not found";
+            yield return setup + ": navigation view not found";
             yield break;
         }
 
