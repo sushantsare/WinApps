@@ -45,7 +45,8 @@ public sealed partial class MainWindow : Window
 
     private void Nav_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
     {
-        var page = (args.SelectedItem as NavigationViewItem)?.Tag as string switch
+        var tag = (args.SelectedItem as NavigationViewItem)?.Tag as string;
+        var page = tag switch
         {
             "about" => typeof(AboutPage),
             "settings" => typeof(SettingsPage),

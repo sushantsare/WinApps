@@ -93,7 +93,7 @@ jobs:
           "FAILED" | Set-Content "$env:OUT\UNIT_TESTS"
           $proj = Get-ChildItem tests -Recurse -Filter *.csproj | Where-Object { $_.Name -notmatch 'UITests' }
           foreach ($p in $proj) {
-            dotnet test $p.FullName -c Release --logger "trx;LogFileName=$($p.BaseName).trx" --results-directory "$env:OUT\unit" 2>&1 | Tee-Object -Append "$env:OUT\logs\unit-tests.log"
+            dotnet test --project $p.FullName -c Release --results-directory "$env:OUT\unit" --report-xunit-trx 2>&1 | Tee-Object -Append "$env:OUT\logs\unit-tests.log"
             if ($LASTEXITCODE -ne 0) { exit 1 }
           }
           "PASSED" | Set-Content "$env:OUT\UNIT_TESTS"
@@ -112,6 +112,7 @@ jobs:
           }
           if (-not (Test-Path "$pub\$env:APP_EXE_NAME")) { Write-Error "publish failed in every mode"; exit 1 }
           Get-ChildItem $pub -Recurse -Include *.pdb | Remove-Item -Force
+          Get-ChildItem $pub -Recurse -File | ForEach-Object { "{0,12:N0}  {1}" -f $_.Length, $_.FullName.Substring($pub.Length + 1) } | Set-Content "$env:OUT\audit\publish-files.txt"
           $size = "{0:N1} MB" -f ((Get-ChildItem $pub -Recurse | Measure-Object Length -Sum).Sum / 1MB)
           $size | Set-Content "$env:OUT\audit\size-x64.txt"
           Compress-Archive -Path "$pub\*" -DestinationPath "$env:OUT\$((Get-Item $env:MAIN).BaseName)-$env:APP_VERSION-x64-portable.zip"
@@ -149,6 +150,13 @@ jobs:
           if (Test-Path $exe.FullName) { Write-Error "uninstall left files"; exit 1 }
           "PASSED" | Set-Content "$env:OUT\INSTALL_TEST"
 
+      - name: XAML probe (diagnostic)
+        continue-on-error: true
+        run: |
+          $exe = "$env:OUT\publish\x64\$env:APP_EXE_NAME"
+          $p = Start-Process $exe -ArgumentList '--xaml-probe',"$env:OUT\audit\xaml-probe.txt" -PassThru
+          if (-not $p.WaitForExit(60000)) { Stop-Process $p.Id -Force }
+
       - name: Startup time (cold, 5 runs)
         continue-on-error: true
         run: |
@@ -158,7 +166,7 @@ jobs:
             $p = Start-Process $exe -PassThru
             while ($p.MainWindowHandle -eq 0 -and $sw.ElapsedMilliseconds -lt 30000) { Start-Sleep -Milliseconds 25; $p.Refresh() }
             $sw.ElapsedMilliseconds
-            Stop-Process $p.Id -Force; Start-Sleep 2
+            Stop-Process $p.Id -Force -ErrorAction SilentlyContinue; Start-Sleep 2
           }
           $sorted = $times | Sort-Object
           "runs (ms): $($times -join ', ')`nmedian (ms): $($sorted[2])" | Set-Content "$env:OUT\audit\startup.txt"
@@ -175,7 +183,7 @@ jobs:
           "screen: $([System.Windows.Forms.Screen]::PrimaryScreen.Bounds)" | Set-Content "$env:OUT\audit\runner-screen.txt"
           $proj = Get-ChildItem tests -Recurse -Filter *UITests.csproj | Select-Object -First 1
           if (-not $proj) { "NONE" | Set-Content "$env:OUT\UI_TESTS"; exit 0 }
-          dotnet test $proj.FullName -c Release --logger "trx;LogFileName=ui.trx" --results-directory "$env:OUT\ui" 2>&1 | Tee-Object "$env:OUT\logs\ui-tests.log"
+          dotnet test --project $proj.FullName -c Release --results-directory "$env:OUT\ui" --report-xunit-trx 2>&1 | Tee-Object "$env:OUT\logs\ui-tests.log"
           if ($LASTEXITCODE -ne 0) { exit 1 }
           "PASSED" | Set-Content "$env:OUT\UI_TESTS"
 

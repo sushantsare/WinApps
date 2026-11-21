@@ -11,8 +11,6 @@
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="*" />
     <!-- Tests -->
     <PackageVersion Include="xunit.v3" Version="*" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="*" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="*" />
     <PackageVersion Include="FlaUI.UIA3" Version="*" />
   </ItemGroup>
 </Project>
