@@ -95,7 +95,7 @@
                               IsChecked="{x:Bind IsChecked, Mode=TwoWay}"
                               IsEnabled="{x:Bind local:X.Not(InQueue), Mode=OneWay}"
                               AutomationProperties.Name="{x:Bind local:X.SelectName(Name)}" />
-                    <c:AppTile Grid.Column="1" PackageId="{x:Bind Id}" PackageName="{x:Bind Name}" />
+                    <c:AppTile Grid.Column="1" PackageId="{x:Bind Id}" PackageName="{x:Bind Name}" IconPath="{x:Bind IconPath, Mode=OneWay}" />
                     <StackPanel Grid.Column="2" VerticalAlignment="Center">
                       <TextBlock Text="{x:Bind Name}" Style="{StaticResource RowTitleStyle}" />
                       <TextBlock Text="{x:Bind Id}" Style="{StaticResource SecondaryTextStyle}" />
@@ -149,7 +149,7 @@
                   <ColumnDefinition Width="Auto" />
                   <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <c:AppTile PackageId="{x:Bind local:X.Text(ViewModel.Selected.Id), Mode=OneWay}" PackageName="{x:Bind local:X.Text(ViewModel.Selected.Name), Mode=OneWay}" TileSize="48" />
+                <c:AppTile PackageId="{x:Bind local:X.Text(ViewModel.Selected.Id), Mode=OneWay}" PackageName="{x:Bind local:X.Text(ViewModel.Selected.Name), Mode=OneWay}" IconPath="{x:Bind local:X.Text(ViewModel.Selected.IconPath), Mode=OneWay}" TileSize="48" />
                 <StackPanel Grid.Column="1" VerticalAlignment="Center">
                   <TextBlock Text="{x:Bind local:X.Text(ViewModel.Selected.Name), Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" FontSize="18" TextWrapping="Wrap" AutomationProperties.HeadingLevel="Level2" />
                   <TextBlock Text="{x:Bind local:X.VersionAndSource(ViewModel.Selected), Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" />

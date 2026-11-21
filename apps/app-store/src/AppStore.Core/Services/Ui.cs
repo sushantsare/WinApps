@@ -32,6 +32,13 @@ public interface IDialogs
     void OpenUri(string uri);
 }
 
+/// <summary>Finds real app icons (installed programs, Store apps, websites for search results). Implemented in the app.</summary>
+public interface IIconProvider
+{
+    /// <param name="online">Also download icons from app websites for apps that aren't installed.</param>
+    void Fill(IReadOnlyList<Models.PackageItem> items, bool online);
+}
+
 /// <summary>Runs a batch with one admin popup (the app starts itself elevated). Implemented in the app.</summary>
 public interface IElevation
 {

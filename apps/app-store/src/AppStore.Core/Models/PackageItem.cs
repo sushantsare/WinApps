@@ -55,5 +55,9 @@ public sealed partial class PackageItem : ObservableObject
     [ObservableProperty]
     public partial string Tag { get; set; } = string.Empty;
 
+    /// <summary>Where the real app icon comes from: a file path (.exe/.ico/.png) or "msix:&lt;package full name&gt;"; empty = letter tile.</summary>
+    [ObservableProperty]
+    public partial string IconPath { get; set; } = string.Empty;
+
     public override string ToString() => $"{Name} ({Id}) {Version}";
 }

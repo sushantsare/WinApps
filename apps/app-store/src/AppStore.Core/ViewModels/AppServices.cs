@@ -32,6 +32,9 @@ public sealed partial class AppServices : ObservableObject
 
     public OperationQueue Queue { get; }
 
+    /// <summary>Real app icons; null in unit tests (letter tiles only).</summary>
+    public IIconProvider? Icons { get; set; }
+
     /// <summary>IDs of installed apps (lower-case), for "Installed" chips in Search.</summary>
     public HashSet<string> InstalledIds { get; } = new(StringComparer.OrdinalIgnoreCase);
 

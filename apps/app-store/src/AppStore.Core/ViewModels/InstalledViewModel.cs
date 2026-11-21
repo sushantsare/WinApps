@@ -104,6 +104,7 @@ public sealed partial class InstalledViewModel : ObservableObject
 
             RefreshTags();
             ApplyFilter();
+            _s.Icons?.Fill(_all, online: false);
             State = _all.Count == 0 ? PageState.Empty : PageState.Ready;
         }
         catch (WingetException ex)

@@ -46,14 +46,14 @@
         PaneClosed="Nav_PaneClosed"
         AutomationProperties.AutomationId="Nav">
       <NavigationView.MenuItems>
+        <NavigationViewItem x:Name="NavSearch" Content="Search" Tag="search" AutomationProperties.AutomationId="NavSearch" ToolTipService.ToolTip="Search (Ctrl+F)">
+          <NavigationViewItem.Icon><FontIcon Glyph="&#xE721;" /></NavigationViewItem.Icon>
+        </NavigationViewItem>
         <NavigationViewItem x:Name="NavUpdates" Content="Updates" Tag="updates" AutomationProperties.AutomationId="NavUpdates" ToolTipService.ToolTip="Updates">
           <NavigationViewItem.Icon><FontIcon Glyph="&#xE895;" /></NavigationViewItem.Icon>
           <NavigationViewItem.InfoBadge>
             <InfoBadge x:Name="UpdatesBadge" Visibility="Collapsed" />
           </NavigationViewItem.InfoBadge>
-        </NavigationViewItem>
-        <NavigationViewItem x:Name="NavSearch" Content="Search" Tag="search" AutomationProperties.AutomationId="NavSearch" ToolTipService.ToolTip="Search (Ctrl+F)">
-          <NavigationViewItem.Icon><FontIcon Glyph="&#xE721;" /></NavigationViewItem.Icon>
         </NavigationViewItem>
         <NavigationViewItem x:Name="NavInstalled" Content="Installed" Tag="installed" AutomationProperties.AutomationId="NavInstalled" ToolTipService.ToolTip="Installed">
           <NavigationViewItem.Icon><FontIcon Glyph="&#xF0E2;" /></NavigationViewItem.Icon>

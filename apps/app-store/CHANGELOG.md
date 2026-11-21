@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.0 — 21 Nov 2026
+- Real app icons on Search, Updates and Installed (from the installed program, Store package or the app's website), cached on this PC. New setting: "Download icons for search results".
+- Faster search: one PowerShell session with winget's module stays loaded in the background (started with the app), results are remembered for 15 minutes, and version lists use the same session. A note appears if a search takes longer than 4 seconds. Search times are logged in Logs\search.log.
+- Bigger app icon on the taskbar, Start menu, title bar and installer.
+- Minimise, maximise and close buttons are vertically centred in the taller title bar.
+- Sidebar order: Search, Updates, Installed, Queue, History (the app still opens on Updates).
+
 ## 1.0.2 — 21 Nov 2026
 - Queue, History and Settings really start next to the sidebar now, at every window size and with the sidebar open or closed (1.0.1 didn't fully fix it).
 - The page test now also checks that every page starts right beside the sidebar.

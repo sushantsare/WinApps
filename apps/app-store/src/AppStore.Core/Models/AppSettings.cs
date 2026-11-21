@@ -57,6 +57,9 @@ public sealed class AppSettings
     // Search
     public List<string> RecentSearches { get; set; } = [];
 
+    /// <summary>Fetch app icons for search results from each app's website (cached on disk).</summary>
+    public bool DownloadSearchIcons { get; set; } = true;
+
     // History: days to keep, 0 = forever
     public int HistoryDays { get; set; } = 365;
 

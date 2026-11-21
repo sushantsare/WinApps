@@ -7,6 +7,9 @@ public interface IPackageManager
 {
     Task<WingetHealth> CheckHealthAsync(CancellationToken ct);
 
+    /// <summary>Gets the background search engine ready so the first search is fast.</summary>
+    Task WarmUpAsync(CancellationToken ct);
+
     /// <summary>Apps with a newer version available (winget-managed only).</summary>
     Task<List<PackageItem>> GetUpdatesAsync(CancellationToken ct);
 

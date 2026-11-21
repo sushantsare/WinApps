@@ -49,6 +49,9 @@ public sealed partial class SearchViewModel : ObservableObject, IDisposable
     public partial string LastQuery { get; set; } = string.Empty;
 
     [ObservableProperty]
+    public partial string LoadingText { get; set; } = "Searching winget…";
+
+    [ObservableProperty]
     public partial PackageItem? Selected { get; set; }
 
     [ObservableProperty]
@@ -90,6 +93,8 @@ public sealed partial class SearchViewModel : ObservableObject, IDisposable
         var cts = _searchCts = new CancellationTokenSource();
         State = PageState.Loading;
         LastQuery = q;
+        LoadingText = "Searching winget for \"" + q + "\"…";
+        _ = SlowNoticeAsync(cts.Token);
         try
         {
             var list = await Task.Run(() => _s.Pm.SearchAsync(q, cts.Token)).ConfigureAwait(true);
@@ -116,6 +121,7 @@ public sealed partial class SearchViewModel : ObservableObject, IDisposable
 
             _s.Remember(list);
             AddRecent(q);
+            _s.Icons?.Fill([.. Results], online: _s.Settings.DownloadSearchIcons);
             State = Results.Count == 0 ? PageState.Empty : PageState.Ready;
             Selected = Results.FirstOrDefault();
             Recount();
@@ -136,6 +142,21 @@ public sealed partial class SearchViewModel : ObservableObject, IDisposable
 
         OnPropertyChanged(nameof(ResultsText));
         OnPropertyChanged(nameof(NoResultsText));
+    }
+
+    private async Task SlowNoticeAsync(CancellationToken ct)
+    {
+        try
+        {
+            await Task.Delay(TimeSpan.FromSeconds(4), ct).ConfigureAwait(true);
+            if (State == PageState.Loading)
+            {
+                LoadingText = "Still searching — winget is probably updating its app list. This happens every few hours and takes a few seconds.";
+            }
+        }
+        catch (OperationCanceledException)
+        {
+        }
     }
 
     [RelayCommand]
@@ -183,6 +204,11 @@ public sealed partial class SearchViewModel : ObservableObject, IDisposable
     partial void OnSelectedChanged(PackageItem? value)
     {
         OnPropertyChanged(nameof(HasSelected));
+        if (value is not null)
+        {
+            _s.Icons?.Fill([value], online: _s.Settings.DownloadSearchIcons);
+        }
+
         _ = LoadDetailsAsync(value);
     }
 

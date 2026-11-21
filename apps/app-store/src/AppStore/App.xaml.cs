@@ -83,7 +83,11 @@ public partial class App : Application
             : new WingetPackageManager();
         var dialogs = new DialogService();
         var elevation = TestMode ? null : new ElevationService();
-        Services = new AppServices(pm, settings, history, dialogs, elevation);
+        Services = new AppServices(pm, settings, history, dialogs, elevation)
+        {
+            // Test runs use installed-app icons only (no downloads), so screenshots don't depend on websites.
+            Icons = new IconProvider(pm, allowOnline: !TestMode),
+        };
         Updates = new UpdatesViewModel(Services);
         Search = new SearchViewModel(Services);
         Installed = new InstalledViewModel(Services);
@@ -98,6 +102,8 @@ public partial class App : Application
         dialogs.Attach(Window);
         Window.Activate();
         _ = Task.Run(ElevatedHelper.CleanOld);
+        // Get the background search engine ready so the first search is fast.
+        _ = Task.Run(() => pm.WarmUpAsync(CancellationToken.None));
     }
 
     private static void SeedTestData(SettingsStore settings, HistoryStore history)

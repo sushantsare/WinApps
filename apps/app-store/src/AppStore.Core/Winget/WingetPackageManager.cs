@@ -31,7 +31,15 @@ public sealed class WingetPackageManager : IPackageManager, IDisposable
         }
     }
 
-    public void Dispose() => _listGate.Dispose();
+    private readonly ConcurrentDictionary<string, (DateTimeOffset At, List<PackageItem> Items)> _searchCache = new(StringComparer.OrdinalIgnoreCase);
+
+    public void Dispose()
+    {
+        _listGate.Dispose();
+        _ps.Dispose();
+    }
+
+    public Task WarmUpAsync(CancellationToken ct) => _ps.WarmUpAsync(ct);
 
     public async Task<WingetHealth> CheckHealthAsync(CancellationToken ct)
     {
@@ -105,7 +113,7 @@ public sealed class WingetPackageManager : IPackageManager, IDisposable
                 return null;
             }
 
-            var list = await WingetPowerShell.GetInstalledAsync(ct).ConfigureAwait(false);
+            var list = await _ps.GetInstalledAsync(ct).ConfigureAwait(false);
             if (list is not null)
             {
                 _installedCache = list;
@@ -122,24 +130,43 @@ public sealed class WingetPackageManager : IPackageManager, IDisposable
 
     public async Task<List<PackageItem>> SearchAsync(string query, CancellationToken ct)
     {
+        var key = query.Trim();
+        if (_searchCache.TryGetValue(key, out var hit) && DateTimeOffset.Now - hit.At < TimeSpan.FromMinutes(15))
+        {
+            SearchLog.Write(key, 0, hit.Items.Count, "cache");
+            return hit.Items.Select(Copy).ToList();
+        }
+
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+        List<PackageItem>? list = null;
+        var via = "powershell";
         if (await _ps.IsAvailableAsync(ct).ConfigureAwait(false))
         {
-            var list = await WingetPowerShell.SearchAsync(query, ct).ConfigureAwait(false);
-            if (list is not null)
+            list = await _ps.SearchAsync(key, ct).ConfigureAwait(false);
+        }
+
+        if (list is null)
+        {
+            via = "winget.exe";
+            var r = await ProcessRunner.RunAsync(WingetExe, ["search", key, "--source", "winget", "--count", "80", .. Common], ListTimeout, null, ct).ConfigureAwait(false);
+            if (r.Output.Contains("No package found", StringComparison.OrdinalIgnoreCase))
             {
-                return list;
+                list = [];
+            }
+            else
+            {
+                ThrowIfFailed(r, allowNonZero: true);
+                list = WingetParsers.ParseSearchTable(r.Output);
             }
         }
 
-        var r = await ProcessRunner.RunAsync(WingetExe, ["search", query, "--source", "winget", "--count", "80", .. Common], ListTimeout, null, ct).ConfigureAwait(false);
-        if (r.Output.Contains("No package found", StringComparison.OrdinalIgnoreCase))
-        {
-            return [];
-        }
-
-        ThrowIfFailed(r, allowNonZero: true);
-        return WingetParsers.ParseSearchTable(r.Output);
+        SearchLog.Write(key, sw.ElapsedMilliseconds, list.Count, via);
+        _searchCache[key] = (DateTimeOffset.Now, list.Select(Copy).ToList());
+        return list;
     }
+
+    private static PackageItem Copy(PackageItem p) =>
+        new(p.Id, p.Name) { Version = p.Version, Available = p.Available, Source = p.Source, Publisher = p.Publisher };
 
     public async Task<PackageDetails?> GetDetailsAsync(string id, string? version, CancellationToken ct)
     {
@@ -173,6 +200,11 @@ public sealed class WingetPackageManager : IPackageManager, IDisposable
 
     public async Task<List<string>> GetVersionsAsync(string id, CancellationToken ct)
     {
+        if (await _ps.IsAvailableAsync(ct).ConfigureAwait(false) && await _ps.GetVersionsAsync(id, ct).ConfigureAwait(false) is { Count: > 0 } fast)
+        {
+            return fast;
+        }
+
         var r = await ProcessRunner.RunAsync(WingetExe, ["show", "--id", id, "--exact", "--versions", "--source", "winget", .. Common], TimeSpan.FromMinutes(1), null, ct).ConfigureAwait(false);
         return r.ExitCode == 0 ? WingetParsers.ParseVersions(r.Output) : [];
     }
@@ -330,6 +362,26 @@ public sealed class WingetPackageManager : IPackageManager, IDisposable
         if (r.ExitCode != 0 && !(allowNonZero && WingetParsers.ParseTables(r.Output).Count > 0))
         {
             throw new WingetException(Strings.WingetError(r.ExitCode) + " (code " + Strings.ExitCodeText(r.ExitCode) + ")");
+        }
+    }
+}
+
+/// <summary>How long each search took (Logs\\search.log), to see real numbers from the user's PC.</summary>
+internal static class SearchLog
+{
+    public static void Write(string query, long ms, int count, string via)
+    {
+        try
+        {
+            Directory.CreateDirectory(Services.AppPaths.Logs);
+            File.AppendAllText(Path.Combine(Services.AppPaths.Logs, "search.log"),
+                string.Create(System.Globalization.CultureInfo.InvariantCulture, $"{DateTimeOffset.Now:yyyy-MM-dd HH:mm:ss} | {ms,6} ms | {count,3} results | {via} | \"{query}\"{Environment.NewLine}"));
+        }
+        catch (IOException)
+        {
+        }
+        catch (UnauthorizedAccessException)
+        {
         }
     }
 }

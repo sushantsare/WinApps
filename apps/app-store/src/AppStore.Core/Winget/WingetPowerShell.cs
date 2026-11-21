@@ -19,14 +19,47 @@ public sealed class PsPackage
 /// Reads package lists through Microsoft's WinGet PowerShell module, which talks to winget's COM API in a separate
 /// process. Exact, structured data (no truncated IDs) and winget problems can never crash App Store itself.
 /// </summary>
-public sealed class WingetPowerShell
+public sealed class WingetPowerShell : IDisposable
 {
     private const string Prelude =
         "$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue';" +
         "[Console]::OutputEncoding=[Text.Encoding]::UTF8;Import-Module Microsoft.WinGet.Client;";
 
     private static readonly TimeSpan QueryTimeout = TimeSpan.FromMinutes(3);
+    private readonly PsSession _session = new();
     private bool? _available;
+    private bool _sessionBroken;
+
+    public void Dispose() => _session.Dispose();
+
+    /// <summary>Starts the background PowerShell session if the module is installed.</summary>
+    public async Task WarmUpAsync(CancellationToken ct)
+    {
+        if (await IsAvailableAsync(ct).ConfigureAwait(false))
+        {
+            if (!await _session.WarmUpAsync(ct).ConfigureAwait(false))
+            {
+                _sessionBroken = true;
+            }
+        }
+    }
+
+    /// <summary>All versions winget offers for a package, newest first, or null when unavailable.</summary>
+    public async Task<List<string>?> GetVersionsAsync(string id, CancellationToken ct)
+    {
+        var q = id.Replace("'", "''", StringComparison.Ordinal);
+        var r = await _session.RunAsync(
+            $"$p = Find-WinGetPackage -Id '{q}' -MatchOption Equals -Source winget | Select-Object -First 1; if ($p) {{ @($p.AvailableVersions) -join '|' }}",
+            QueryTimeout, ct).ConfigureAwait(false);
+        if (r is null)
+        {
+            return null;
+        }
+
+        var list = r.Split(['|', '\r', '\n'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).ToList();
+        list.Sort((a, b) => VersionCompare.Compare(b, a));
+        return list;
+    }
 
     public static string PowerShellExe =>
         Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "WindowsPowerShell", "v1.0", "powershell.exe");
@@ -56,7 +89,7 @@ public sealed class WingetPowerShell
         return r.ExitCode == 0 && await IsAvailableAsync(ct).ConfigureAwait(false);
     }
 
-    public static async Task<List<PackageItem>?> GetInstalledAsync(CancellationToken ct)
+    public async Task<List<PackageItem>?> GetInstalledAsync(CancellationToken ct)
     {
         const string script =
             "$r=@(Get-WinGetPackage | ForEach-Object { [pscustomobject]@{ Name=$_.Name; Id=$_.Id; Version=[string]$_.InstalledVersion; " +
@@ -65,7 +98,7 @@ public sealed class WingetPowerShell
         return await QueryAsync(script, ct).ConfigureAwait(false);
     }
 
-    public static async Task<List<PackageItem>?> SearchAsync(string query, CancellationToken ct)
+    public async Task<List<PackageItem>?> SearchAsync(string query, CancellationToken ct)
     {
         var q = query.Replace("'", "''", StringComparison.Ordinal);
         var script =
@@ -74,15 +107,35 @@ public sealed class WingetPowerShell
         return await QueryAsync(script, ct).ConfigureAwait(false);
     }
 
-    private static async Task<List<PackageItem>?> QueryAsync(string script, CancellationToken ct)
+    private async Task<List<PackageItem>?> QueryAsync(string script, CancellationToken ct)
     {
-        var r = await RunAsync(script, QueryTimeout, ct).ConfigureAwait(false);
-        if (r.ExitCode != 0 || r.TimedOut)
+        string? output = null;
+        if (!_sessionBroken)
         {
-            return null;
+            output = await _session.RunAsync(script, QueryTimeout, ct).ConfigureAwait(false);
         }
 
-        var json = r.Output.Trim();
+        if (output is null)
+        {
+            // Fallback: a one-off PowerShell process (slower, but always works). If it works where the
+            // session didn't, stop using the session for the rest of this run.
+            var r = await RunAsync(script, QueryTimeout, ct).ConfigureAwait(false);
+            if (r.ExitCode != 0 || r.TimedOut)
+            {
+                return null;
+            }
+
+            _sessionBroken = true;
+            output = r.Output;
+        }
+
+        // The JSON is one line; ignore anything else PowerShell printed around it.
+        var json = output.Split('\n').Select(l => l.Trim()).LastOrDefault(l => l.StartsWith('[') || l.StartsWith('{')) ?? string.Empty;
+        if (json.StartsWith('{'))
+        {
+            json = "[" + json + "]";
+        }
+
         var start = json.IndexOf('[', StringComparison.Ordinal);
         if (start < 0)
         {

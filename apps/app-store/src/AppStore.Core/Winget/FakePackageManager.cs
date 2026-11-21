@@ -44,6 +44,8 @@ public sealed class FakePackageManager : IPackageManager
 
     public bool WingetBroken { get; set; }
 
+    public Task WarmUpAsync(CancellationToken ct) => Task.CompletedTask;
+
     public async Task<WingetHealth> CheckHealthAsync(CancellationToken ct)
     {
         await Task.Delay(_speedMs, ct).ConfigureAwait(false);

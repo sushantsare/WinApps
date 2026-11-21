@@ -28,6 +28,12 @@ public sealed partial class SettingsPage : Page
 internal static class WhatsNew
 {
     public const string Text =
+        "1.1.0\n" +
+        "• Real app icons on Search, Updates and Installed\n" +
+        "• Faster search: winget stays loaded in the background, and recent searches are remembered for 15 minutes\n" +
+        "• Bigger app icon on the taskbar and Start menu\n" +
+        "• Minimise, maximise and close buttons are centred in the title bar\n" +
+        "• Search is now first in the sidebar, above Updates\n\n" +
         "1.0.2\n" +
         "• Queue, History and Settings now start next to the sidebar at every window size\n\n" +
         "1.0.1\n" +

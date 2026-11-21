@@ -7,7 +7,7 @@ using Windows.UI;
 
 namespace AppStore.Controls;
 
-/// <summary>Rounded square with the app's first letter, coloured from its package ID (same colour every time).</summary>
+/// <summary>The app's real icon when one is known, otherwise a rounded square with the app's first letter, coloured from its package ID (same colour every time).</summary>
 public sealed partial class AppTile : Grid
 {
     public static readonly DependencyProperty PackageIdProperty =
@@ -15,6 +15,9 @@ public sealed partial class AppTile : Grid
 
     public static readonly DependencyProperty PackageNameProperty =
         DependencyProperty.Register(nameof(PackageName), typeof(string), typeof(AppTile), new PropertyMetadata(string.Empty, (d, _) => ((AppTile)d).Refresh()));
+
+    public static readonly DependencyProperty IconPathProperty =
+        DependencyProperty.Register(nameof(IconPath), typeof(string), typeof(AppTile), new PropertyMetadata(string.Empty, (d, _) => ((AppTile)d).LoadIcon()));
 
     public static readonly DependencyProperty TileSizeProperty =
         DependencyProperty.Register(nameof(TileSize), typeof(double), typeof(AppTile), new PropertyMetadata(36d, (d, _) => ((AppTile)d).Refresh()));
@@ -28,12 +31,16 @@ public sealed partial class AppTile : Grid
     ];
 
     private readonly Border _border = new();
+    private readonly Image _image = new() { Stretch = Stretch.Uniform, Visibility = Visibility.Collapsed };
+    private int _loadVersion;
+    private bool _hasImage;
     private readonly TextBlock _letter = new() { HorizontalAlignment = HorizontalAlignment.Center, VerticalAlignment = VerticalAlignment.Center, FontWeight = Microsoft.UI.Text.FontWeights.Bold };
 
     public AppTile()
     {
         _border.Child = _letter;
         Children.Add(_border);
+        Children.Add(_image);
         AutomationProperties.SetAccessibilityView(this, Microsoft.UI.Xaml.Automation.Peers.AccessibilityView.Raw);
         ActualThemeChanged += (_, _) => Refresh();
         Refresh();
@@ -51,16 +58,82 @@ public sealed partial class AppTile : Grid
         set => SetValue(PackageNameProperty, value);
     }
 
+    /// <summary>Cached icon file (PNG/ICO/JPEG); empty or unreadable = letter tile.</summary>
+    public string IconPath
+    {
+        get => (string)GetValue(IconPathProperty);
+        set => SetValue(IconPathProperty, value);
+    }
+
     public double TileSize
     {
         get => (double)GetValue(TileSizeProperty);
         set => SetValue(TileSizeProperty, value);
     }
 
+    private async void LoadIcon()
+    {
+        var version = ++_loadVersion;
+        var path = IconPath;
+        if (string.IsNullOrEmpty(path) || !File.Exists(path))
+        {
+            ShowImage(false);
+            return;
+        }
+
+        try
+        {
+            var bmp = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage { DecodePixelType = Microsoft.UI.Xaml.Media.Imaging.DecodePixelType.Logical, DecodePixelWidth = (int)Math.Ceiling(TileSize) };
+            var bytes = await File.ReadAllBytesAsync(path).ConfigureAwait(true);
+            using var ms = new Windows.Storage.Streams.InMemoryRandomAccessStream();
+            using (var w = new Windows.Storage.Streams.DataWriter(ms))
+            {
+                w.WriteBytes(bytes);
+                await w.StoreAsync().AsTask().ConfigureAwait(true);
+                w.DetachStream();
+            }
+
+            ms.Seek(0);
+            await bmp.SetSourceAsync(ms).AsTask().ConfigureAwait(true);
+            if (version != _loadVersion)
+            {
+                return; // a newer icon was requested while this one loaded (recycled list row)
+            }
+
+            _image.Source = bmp;
+            ShowImage(true);
+        }
+#pragma warning disable CA1031 // A broken icon file just means the letter tile stays.
+        catch (Exception)
+#pragma warning restore CA1031
+        {
+            if (version == _loadVersion)
+            {
+                ShowImage(false);
+            }
+        }
+    }
+
+    private void ShowImage(bool show)
+    {
+        _hasImage = show;
+        _image.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
+        if (!show)
+        {
+            _image.Source = null;
+        }
+
+        Refresh();
+    }
+
     private void Refresh()
     {
         var size = TileSize;
         Width = Height = size;
+        _image.Width = _image.Height = Math.Round(size * 0.86);
+        _image.HorizontalAlignment = HorizontalAlignment.Center;
+        _image.VerticalAlignment = VerticalAlignment.Center;
+        _border.Visibility = _hasImage ? Visibility.Collapsed : Visibility.Visible;
         _border.CornerRadius = new CornerRadius(size >= 32 ? 8 : 6);
         var name = string.IsNullOrWhiteSpace(PackageName) ? PackageId ?? "?" : PackageName;
         _letter.Text = name.Length > 0 ? char.ToUpperInvariant(name.TrimStart()[0]).ToString() : "?";

@@ -229,6 +229,8 @@ public sealed partial class SettingsViewModel : ObservableObject
 
     public bool RetryOnce { get => S.RetryOnce; set => Set(s => s.RetryOnce = value); }
 
+    public bool DownloadSearchIcons { get => S.DownloadSearchIcons; set => Set(s => s.DownloadSearchIcons = value); }
+
     public int StartPageIndex
     {
         get => S.StartPage switch { "search" => 1, "installed" => 2, _ => 0 };

@@ -174,3 +174,38 @@ public class ArgsTests
         Assert.DoesNotContain("--accept-package-agreements", args);
     }
 }
+
+public class IconTests
+{
+    [Fact]
+    public void Icon_path_strips_quotes_and_index()
+    {
+        var f = Path.Combine(Path.GetTempPath(), "icon-test-" + Guid.NewGuid().ToString("N") + ".exe");
+        File.WriteAllBytes(f, [0]);
+        try
+        {
+            Assert.Equal(f, AppStore.Core.Services.IconSources.CleanIconPath(f + ",0"));
+            Assert.Equal(f, AppStore.Core.Services.IconSources.CleanIconPath("\"" + f + "\",-101"));
+            Assert.Equal(string.Empty, AppStore.Core.Services.IconSources.CleanIconPath(f + ".missing.exe"));
+            Assert.Equal(string.Empty, AppStore.Core.Services.IconSources.CleanIconPath("C:\\x\\setup.msi"));
+        }
+        finally
+        {
+            File.Delete(f);
+        }
+    }
+
+    [Fact]
+    public void Msix_ids_use_the_package_logo() =>
+        Assert.Equal("msix:Microsoft.Foo_1.0_x64__8wekyb3d8bbwe", AppStore.Core.Services.IconSources.Find(@"MSIX\Microsoft.Foo_1.0_x64__8wekyb3d8bbwe", "Foo"));
+
+    [Fact]
+    public void Only_real_images_are_kept()
+    {
+        var png = new byte[100];
+        png[0] = 0x89; png[1] = 0x50; png[2] = 0x4E; png[3] = 0x47;
+        Assert.True(AppStore.Core.Services.WebIcons.LooksLikeImage(png));
+        var html = System.Text.Encoding.ASCII.GetBytes(new string('<', 100));
+        Assert.False(AppStore.Core.Services.WebIcons.LooksLikeImage(html));
+    }
+}

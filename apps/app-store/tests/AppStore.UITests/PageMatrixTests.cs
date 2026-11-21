@@ -16,7 +16,7 @@ namespace AppStore.UITests;
 public class PageMatrixTests
 {
     /// <summary>Every page in the sidebar. A page added to the app without being added here fails PageInventory.</summary>
-    internal static readonly string[] Pages = ["NavUpdates", "NavSearch", "NavInstalled", "NavQueue", "NavHistory", "NavSettings"];
+    internal static readonly string[] Pages = ["NavSearch", "NavUpdates", "NavInstalled", "NavQueue", "NavHistory", "NavSettings"];
 
     private static string Exe => Environment.GetEnvironmentVariable("APP_EXE") ?? throw new InvalidOperationException("APP_EXE not set");
 
@@ -58,6 +58,9 @@ public class PageMatrixTests
             var missing = items.Except(Pages).ToList();
             Assert.True(missing.Count == 0, "Pages without tests: " + string.Join(", ", missing));
             Assert.All(Pages, p => Assert.Contains(p, items));
+            // Sidebar order as agreed: Search, Updates, Installed, Queue, History (Settings sits at the bottom).
+            var top = items.Where(i => i != "NavSettings").ToList();
+            Assert.Equal(["NavSearch", "NavUpdates", "NavInstalled", "NavQueue", "NavHistory"], top);
         }
         finally
         {

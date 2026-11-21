@@ -237,6 +237,7 @@ public sealed partial class UpdatesViewModel : ObservableObject, IDisposable
         UpdateSubtitle();
         OnPropertyChanged(nameof(UpToDateText));
         _ = LoadSizesAsync();
+        _s.Icons?.Fill([.. Items, .. Held], online: false);
     }
 
     private void OnItemChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)

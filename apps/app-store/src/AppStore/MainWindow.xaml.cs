@@ -24,6 +24,8 @@ public sealed partial class MainWindow : Window
 
         ExtendsContentIntoTitleBar = true;
         SetTitleBar(AppTitleBar);
+        // Our title bar is 48 epx tall: ask Windows for tall caption buttons so ─ □ ✕ are centred in their boxes.
+        AppWindow.TitleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
         AppWindow.SetIcon(Path.Combine(AppContext.BaseDirectory, "Assets", "AppIcon.ico"));
         AppWindow.Title = "App Store";
 
