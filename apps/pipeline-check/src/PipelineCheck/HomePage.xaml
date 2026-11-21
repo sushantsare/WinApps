@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="PipelineCheck.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ScrollViewer>
+    <StackPanel MaxWidth="1000" Padding="36,24" Spacing="16" HorizontalAlignment="Stretch">
+      <TextBlock x:Name="Greeting" AutomationProperties.AutomationId="HomeTitle"
+                 AutomationProperties.HeadingLevel="Level1"
+                 Style="{StaticResource TitleTextBlockStyle}" />
+      <TextBlock Text="This small app proves the Windows build pipeline works end to end: build, tests, screenshots and installer."
+                 TextWrapping="Wrap" Style="{StaticResource BodyTextBlockStyle}" />
+
+      <Border Padding="16" CornerRadius="8"
+              Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+              BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
+        <StackPanel Spacing="12">
+          <TextBlock Text="Sample amount" Style="{StaticResource BodyStrongTextBlockStyle}" />
+          <TextBlock x:Name="Amount" AutomationProperties.AutomationId="Amount"
+                     Style="{StaticResource SubtitleTextBlockStyle}" />
+          <StackPanel Orientation="Horizontal" Spacing="12">
+            <Button Content="Click me" Style="{StaticResource AccentButtonStyle}"
+                    AutomationProperties.AutomationId="ClickButton"
+                    Command="{x:Bind ViewModel.IncrementCommand}" />
+            <TextBlock VerticalAlignment="Center" AutomationProperties.AutomationId="ClickCount"
+                       AutomationProperties.LiveSetting="Polite"
+                       Text="{x:Bind ViewModel.CountText, Mode=OneWay}" />
+          </StackPanel>
+        </StackPanel>
+      </Border>
+    </StackPanel>
+  </ScrollViewer>
+</Page>

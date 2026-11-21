@@ -1,0 +1,24 @@
+<Project>
+  <!-- Shared settings for every app in this repo. -->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <Deterministic>true</Deterministic>
+    <Company>Sushant Kumar</Company>
+    <Authors>Sushant Kumar</Authors>
+    <Copyright>© Sushant Kumar</Copyright>
+    <!-- Central package versions (Directory.Packages.props) + lock files for repeatable builds -->
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <!-- Windows target used by every WinUI app (see stack.md) -->
+    <WinTfm>net11.0-windows10.0.26100.0</WinTfm>
+    <WinMinVersion>10.0.22000.0</WinMinVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+</Project>

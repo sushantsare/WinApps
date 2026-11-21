@@ -1,0 +1,14 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="ARM64" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Project Path="src/PipelineCheck.Core/PipelineCheck.Core.csproj" />
+    <Project Path="src/PipelineCheck/PipelineCheck.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/PipelineCheck.Tests/PipelineCheck.Tests.csproj" />
+    <Project Path="tests/PipelineCheck.UITests/PipelineCheck.UITests.csproj" />
+  </Folder>
+</Solution>

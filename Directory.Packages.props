@@ -1,0 +1,18 @@
+<Project>
+  <!--
+    Latest-stack rule: "*" = newest STABLE release (never preview).
+    Each build records the exact resolved versions in out/audit/packages.txt and
+    the lock files; once a set passes the full suite it is written to stack.md.
+  -->
+  <ItemGroup>
+    <!-- App platform -->
+    <PackageVersion Include="Microsoft.WindowsAppSDK" Version="*" />
+    <PackageVersion Include="CommunityToolkit.Mvvm" Version="*" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="*" />
+    <!-- Tests -->
+    <PackageVersion Include="xunit.v3" Version="*" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="*" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="*" />
+    <PackageVersion Include="FlaUI.UIA3" Version="*" />
+  </ItemGroup>
+</Project>

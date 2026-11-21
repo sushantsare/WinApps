@@ -1,0 +1,13 @@
+bin/
+obj/
+out/
+*.user
+*.suo
+.vs/
+*.binlog
+TestResults/
+# Signing secrets never go in git
+*.pfx
+*.p12
+*.snk
+*.cer

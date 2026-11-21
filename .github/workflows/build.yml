@@ -1,0 +1,277 @@
+name: Windows build
+
+on:
+  push:
+    branches: [main, 'build/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: win-build-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+
+jobs:
+  target:
+    runs-on: ubuntu-latest
+    outputs:
+      dir: ${{ steps.t.outputs.dir }}
+      name: ${{ steps.t.outputs.name }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: t
+        run: |
+          d=$(tr -d '\r\n ' < .build-target)
+          echo "dir=$d" >> "$GITHUB_OUTPUT"
+          echo "name=$(basename "$d")" >> "$GITHUB_OUTPUT"
+
+  # ---------- x64: checks, unit tests, publish, installer, UI tests ----------
+  build-x64:
+    needs: target
+    runs-on: windows-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      APP_DIR: ${{ github.workspace }}\${{ needs.target.outputs.dir }}
+      OUT: ${{ github.workspace }}\out
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Prepare
+        run: |
+          New-Item -ItemType Directory -Force "$env:OUT\screens","$env:OUT\audit","$env:OUT\logs","$env:OUT\locks" | Out-Null
+          "FAILED" | Set-Content "$env:OUT\STATUS"
+          $main = Get-ChildItem "$env:APP_DIR\src" -Recurse -Filter *.csproj | Where-Object { (Get-Content $_.FullName -Raw) -match '<UseWinUI>true' } | Select-Object -First 1
+          $ver = (dotnet msbuild $main.FullName -getProperty:Version).Trim()
+          $exe = (dotnet msbuild $main.FullName -getProperty:AssemblyName).Trim()
+          "MAIN=$($main.FullName)" >> $env:GITHUB_ENV
+          "APP_VERSION=$ver" >> $env:GITHUB_ENV
+          "APP_EXE_NAME=$exe.exe" >> $env:GITHUB_ENV
+          $ver | Set-Content "$env:OUT\VERSION"
+          dotnet --info > "$env:OUT\logs\dotnet-info.txt"
+
+      - name: Restore
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          dotnet restore -p:Platform=x64 2>&1 | Tee-Object "$env:OUT\logs\restore.log"
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+          Get-ChildItem -Recurse -Filter packages.lock.json | ForEach-Object {
+            Copy-Item $_.FullName "$env:OUT\locks\$($_.Directory.Name).packages.lock.json" }
+          dotnet list package --include-transitive > "$env:OUT\audit\packages.txt"
+          dotnet list package --vulnerable --include-transitive > "$env:OUT\audit\vulnerable.txt"
+
+      - name: Code checks (format + build with analyzers)
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          $ok = $true
+          dotnet format --verify-no-changes --no-restore --report "$env:OUT\audit" 2>&1 | Tee-Object "$env:OUT\audit\format.txt"
+          if ($LASTEXITCODE -ne 0) { $ok = $false }
+          dotnet build "$env:MAIN" -c Release -p:Platform=x64 --no-restore "-bl:$env:OUT\logs\build.binlog" 2>&1 | Tee-Object "$env:OUT\logs\build.log"
+          if ($LASTEXITCODE -ne 0) { "FAILED" | Set-Content "$env:OUT\CHECKS"; exit 1 }
+          $warn = (Select-String -Path "$env:OUT\logs\build.log" -Pattern 'warning [A-Z]+[0-9]+' | ForEach-Object { $_.Line.Trim() } | Sort-Object -Unique)
+          $warn | Set-Content "$env:OUT\audit\warnings.txt"
+          if (-not $ok) { "FAILED (format)" | Set-Content "$env:OUT\CHECKS" }
+          elseif ($warn.Count -gt 0) { "WARNINGS ($($warn.Count))" | Set-Content "$env:OUT\CHECKS" }
+          else { "PASSED" | Set-Content "$env:OUT\CHECKS" }
+
+      - name: Unit tests
+        continue-on-error: true
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          "FAILED" | Set-Content "$env:OUT\UNIT_TESTS"
+          $proj = Get-ChildItem tests -Recurse -Filter *.csproj | Where-Object { $_.Name -notmatch 'UITests' }
+          foreach ($p in $proj) {
+            dotnet test $p.FullName -c Release --logger "trx;LogFileName=$($p.BaseName).trx" --results-directory "$env:OUT\unit" 2>&1 | Tee-Object -Append "$env:OUT\logs\unit-tests.log"
+            if ($LASTEXITCODE -ne 0) { exit 1 }
+          }
+          "PASSED" | Set-Content "$env:OUT\UNIT_TESTS"
+
+      - name: Publish x64 (Native AOT, falls back to trimmed ReadyToRun)
+        run: |
+          $pub = "$env:OUT\publish\x64"
+          $modes = @(
+            @{ name = "NativeAOT";        args = @("-p:PublishAot=true") },
+            @{ name = "Trimmed+R2R";      args = @("-p:PublishAot=false","-p:PublishTrimmed=true","-p:PublishReadyToRun=true") },
+            @{ name = "SelfContained";    args = @("-p:PublishAot=false","-p:PublishTrimmed=false","-p:PublishReadyToRun=true") })
+          foreach ($m in $modes) {
+            Remove-Item -Recurse -Force $pub -ErrorAction SilentlyContinue
+            dotnet publish "$env:MAIN" -c Release -r win-x64 -p:Platform=x64 @($m.args) -o $pub 2>&1 | Tee-Object "$env:OUT\logs\publish-x64-$($m.name).log"
+            if ($LASTEXITCODE -eq 0) { $m.name | Set-Content "$env:OUT\PUBLISH_MODE"; break }
+          }
+          if (-not (Test-Path "$pub\$env:APP_EXE_NAME")) { Write-Error "publish failed in every mode"; exit 1 }
+          Get-ChildItem $pub -Recurse -Include *.pdb | Remove-Item -Force
+          $size = "{0:N1} MB" -f ((Get-ChildItem $pub -Recurse | Measure-Object Length -Sum).Sum / 1MB)
+          $size | Set-Content "$env:OUT\audit\size-x64.txt"
+          Compress-Archive -Path "$pub\*" -DestinationPath "$env:OUT\$((Get-Item $env:MAIN).BaseName)-$env:APP_VERSION-x64-portable.zip"
+          "BUILT" | Set-Content "$env:OUT\STATUS"
+
+      - name: Installer (Inno Setup)
+        run: |
+          $iscc = Get-ChildItem "${env:ProgramFiles(x86)}","$env:ProgramFiles" -Recurse -Filter ISCC.exe -ErrorAction SilentlyContinue -Depth 2 | Select-Object -First 1
+          if (-not $iscc) {
+            choco install innosetup -y --no-progress | Out-Null
+            $iscc = Get-ChildItem "${env:ProgramFiles(x86)}","$env:ProgramFiles" -Recurse -Filter ISCC.exe -ErrorAction SilentlyContinue -Depth 2 | Select-Object -First 1
+          }
+          Push-Location "$env:APP_DIR\installer"
+          & $iscc.FullName "/DAppVersion=$env:APP_VERSION" "/DSourceDir=$env:OUT\publish\x64" "/DOutputDir=$env:OUT" "/DArch=x64" setup.iss 2>&1 | Tee-Object "$env:OUT\logs\installer-x64.log"
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+          Pop-Location
+          "INSTALLER_X64=$((Get-ChildItem $env:OUT -Filter *-x64-Setup.exe).FullName)" >> $env:GITHUB_ENV
+
+      - name: Install / launch / uninstall test
+        continue-on-error: true
+        run: |
+          "FAILED" | Set-Content "$env:OUT\INSTALL_TEST"
+          $p = Start-Process $env:INSTALLER_X64 -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART',"/LOG=$env:OUT\logs\install.log" -Wait -PassThru
+          if ($p.ExitCode -ne 0) { exit 1 }
+          $exe = Get-ChildItem "$env:LOCALAPPDATA\Programs" -Recurse -Filter $env:APP_EXE_NAME -Depth 2 | Select-Object -First 1
+          if (-not $exe) { Write-Error "installed exe not found"; exit 1 }
+          "Installed to: $($exe.DirectoryName)" | Set-Content "$env:OUT\audit\install.txt"
+          $app = Start-Process $exe.FullName -PassThru
+          Start-Sleep 8
+          if ($app.HasExited) { Write-Error "installed app exited early (code $($app.ExitCode))"; exit 1 }
+          Stop-Process $app.Id -Force
+          $unins = Get-ChildItem $exe.DirectoryName -Filter 'unins*.exe' | Select-Object -First 1
+          Start-Process $unins.FullName -ArgumentList '/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART' -Wait
+          Start-Sleep 3
+          if (Test-Path $exe.FullName) { Write-Error "uninstall left files"; exit 1 }
+          "PASSED" | Set-Content "$env:OUT\INSTALL_TEST"
+
+      - name: Startup time (cold, 5 runs)
+        continue-on-error: true
+        run: |
+          $exe = "$env:OUT\publish\x64\$env:APP_EXE_NAME"
+          $times = foreach ($i in 1..5) {
+            $sw = [Diagnostics.Stopwatch]::StartNew()
+            $p = Start-Process $exe -PassThru
+            while ($p.MainWindowHandle -eq 0 -and $sw.ElapsedMilliseconds -lt 30000) { Start-Sleep -Milliseconds 25; $p.Refresh() }
+            $sw.ElapsedMilliseconds
+            Stop-Process $p.Id -Force; Start-Sleep 2
+          }
+          $sorted = $times | Sort-Object
+          "runs (ms): $($times -join ', ')`nmedian (ms): $($sorted[2])" | Set-Content "$env:OUT\audit\startup.txt"
+
+      - name: UI walkthrough (FlaUI)
+        continue-on-error: true
+        working-directory: ${{ env.APP_DIR }}
+        env:
+          SCREENS_DIR: ${{ github.workspace }}\out\screens
+        run: |
+          "FAILED" | Set-Content "$env:OUT\UI_TESTS"
+          $env:APP_EXE = "$env:OUT\publish\x64\$env:APP_EXE_NAME"
+          Add-Type -AssemblyName System.Windows.Forms
+          "screen: $([System.Windows.Forms.Screen]::PrimaryScreen.Bounds)" | Set-Content "$env:OUT\audit\runner-screen.txt"
+          $proj = Get-ChildItem tests -Recurse -Filter *UITests.csproj | Select-Object -First 1
+          if (-not $proj) { "NONE" | Set-Content "$env:OUT\UI_TESTS"; exit 0 }
+          dotnet test $proj.FullName -c Release --logger "trx;LogFileName=ui.trx" --results-directory "$env:OUT\ui" 2>&1 | Tee-Object "$env:OUT\logs\ui-tests.log"
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+          "PASSED" | Set-Content "$env:OUT\UI_TESTS"
+
+      - name: Collect app logs
+        if: always()
+        run: |
+          $logs = "$env:LOCALAPPDATA\Sushant"
+          if (Test-Path $logs) { Copy-Item $logs "$env:OUT\logs\app" -Recurse -Force }
+          Remove-Item -Recurse -Force "$env:OUT\publish" -ErrorAction SilentlyContinue
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: out-x64
+          path: out
+          retention-days: 7
+
+  # ---------- ARM64: publish + installer ----------
+  build-arm64:
+    needs: target
+    runs-on: windows-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      APP_DIR: ${{ github.workspace }}\${{ needs.target.outputs.dir }}
+      OUT: ${{ github.workspace }}\out-arm64
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Publish ARM64 + installer
+        run: |
+          New-Item -ItemType Directory -Force "$env:OUT\logs" | Out-Null
+          "FAILED" | Set-Content "$env:OUT\ARM64"
+          $main = Get-ChildItem "$env:APP_DIR\src" -Recurse -Filter *.csproj | Where-Object { (Get-Content $_.FullName -Raw) -match '<UseWinUI>true' } | Select-Object -First 1
+          $ver = (dotnet msbuild $main.FullName -getProperty:Version).Trim()
+          $pub = "$env:OUT\publish"
+          $modes = @(
+            @{ name = "NativeAOT";     args = @("-p:PublishAot=true") },
+            @{ name = "Trimmed+R2R";   args = @("-p:PublishAot=false","-p:PublishTrimmed=true","-p:PublishReadyToRun=true") },
+            @{ name = "SelfContained"; args = @("-p:PublishAot=false","-p:PublishTrimmed=false") })
+          $done = $false
+          foreach ($m in $modes) {
+            Remove-Item -Recurse -Force $pub -ErrorAction SilentlyContinue
+            dotnet publish $main.FullName -c Release -r win-arm64 -p:Platform=ARM64 @($m.args) -o $pub 2>&1 | Tee-Object "$env:OUT\logs\publish-arm64-$($m.name).log"
+            if ($LASTEXITCODE -eq 0) { $m.name | Set-Content "$env:OUT\ARM64_MODE"; $done = $true; break }
+          }
+          if (-not $done) { exit 1 }
+          Get-ChildItem $pub -Recurse -Include *.pdb | Remove-Item -Force
+          $iscc = Get-ChildItem "${env:ProgramFiles(x86)}","$env:ProgramFiles" -Recurse -Filter ISCC.exe -ErrorAction SilentlyContinue -Depth 2 | Select-Object -First 1
+          if (-not $iscc) {
+            choco install innosetup -y --no-progress | Out-Null
+            $iscc = Get-ChildItem "${env:ProgramFiles(x86)}","$env:ProgramFiles" -Recurse -Filter ISCC.exe -ErrorAction SilentlyContinue -Depth 2 | Select-Object -First 1
+          }
+          Push-Location "$env:APP_DIR\installer"
+          & $iscc.FullName "/DAppVersion=$ver" "/DSourceDir=$pub" "/DOutputDir=$env:OUT" "/DArch=arm64" setup.iss 2>&1 | Tee-Object "$env:OUT\logs\installer-arm64.log"
+          if ($LASTEXITCODE -ne 0) { exit 1 }
+          Pop-Location
+          Remove-Item -Recurse -Force $pub
+          "BUILT" | Set-Content "$env:OUT\ARM64"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: out-arm64
+          path: out-arm64
+          retention-days: 7
+
+  # ---------- publish results to the win-builds branch ----------
+  publish:
+    needs: [target, build-x64, build-arm64]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: art
+      - name: Merge and push
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p result
+          [ -d art/out-x64 ] && cp -r art/out-x64/. result/
+          [ -d art/out-arm64 ] && cp -r art/out-arm64/. result/
+          for f in STATUS CHECKS UNIT_TESTS UI_TESTS INSTALL_TEST ARM64; do [ -f "result/$f" ] || echo MISSING > "result/$f"; done
+          echo "${{ github.sha }}" > result/SOURCE_SHA
+          echo "${{ needs.target.outputs.dir }}" > result/TARGET
+          printf "build-x64=%s\nbuild-arm64=%s\n" "${{ needs.build-x64.result }}" "${{ needs.build-arm64.result }}" > result/JOBS
+          cd result
+          git init -q -b win-builds
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Build ${{ github.sha }} (${{ needs.target.outputs.name }})"
+          git push -f "https://x-access-token:${TOKEN}@github.com/${{ github.repository }}.git" win-builds
