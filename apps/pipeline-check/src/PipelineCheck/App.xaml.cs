@@ -16,25 +16,8 @@ public partial class App : Application
 
     protected override void OnLaunched(LaunchActivatedEventArgs args)
     {
-        var argv = Environment.GetCommandLineArgs();
-        var probe = Array.IndexOf(argv, "--xaml-probe");
-        if (probe >= 0 && probe + 1 < argv.Length)
-        {
-            XamlProbe.Run(argv[probe + 1]);
-            Exit();
-            return;
-        }
-
-        try
-        {
-            Window = new MainWindow(argv);
-            Window.Activate();
-        }
-        catch (Exception ex)
-        {
-            CrashLog.Write(ex);
-            throw;
-        }
+        Window = new MainWindow(Environment.GetCommandLineArgs());
+        Window.Activate();
     }
 }
 

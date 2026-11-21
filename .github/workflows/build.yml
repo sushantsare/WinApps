@@ -112,6 +112,8 @@ jobs:
           }
           if (-not (Test-Path "$pub\$env:APP_EXE_NAME")) { Write-Error "publish failed in every mode"; exit 1 }
           Get-ChildItem $pub -Recurse -Include *.pdb | Remove-Item -Force
+          $appPri = Join-Path $pub ([IO.Path]::ChangeExtension($env:APP_EXE_NAME, '.pri'))
+          if (-not (Test-Path $appPri)) { Write-Error "App .pri missing (EnableMsixTooling?) - XAML pages would fail to load"; exit 1 }
           Get-ChildItem $pub -Recurse -File | ForEach-Object { "{0,12:N0}  {1}" -f $_.Length, $_.FullName.Substring($pub.Length + 1) } | Set-Content "$env:OUT\audit\publish-files.txt"
           $size = "{0:N1} MB" -f ((Get-ChildItem $pub -Recurse | Measure-Object Length -Sum).Sum / 1MB)
           $size | Set-Content "$env:OUT\audit\size-x64.txt"
@@ -149,13 +151,6 @@ jobs:
           Start-Sleep 3
           if (Test-Path $exe.FullName) { Write-Error "uninstall left files"; exit 1 }
           "PASSED" | Set-Content "$env:OUT\INSTALL_TEST"
-
-      - name: XAML probe (diagnostic)
-        continue-on-error: true
-        run: |
-          $exe = "$env:OUT\publish\x64\$env:APP_EXE_NAME"
-          $p = Start-Process $exe -ArgumentList '--xaml-probe',"$env:OUT\audit\xaml-probe.txt" -PassThru
-          if (-not $p.WaitForExit(60000)) { Stop-Process $p.Id -Force }
 
       - name: Startup time (cold, 5 runs)
         continue-on-error: true

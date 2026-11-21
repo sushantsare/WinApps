@@ -15,6 +15,9 @@
     <ApplicationIcon>Assets\AppIcon.ico</ApplicationIcon>
     <!-- Personal app: unpackaged + self-contained, nothing else to install -->
     <WindowsPackageType>None</WindowsPackageType>
+    <!-- Required even when unpackaged: generates the app's .pri (compiled XAML pages) -->
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <SatelliteResourceLanguages>en;hi</SatelliteResourceLanguages>
     <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
     <SelfContained>true</SelfContained>
     <IsAotCompatible>true</IsAotCompatible>
