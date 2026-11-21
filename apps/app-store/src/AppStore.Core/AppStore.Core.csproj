@@ -3,7 +3,6 @@
     <TargetFramework>net11.0-windows</TargetFramework>
     <RootNamespace>AppStore.Core</RootNamespace>
     <IsAotCompatible>true</IsAotCompatible>
-    <SupportedOSPlatformVersion>10.0.22000.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" />
