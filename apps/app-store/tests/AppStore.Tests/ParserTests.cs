@@ -39,8 +39,7 @@ public class ParserTests
             微信       Tencent.WeChat 3.9.12
             """;
         // Header columns: Name@0, Id@11, Version@24; the two wide chars take 4 columns.
-        var fixedTable = table.Replace("微信       Tencent", "微信     Tencent", StringComparison.Ordinal);
-        var rows = WingetParsers.ParseTables(fixedTable);
+        var rows = WingetParsers.ParseTables(table);
         Assert.Single(rows);
         Assert.Equal("微信", rows[0][0]["Name"]);
         Assert.StartsWith("Tencent.WeChat", rows[0][0]["Id"], StringComparison.Ordinal);

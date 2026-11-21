@@ -104,7 +104,7 @@ public class WalkthroughTests
             Maximize(win);
             var list = WaitFor(win, "UpdatesList");
             Retry.WhileFalse(() => list.FindAllChildren().Length >= 3, TimeSpan.FromSeconds(15), throwOnTimeout: true, timeoutMessage: "updates never loaded");
-            WaitFor(win, "HeldList");
+            WaitForName(win, "Install anyway: OBS Studio");
             Shot(win, $"{theme}-01-updates");
 
             // Install options from the details panel

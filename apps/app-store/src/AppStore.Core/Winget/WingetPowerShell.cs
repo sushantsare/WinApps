@@ -74,7 +74,7 @@ public sealed class WingetPowerShell
         return await QueryAsync(script, ct).ConfigureAwait(false);
     }
 
-    private async Task<List<PackageItem>?> QueryAsync(string script, CancellationToken ct)
+    private static async Task<List<PackageItem>?> QueryAsync(string script, CancellationToken ct)
     {
         var r = await RunAsync(script, QueryTimeout, ct).ConfigureAwait(false);
         if (r.ExitCode != 0 || r.TimedOut)

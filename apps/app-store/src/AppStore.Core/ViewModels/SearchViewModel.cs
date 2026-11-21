@@ -7,7 +7,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace AppStore.Core.ViewModels;
 
-public sealed partial class SearchViewModel : ObservableObject
+public sealed partial class SearchViewModel : ObservableObject, IDisposable
 {
     private readonly AppServices _s;
     private CancellationTokenSource? _searchCts;
@@ -25,6 +25,12 @@ public sealed partial class SearchViewModel : ObservableObject
     }
 
     public ObservableCollection<PackageItem> Results { get; } = [];
+
+    public void Dispose()
+    {
+        _searchCts?.Dispose();
+        _detailsCts?.Dispose();
+    }
 
     public ObservableCollection<string> Recent { get; } = [];
 

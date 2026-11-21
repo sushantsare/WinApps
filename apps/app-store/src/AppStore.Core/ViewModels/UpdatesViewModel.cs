@@ -16,7 +16,7 @@ public enum PageState
     Start,
 }
 
-public sealed partial class UpdatesViewModel : ObservableObject
+public sealed partial class UpdatesViewModel : ObservableObject, IDisposable
 {
     private readonly AppServices _s;
     private List<PackageItem> _raw = [];
@@ -32,6 +32,12 @@ public sealed partial class UpdatesViewModel : ObservableObject
     }
 
     public AppServices Services => _s;
+
+    public void Dispose()
+    {
+        _detailsCts?.Dispose();
+        _sizeCts?.Dispose();
+    }
 
     public ObservableCollection<PackageItem> Items { get; } = [];
 

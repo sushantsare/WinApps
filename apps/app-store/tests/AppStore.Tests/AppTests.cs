@@ -101,7 +101,7 @@ public sealed class AppTests : IDisposable
         s.Queue.QueueEmptied += (_, _) => done.TrySetResult();
 
         await vm.UpdateAllAsync();
-        await done.Task.WaitAsync(TimeSpan.FromSeconds(30));
+        await done.Task.WaitAsync(TimeSpan.FromSeconds(30), TestContext.Current.CancellationToken);
 
         Assert.Contains(d.Asked, a => a.StartsWith("Update ", StringComparison.Ordinal));
         Assert.Equal(count, s.History.Entries.Count(e => e.Action == "Updated"));
@@ -116,7 +116,7 @@ public sealed class AppTests : IDisposable
         var done = new TaskCompletionSource();
         s.Queue.QueueEmptied += (_, _) => done.TrySetResult();
         s.Queue.Enqueue([new OperationRequest { Kind = OpKind.Install, Id = "Microsoft.VisualStudioCode.Insiders", Name = "VS Code Insiders", Source = "winget" }], elevate: false);
-        await done.Task.WaitAsync(TimeSpan.FromSeconds(30));
+        await done.Task.WaitAsync(TimeSpan.FromSeconds(30), TestContext.Current.CancellationToken);
 
         var item = Assert.Single(s.Queue.Finished);
         Assert.Equal(OpState.Failed, item.State);

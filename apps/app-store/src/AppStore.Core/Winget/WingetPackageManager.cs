@@ -7,7 +7,7 @@ namespace AppStore.Core.Winget;
 /// Real winget backend. Lists come from the WinGet PowerShell module when it is installed (exact data) and from
 /// winget.exe tables otherwise; installs, updates and uninstalls always run winget.exe.
 /// </summary>
-public sealed class WingetPackageManager : IPackageManager
+public sealed class WingetPackageManager : IPackageManager, IDisposable
 {
     private static readonly string[] Common = ["--accept-source-agreements", "--disable-interactivity"];
     private static readonly HttpClient Http = new() { Timeout = TimeSpan.FromSeconds(10) };
@@ -30,6 +30,8 @@ public sealed class WingetPackageManager : IPackageManager
             return File.Exists(alias) ? alias : "winget.exe";
         }
     }
+
+    public void Dispose() => _listGate.Dispose();
 
     public async Task<WingetHealth> CheckHealthAsync(CancellationToken ct)
     {

@@ -9,12 +9,14 @@ using Microsoft.Windows.Storage.Pickers;
 namespace AppStore.Services;
 
 /// <summary>ContentDialogs, file pickers and toasts for the view-models.</summary>
-public sealed class DialogService : IDialogs
+public sealed class DialogService : IDialogs, IDisposable
 {
     private readonly SemaphoreSlim _one = new(1, 1);
     private MainWindow? _window;
 
     public void Attach(MainWindow window) => _window = window;
+
+    public void Dispose() => _one.Dispose();
 
     private XamlRoot Root => _window!.Content.XamlRoot;
 

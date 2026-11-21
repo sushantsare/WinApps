@@ -117,6 +117,7 @@ public static class BatchRunner
 }
 
 /// <summary>The app's operations queue: batches run one after another; each finished item lands in History.</summary>
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Naming", "CA1711", Justification = "It is a queue, and the name matches the Queue page.")]
 public sealed partial class OperationQueue : ObservableObject
 {
     private readonly IPackageManager _pm;

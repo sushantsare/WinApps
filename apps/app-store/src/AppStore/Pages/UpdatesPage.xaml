@@ -59,7 +59,7 @@
              Severity="Error"
              IsClosable="False"
              IsOpen="{x:Bind local:X.IsErrorBool(ViewModel.State), Mode=OneWay}"
-             Title="winget isn't responding"
+             Title="winget isn't working"
              Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}"
              AutomationProperties.AutomationId="WingetError">
       <InfoBar.ActionButton>

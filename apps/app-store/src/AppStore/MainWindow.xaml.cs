@@ -131,7 +131,10 @@ public sealed partial class MainWindow : Window
 
     private void Nav_DisplayModeChanged(NavigationView sender, NavigationViewDisplayModeChangedEventArgs args)
     {
-        AppTitleBar.IsPaneToggleButtonVisible = args.DisplayMode == NavigationViewDisplayMode.Minimal;
+        // Narrow windows: the ☰ lives in the title bar; otherwise at the top of the sidebar.
+        var minimal = args.DisplayMode == NavigationViewDisplayMode.Minimal;
+        AppTitleBar.IsPaneToggleButtonVisible = minimal;
+        Nav.IsPaneToggleButtonVisible = !minimal;
         if (args.DisplayMode == NavigationViewDisplayMode.Expanded)
         {
             ApplySidebarSetting();
@@ -188,18 +191,18 @@ public sealed partial class MainWindow : Window
     }
 
     // ---------- toast & crash notice ----------
-    public void ShowToast(string message, bool error)
+    public void ShowToast(string message, bool isError)
     {
         Toast.Message = message;
-        Toast.Severity = error ? InfoBarSeverity.Error : InfoBarSeverity.Success;
+        Toast.Severity = isError ? InfoBarSeverity.Error : InfoBarSeverity.Success;
         Toast.IsOpen = true;
         _toastTimer.Stop();
-        _toastTimer.Interval = TimeSpan.FromSeconds(error ? 8 : 4);
+        _toastTimer.Interval = TimeSpan.FromSeconds(isError ? 8 : 4);
         _toastTimer.Start();
     }
 
     public void ShowCrashNotice() =>
-        ShowToast("Something went wrong, but App Store kept running. Details are in Settings › Diagnostics › Open log folder.", error: true);
+        ShowToast("Something went wrong, but App Store kept running. Details are in Settings › Diagnostics › Open log folder.", isError: true);
 
     // ---------- theme ----------
     public void ApplyTheme(string theme) =>
