@@ -57,7 +57,7 @@ public sealed partial class UpdatesViewModel : ObservableObject, IDisposable
     public partial PackageItem? Selected { get; set; }
 
     [ObservableProperty]
-    public partial PackageDetails? Details { get; set; }
+    public partial PackageDetails Details { get; set; } = PackageDetails.Empty;
 
     [ObservableProperty]
     public partial bool DetailsLoading { get; set; }
@@ -268,12 +268,18 @@ public sealed partial class UpdatesViewModel : ObservableObject, IDisposable
         UpdateSubtitle();
     }
 
-    partial void OnSelectedChanged(PackageItem? value) => _ = LoadDetailsAsync(value);
+    public bool HasSelected => Selected is not null;
+
+    partial void OnSelectedChanged(PackageItem? value)
+    {
+        OnPropertyChanged(nameof(HasSelected));
+        _ = LoadDetailsAsync(value);
+    }
 
     private async Task LoadDetailsAsync(PackageItem? item)
     {
         _detailsCts?.Cancel();
-        Details = null;
+        Details = PackageDetails.Empty;
         if (item is null)
         {
             return;
@@ -286,7 +292,7 @@ public sealed partial class UpdatesViewModel : ObservableObject, IDisposable
             var d = await Task.Run(() => _s.Pm.GetDetailsAsync(item.Id, item.Available, cts.Token)).ConfigureAwait(true);
             if (!cts.IsCancellationRequested)
             {
-                Details = d;
+                Details = d ?? PackageDetails.Empty;
             }
         }
         catch (OperationCanceledException)

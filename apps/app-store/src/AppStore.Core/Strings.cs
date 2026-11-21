@@ -16,7 +16,7 @@ public static class Strings
 
     public static string UpdatesSubtitle(int count, DateTimeOffset? checkedAt, long totalBytes)
     {
-        var parts = new List<string> { Plural(count, "update", "updates"), "checked " + Ago(checkedAt) };
+        var parts = new List<string> { count == 0 ? "No other updates" : Plural(count, "update", "updates"), "checked " + Ago(checkedAt) };
         if (totalBytes > 0)
         {
             parts.Add(Size(totalBytes));

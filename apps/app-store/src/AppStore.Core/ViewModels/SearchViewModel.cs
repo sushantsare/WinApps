@@ -52,7 +52,7 @@ public sealed partial class SearchViewModel : ObservableObject, IDisposable
     public partial PackageItem? Selected { get; set; }
 
     [ObservableProperty]
-    public partial PackageDetails? Details { get; set; }
+    public partial PackageDetails Details { get; set; } = PackageDetails.Empty;
 
     [ObservableProperty]
     public partial bool DetailsLoading { get; set; }
@@ -178,12 +178,18 @@ public sealed partial class SearchViewModel : ObservableObject, IDisposable
         OnPropertyChanged(nameof(CheckedNames));
     }
 
-    partial void OnSelectedChanged(PackageItem? value) => _ = LoadDetailsAsync(value);
+    public bool HasSelected => Selected is not null;
+
+    partial void OnSelectedChanged(PackageItem? value)
+    {
+        OnPropertyChanged(nameof(HasSelected));
+        _ = LoadDetailsAsync(value);
+    }
 
     private async Task LoadDetailsAsync(PackageItem? item)
     {
         _detailsCts?.Cancel();
-        Details = null;
+        Details = PackageDetails.Empty;
         Versions.Clear();
         ChosenVersion = string.Empty;
         if (item is null)
@@ -201,7 +207,7 @@ public sealed partial class SearchViewModel : ObservableObject, IDisposable
                 return;
             }
 
-            Details = d;
+            Details = d ?? PackageDetails.Empty;
             var versions = await Task.Run(() => _s.Pm.GetVersionsAsync(item.Id, cts.Token)).ConfigureAwait(true);
             if (!cts.IsCancellationRequested)
             {

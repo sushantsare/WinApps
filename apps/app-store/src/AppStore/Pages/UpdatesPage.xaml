@@ -136,7 +136,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
           </Grid.RowDefinitions>
-          <Border Style="{StaticResource CardStyle}" VerticalAlignment="Top">
+          <Border Style="{StaticResource CardStyle}" VerticalAlignment="Top" Visibility="{x:Bind local:X.Positive(ViewModel.Items.Count), Mode=OneWay}">
             <Grid>
               <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -232,7 +232,7 @@
         <Grid x:Name="DetailsHost" Grid.Column="1">
         <Border x:Name="DetailsPane" Style="{StaticResource CardStyle}" Width="{StaticResource DetailsWidth}"
                 VerticalAlignment="Top" Margin="0,0,0,24"
-                Visibility="{x:Bind local:X.HasObj(ViewModel.Selected), Mode=OneWay}"
+                Visibility="{x:Bind local:X.Vis(ViewModel.HasSelected), Mode=OneWay}"
                 AutomationProperties.AutomationId="UpdateDetails" AutomationProperties.Name="App details">
           <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel Padding="20" Spacing="14">

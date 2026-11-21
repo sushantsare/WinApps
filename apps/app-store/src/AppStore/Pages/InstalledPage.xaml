@@ -138,7 +138,7 @@
 
         <Grid x:Name="DetailsHost" Grid.Column="1">
           <Border x:Name="DetailsPane" Style="{StaticResource CardStyle}" Width="{StaticResource DetailsWidth}" VerticalAlignment="Top" Margin="0,0,0,24"
-                  Visibility="{x:Bind local:X.HasObj(ViewModel.Selected), Mode=OneWay}"
+                  Visibility="{x:Bind local:X.Vis(ViewModel.HasSelected), Mode=OneWay}"
                   AutomationProperties.AutomationId="InstalledDetails" AutomationProperties.Name="App details">
             <StackPanel Padding="20" Spacing="14">
               <Button x:Name="DetailsBack" Visibility="Collapsed" Background="Transparent" BorderThickness="0" Padding="4,4" AutomationProperties.Name="Back to list">

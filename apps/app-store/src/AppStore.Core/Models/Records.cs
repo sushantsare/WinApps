@@ -3,6 +3,9 @@ namespace AppStore.Core.Models;
 /// <summary>Everything "winget show" tells us about one package.</summary>
 public sealed class PackageDetails
 {
+    /// <summary>Placeholder while nothing is loaded (x:Bind skips functions whose argument is null).</summary>
+    public static PackageDetails Empty { get; } = new();
+
     public string Id { get; set; } = string.Empty;
     public string Name { get; set; } = string.Empty;
     public string Version { get; set; } = string.Empty;

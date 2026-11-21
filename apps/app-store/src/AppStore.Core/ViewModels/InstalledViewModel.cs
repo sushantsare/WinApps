@@ -124,7 +124,13 @@ public sealed partial class InstalledViewModel : ObservableObject
 
     partial void OnSourceFilterChanged(int value) => ApplyFilter();
 
-    partial void OnSelectedChanged(PackageItem? value) => OnPropertyChanged(nameof(SelectedOptions));
+    public bool HasSelected => Selected is not null;
+
+    partial void OnSelectedChanged(PackageItem? value)
+    {
+        OnPropertyChanged(nameof(SelectedOptions));
+        OnPropertyChanged(nameof(HasSelected));
+    }
 
     public void ApplyFilter()
     {
