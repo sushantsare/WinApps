@@ -12,12 +12,18 @@ namespace AppStore.Services;
 /// installed programs (exe/ico from the Installed apps list), Store packages (their logo) and,
 /// for search results, the icon from the app's website. Everything is cached in %LOCALAPPDATA%\Sushant\AppStore\Icons.
 /// </summary>
-public sealed class IconProvider(IPackageManager pm, bool allowOnline) : IIconProvider
+public sealed class IconProvider(IPackageManager pm, bool allowOnline) : IIconProvider, IDisposable
 {
     private const int OnlineLimit = 15;
     private readonly SemaphoreSlim _localGate = new(3, 3);
     private readonly SemaphoreSlim _webGate = new(2, 2);
     private readonly ConcurrentDictionary<string, Task<string>> _work = new(StringComparer.OrdinalIgnoreCase);
+
+    public void Dispose()
+    {
+        _localGate.Dispose();
+        _webGate.Dispose();
+    }
 
     public void Fill(IReadOnlyList<PackageItem> items, bool online)
     {
@@ -130,7 +136,7 @@ public sealed class IconProvider(IPackageManager pm, bool allowOnline) : IIconPr
         // .exe / .dll: ask Windows for the file's icon, as Explorer shows it.
         var file = await StorageFile.GetFileFromPathAsync(path).AsTask().ConfigureAwait(false);
         using var thumb = await file.GetThumbnailAsync(ThumbnailMode.SingleItem, 64, ThumbnailOptions.ResizeThumbnail).AsTask().ConfigureAwait(false);
-        if (thumb is null || thumb.Size == 0 || thumb.Type != ThumbnailType.Icon)
+        if (thumb is null || thumb.Size == 0)
         {
             return null;
         }

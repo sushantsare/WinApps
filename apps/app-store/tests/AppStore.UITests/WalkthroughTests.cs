@@ -29,12 +29,12 @@ public class WalkthroughTests
     private static AutomationElement WaitFor(AutomationElement root, string automationId, int seconds = 20) =>
         Retry.WhileNull(() => root.FindFirstDescendant(cf => cf.ByAutomationId(automationId)),
             TimeSpan.FromSeconds(seconds), TimeSpan.FromMilliseconds(200),
-            throwOnTimeout: true, timeoutMessage: $"'{automationId}' not found").Result!;
+            throwOnTimeout: true, ignoreException: true, timeoutMessage: $"'{automationId}' not found").Result!;
 
     private static AutomationElement WaitForName(AutomationElement root, string name, int seconds = 20) =>
         Retry.WhileNull(() => root.FindFirstDescendant(cf => cf.ByName(name)),
             TimeSpan.FromSeconds(seconds), TimeSpan.FromMilliseconds(200),
-            throwOnTimeout: true, timeoutMessage: $"'{name}' not found").Result!;
+            throwOnTimeout: true, ignoreException: true, timeoutMessage: $"'{name}' not found").Result!;
 
     private static void Activate(AutomationElement el)
     {

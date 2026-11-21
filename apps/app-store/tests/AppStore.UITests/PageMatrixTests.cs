@@ -39,7 +39,7 @@ public class PageMatrixTests
 
     private static AutomationElement WaitFor(AutomationElement root, string id, int seconds = 20) =>
         Retry.WhileNull(() => root.FindFirstDescendant(cf => cf.ByAutomationId(id)), TimeSpan.FromSeconds(seconds), TimeSpan.FromMilliseconds(200),
-            throwOnTimeout: true, timeoutMessage: $"'{id}' not found").Result!;
+            throwOnTimeout: true, ignoreException: true, timeoutMessage: $"'{id}' not found").Result!;
 
     [Fact]
     public void Page_inventory_matches_the_sidebar()

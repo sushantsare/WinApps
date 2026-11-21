@@ -20,6 +20,7 @@
 
     <TitleBar x:Name="AppTitleBar"
               Title="App Store"
+              Height="48"
               IsBackButtonVisible="False"
               IsPaneToggleButtonVisible="False"
               PaneToggleRequested="AppTitleBar_PaneToggleRequested"
