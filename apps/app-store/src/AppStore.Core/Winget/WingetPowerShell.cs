@@ -56,7 +56,7 @@ public sealed class WingetPowerShell
         return r.ExitCode == 0 && await IsAvailableAsync(ct).ConfigureAwait(false);
     }
 
-    public async Task<List<PackageItem>?> GetInstalledAsync(CancellationToken ct)
+    public static async Task<List<PackageItem>?> GetInstalledAsync(CancellationToken ct)
     {
         const string script =
             "$r=@(Get-WinGetPackage | ForEach-Object { [pscustomobject]@{ Name=$_.Name; Id=$_.Id; Version=[string]$_.InstalledVersion; " +
@@ -65,7 +65,7 @@ public sealed class WingetPowerShell
         return await QueryAsync(script, ct).ConfigureAwait(false);
     }
 
-    public async Task<List<PackageItem>?> SearchAsync(string query, CancellationToken ct)
+    public static async Task<List<PackageItem>?> SearchAsync(string query, CancellationToken ct)
     {
         var q = query.Replace("'", "''", StringComparison.Ordinal);
         var script =

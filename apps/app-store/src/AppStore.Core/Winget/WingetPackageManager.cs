@@ -103,7 +103,7 @@ public sealed class WingetPackageManager : IPackageManager, IDisposable
                 return null;
             }
 
-            var list = await _ps.GetInstalledAsync(ct).ConfigureAwait(false);
+            var list = await WingetPowerShell.GetInstalledAsync(ct).ConfigureAwait(false);
             if (list is not null)
             {
                 _installedCache = list;
@@ -122,7 +122,7 @@ public sealed class WingetPackageManager : IPackageManager, IDisposable
     {
         if (await _ps.IsAvailableAsync(ct).ConfigureAwait(false))
         {
-            var list = await _ps.SearchAsync(query, ct).ConfigureAwait(false);
+            var list = await WingetPowerShell.SearchAsync(query, ct).ConfigureAwait(false);
             if (list is not null)
             {
                 return list;

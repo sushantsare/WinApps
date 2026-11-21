@@ -208,18 +208,18 @@
                       <ColumnDefinition Width="Auto" />
                       <ColumnDefinition Width="*" />
                       <ColumnDefinition Width="Auto" />
-                      <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <c:AppTile PackageId="{x:Bind Id}" PackageName="{x:Bind Name}" TileSize="28" />
-                    <TextBlock Grid.Column="1" VerticalAlignment="Center" TextTrimming="CharacterEllipsis">
-                      <Run Text="{x:Bind Name}" FontWeight="SemiBold" />
-                      <Run Text="   " />
-                      <Run Text="{x:Bind local:X.Arrow(Version, Available)}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
-                    </TextBlock>
-                    <Border Grid.Column="2" Style="{StaticResource ChipStyle}" Background="{ThemeResource SystemFillColorCautionBackgroundBrush}">
-                      <TextBlock Text="Major update held back" Style="{StaticResource ChipTextStyle}" Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
-                    </Border>
-                    <Button Grid.Column="3" Content="Install anyway" Click="InstallHeld_Click" Tag="{x:Bind}"
+                    <c:AppTile PackageId="{x:Bind Id}" PackageName="{x:Bind Name}" />
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="4">
+                      <TextBlock Text="{x:Bind Name}" Style="{StaticResource RowTitleStyle}" />
+                      <StackPanel Orientation="Horizontal" Spacing="8">
+                        <TextBlock Text="{x:Bind local:X.Arrow(Version, Available)}" Style="{StaticResource SecondaryTextStyle}" VerticalAlignment="Center" />
+                        <Border Style="{StaticResource ChipStyle}" Padding="8,1" Background="{ThemeResource SystemFillColorCautionBackgroundBrush}">
+                          <TextBlock Text="Major update held back" Style="{StaticResource ChipTextStyle}" Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                        </Border>
+                      </StackPanel>
+                    </StackPanel>
+                    <Button Grid.Column="2" VerticalAlignment="Center" Content="Install anyway" Click="InstallHeld_Click" Tag="{x:Bind}"
                             AutomationProperties.Name="{x:Bind local:X.InstallAnywayName(Name)}" />
                   </Grid>
                 </Border>

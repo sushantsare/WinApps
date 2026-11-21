@@ -34,15 +34,16 @@ public class ParserTests
     public void Wide_characters_keep_columns_aligned()
     {
         const string table = """
-            Name       Id           Version
-            ------------------------------
-            微信       Tencent.WeChat 3.9.12
+            Name       Id              Version
+            ---------------------------------
+            微信       Tencent.WeChat  3.9.12
             """;
-        // Header columns: Name@0, Id@11, Version@24; the two wide chars take 4 columns.
+        // Header columns: Name@0, Id@11, Version@27; the two wide chars take 4 console columns.
         var rows = WingetParsers.ParseTables(table);
         Assert.Single(rows);
         Assert.Equal("微信", rows[0][0]["Name"]);
-        Assert.StartsWith("Tencent.WeChat", rows[0][0]["Id"], StringComparison.Ordinal);
+        Assert.Equal("Tencent.WeChat", rows[0][0]["Id"]);
+        Assert.Equal("3.9.12", rows[0][0]["Version"]);
     }
 
     [Fact]

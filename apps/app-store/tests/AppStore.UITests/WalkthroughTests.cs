@@ -134,7 +134,7 @@ public class WalkthroughTests
             Keyboard.Press(VirtualKeyShort.ENTER);
             var results = WaitFor(win, "ResultsList");
             Retry.WhileFalse(() => results.FindAllChildren().Length >= 3, TimeSpan.FromSeconds(15), throwOnTimeout: true, timeoutMessage: "no search results");
-            foreach (var name in new[] { "Select Visual Studio Code", "Select Cursor" })
+            foreach (var name in new[] { "Select Visual Studio Code", "Select VSCodium" })
             {
                 Activate(WaitForName(win, name));
             }

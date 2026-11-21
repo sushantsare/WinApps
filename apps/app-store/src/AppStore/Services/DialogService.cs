@@ -28,6 +28,7 @@ public sealed class DialogService : IDialogs, IDisposable
             dialog.XamlRoot = Root;
             dialog.RequestedTheme = ((FrameworkElement)_window!.Content).ActualTheme;
             dialog.Style = (Style)Application.Current.Resources["DefaultContentDialogStyle"];
+            dialog.Resources["ContentDialogMaxWidth"] = 720d;
             return await dialog.ShowAsync();
         }
         finally

@@ -9,7 +9,7 @@ namespace AppStore.Pages;
 /// </summary>
 internal sealed class ListDetail
 {
-    private const double NarrowBelow = 760;
+    private const double NarrowBelow = 880;
     private const double WideFrom = 1300;
     private readonly FrameworkElement _list;
     private readonly Grid _detailsHost;
