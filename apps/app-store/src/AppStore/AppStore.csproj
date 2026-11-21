@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>$(WinTfm)</TargetFramework>
+    <TargetPlatformMinVersion>$(WinMinVersion)</TargetPlatformMinVersion>
+    <SupportedOSPlatformVersion>$(WinMinVersion)</SupportedOSPlatformVersion>
+    <RootNamespace>AppStore</RootNamespace>
+    <AssemblyName>AppStore</AssemblyName>
+    <Product>App Store</Product>
+    <AssemblyTitle>App Store</AssemblyTitle>
+    <Description>App Store — update and install Windows apps with winget</Description>
+    <UseWinUI>true</UseWinUI>
+    <Platforms>x64;ARM64</Platforms>
+    <RuntimeIdentifiers>win-x64;win-arm64</RuntimeIdentifiers>
+    <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == '' and '$(Platform)' == 'ARM64'">win-arm64</RuntimeIdentifier>
+    <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x64</RuntimeIdentifier>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\AppIcon.ico</ApplicationIcon>
+    <!-- Personal app: unpackaged + self-contained, nothing else to install -->
+    <WindowsPackageType>None</WindowsPackageType>
+    <!-- Required even when unpackaged: generates the app's .pri (compiled XAML pages) -->
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <SelfContained>true</SelfContained>
+    <IsAotCompatible>true</IsAotCompatible>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- Own Main: single instance + the elevated batch helper start before any window -->
+    <DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Assets\AppIcon.ico" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppStore.Core\AppStore.Core.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,333 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>App Store — clickable prototype</title>
+<style>
+:root{--bg:#eef1f6;--mica:linear-gradient(135deg,#eaeef5,#f4f1f6);--win:#f9f9f9;--card:#ffffff;--text:#1b1b1b;--sub:#5c5c5c;--stroke:#e5e5e5;--accent:#005fb8;--ontext:#ffffff;--navsel:rgba(0,0,0,.055);--hover:rgba(0,0,0,.035);--chip:#e8f1fb;--chiptext:#005fb8;--ok:#0f7b0f;--okbg:#dff6dd;--warn:#9d5d00;--warnbg:#fff4ce;--err:#c42b1c;--errbg:#fde7e9;--infobg:#f0f6fc;--sel:#e8f1fb}
+body.dark{--bg:#0d0f12;--mica:linear-gradient(135deg,#1c2028,#201d24);--win:#272727;--card:#2d2d2d;--text:#ffffff;--sub:#c5c5c5;--stroke:#3a3a3a;--accent:#60cdff;--ontext:#002a40;--navsel:rgba(255,255,255,.07);--hover:rgba(255,255,255,.05);--chip:#16344a;--chiptext:#7fd6ff;--ok:#6ccb5f;--okbg:#2b3b26;--warn:#fce100;--warnbg:#433519;--err:#ff99a4;--errbg:#442726;--infobg:#283039;--sel:#1f3447}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:"Segoe UI Variable","Segoe UI",Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-size:14px}
+.proto-bar{display:flex;gap:8px;align-items:center;padding:8px 14px;font-size:12.5px;color:var(--sub);flex-wrap:wrap}
+.proto-bar b{color:var(--text)}
+.proto-bar select,.proto-bar button{font:inherit;padding:4px 8px;border-radius:4px;border:1px solid var(--stroke);background:var(--card);color:var(--text)}
+.stage{height:calc(100% - 44px);padding:0 14px 14px}
+.win{height:100%;border-radius:8px;overflow:hidden;background:var(--mica);border:1px solid var(--stroke);box-shadow:0 20px 50px rgba(0,0,0,.18);display:flex;flex-direction:column;position:relative;resize:horizontal;max-width:100%;min-width:360px;margin:0 auto}
+.tb{height:48px;display:flex;align-items:center;padding-left:10px;gap:8px;font-size:12.5px;flex:none}
+.cap{margin-left:auto;display:flex} .cap div{width:46px;height:48px;display:grid;place-items:center;font-size:12px}
+.mid{flex:1;display:flex;min-height:0}
+.nav{width:236px;padding:4px 6px;display:flex;flex-direction:column;gap:3px;flex:none}
+.ni{height:36px;border-radius:4px;display:flex;align-items:center;gap:12px;padding:0 12px;position:relative;white-space:nowrap;cursor:pointer;border:none;background:none;color:var(--text);font:inherit;text-align:left}
+.ni:hover{background:var(--hover)}
+.ni.sel{background:var(--navsel);font-weight:600} .ni.sel:before{content:"";position:absolute;left:0;top:10px;width:3px;height:16px;border-radius:2px;background:var(--accent)}
+.ni.sel svg{stroke:var(--accent)}
+.cnt{margin-left:auto;background:var(--accent);color:var(--ontext);font-size:11px;font-weight:700;border-radius:10px;padding:1px 7px}
+.page{flex:1;min-width:0;background:var(--win);border-top-left-radius:8px;border-top:1px solid var(--stroke);border-left:1px solid var(--stroke);padding:24px 32px;overflow:auto;display:flex;flex-direction:column}
+.ph{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:16px;gap:12px;flex-wrap:wrap}
+.h1{font-size:28px;font-weight:650;letter-spacing:-.3px} .phs{font-size:13px;color:var(--sub);margin-top:4px;display:flex;gap:8px;align-items:center}
+.h2{font-size:20px;font-weight:600} .h3{font-size:14px;font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:32px;padding:0 14px;border-radius:4px;font:inherit;font-size:13.5px;font-weight:500;white-space:nowrap;border:1px solid var(--stroke);background:var(--card);color:var(--text);cursor:pointer;flex:none}
+.btn:hover{filter:brightness(.97)} .btn:focus-visible,.ni:focus-visible,.row:focus-visible{outline:2px solid var(--text);outline-offset:1px}
+.btn.pri{background:var(--accent);color:var(--ontext);border-color:var(--accent);font-weight:600}
+.btn.sub{background:transparent;border-color:transparent}
+.btn.sm{height:28px;padding:0 12px;font-size:13px}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.icob{width:32px;height:32px;border-radius:4px;display:grid;place-items:center;flex:none;border:none;background:none;color:var(--text);cursor:pointer} .icob:hover{background:var(--hover)}
+.card{background:var(--card);border:1px solid var(--stroke);border-radius:8px}
+.list{background:var(--card);border:1px solid var(--stroke);border-radius:8px;overflow:hidden}
+.lh{display:flex;align-items:center;gap:14px;padding:9px 16px;font-size:12px;color:var(--sub);border-bottom:1px solid var(--stroke)}
+.row{display:flex;align-items:center;gap:14px;padding:10px 16px;border-bottom:1px solid var(--stroke);cursor:pointer} .row:last-child{border-bottom:none}
+.row:hover{background:var(--hover)} .row.sel{background:var(--sel)}
+.cb{width:18px;height:18px;border-radius:4px;border:1.5px solid var(--sub);display:grid;place-items:center;flex:none;cursor:pointer;background:none} .cb.on{background:var(--accent);border-color:var(--accent)}
+.tile{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;font-weight:700;font-size:16px;flex:none}
+.nm{flex:1;min-width:0} .nm .t{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .nm .id{font-size:12px;color:var(--sub);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ver{font-size:13px;display:flex;gap:6px;align-items:center;font-variant-numeric:tabular-nums;white-space:nowrap} .old{color:var(--sub)} .new{font-weight:600}
+.sz{font-size:12.5px;color:var(--sub);width:56px;text-align:right;font-variant-numeric:tabular-nums}
+.mut{color:var(--sub)}
+.chip{display:inline-flex;align-items:center;gap:5px;background:var(--chip);color:var(--chiptext);font-size:12px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.chip.ok{background:var(--okbg);color:var(--ok)} .chip.err{background:var(--errbg);color:var(--err)} .chip.plain{background:var(--hover);color:var(--sub)}
+.srch{height:36px;border-radius:4px;background:var(--card);border:1px solid var(--stroke);border-bottom:2px solid var(--accent);display:flex;align-items:center;gap:10px;padding:0 12px}
+.srch input{flex:1;border:none;background:none;font:inherit;color:var(--text);outline:none}
+.bar{height:4px;border-radius:2px;background:var(--stroke);overflow:hidden;margin-top:8px} .bar>div{height:100%;background:var(--accent);transition:width .3s}
+.infobar{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:6px;border:1px solid var(--stroke);background:var(--infobg);font-size:13.5px}
+.infobar.err{background:var(--errbg);flex-wrap:wrap}
+.tog{width:40px;height:20px;border-radius:10px;background:var(--accent);position:relative;flex:none;border:none;cursor:pointer} .tog:after{content:"";position:absolute;right:4px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--ontext);transition:.15s}
+.tog.off{background:transparent;border:1.5px solid var(--sub)} .tog.off:after{right:auto;left:3px;top:3px;background:var(--sub)}
+.sc{display:flex;align-items:center;gap:16px;padding:14px 16px;background:var(--card);border:1px solid var(--stroke);border-radius:6px;margin-bottom:4px;flex-wrap:wrap}
+.sc .tx{flex:1;min-width:200px} .sc .ds{font-size:12px;color:var(--sub);margin-top:2px}
+select.sel-box{height:32px;min-width:170px;border-radius:4px;border:1px solid var(--stroke);background:var(--card);color:var(--text);font:inherit;padding:0 8px}
+.sec-h{font-size:14px;font-weight:600;margin:18px 0 8px}
+a{color:var(--accent);text-decoration:none;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.split{display:flex;gap:16px;align-items:flex-start} .split>.main{flex:1;min-width:0;display:flex;flex-direction:column}
+.det{width:340px;padding:20px;display:flex;flex-direction:column;gap:14px;flex:none;position:sticky;top:0}
+.kv{font-size:12.5px;display:grid;grid-template-columns:90px 1fr;gap:6px 8px}
+.empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:40px 0;text-align:center}
+.ovl{position:absolute;inset:0;background:rgba(0,0,0,.3);display:grid;place-items:center;z-index:5}
+.dlg{width:min(460px,92%);background:var(--card);border-radius:8px;box-shadow:0 30px 60px rgba(0,0,0,.3);overflow:hidden}
+.dlg .b{padding:24px} .dlg .f{padding:20px 24px;background:var(--win);border-top:1px solid var(--stroke);display:flex;gap:8px}
+.toast{position:absolute;right:20px;bottom:20px;z-index:6;max-width:360px}
+.hamb{display:none}
+.spin{animation:sp 1s linear infinite} @keyframes sp{to{transform:rotate(360deg)}}
+.skel{background:var(--stroke);border-radius:6px}
+/* adaptive */
+.win.compact .nav{width:52px} .win.compact .ni .lbl,.win.compact .ni .cnt{display:none} .win.compact .ni{justify-content:center;padding:0}
+.nav{transition:width .18s ease}
+.win.compact .ni .dot{display:block}
+.dot{display:none;position:absolute;right:8px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.win.minimal .nav{display:none;position:absolute;top:48px;left:0;bottom:0;background:var(--win);z-index:4;box-shadow:8px 0 30px rgba(0,0,0,.2)}
+.win.minimal.navopen .nav{display:flex}
+.win.minimal .hamb{display:grid} .win.minimal .page{border-left:none;border-top-left-radius:0;padding:20px 16px}
+.win.narrow .det{display:none} .win.minimal .sz,.win.minimal .hide-n{display:none}
+.win.narrow .det.show{display:flex;position:absolute;inset:48px 0 0 0;width:auto;border-radius:0;z-index:3;overflow:auto}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body>
+<div class="proto-bar"><b>App Store prototype</b> · click anything ·
+ Window width <select id="wsel"><option value="100%">Fill</option><option value="1280px">1280 (laptop)</option><option value="900px">900 (compact)</option><option value="620px">620 (snapped)</option></select>
+ <button id="themeBtn">Toggle dark</button>
+ Show state <select id="stateSel"><option value="normal">Updates: normal</option><option value="loading">Updates: checking</option><option value="empty">Updates: all up to date</option><option value="error">winget not working</option></select>
+</div>
+<div class="stage"><div class="win" id="win">
+ <div class="tb"><button class="icob hamb" id="hamb" aria-label="Open navigation"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M5 6h14M5 12h14M5 18h9"/></svg></button><svg width="18" height="18" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><defs>
+<linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a8cf0"/><stop offset="1" stop-color="#0050a8"/></linearGradient>
+<linearGradient id="bl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc3ff"/><stop offset="1" stop-color="#3a95f0"/></linearGradient>
+<linearGradient id="w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dcebff"/></linearGradient>
+<linearGradient id="t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#36d1c4"/><stop offset="1" stop-color="#0a8f8a"/></linearGradient>
+<filter id="s" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#002a5c" flood-opacity=".28"/></filter>
+</defs>
+  <circle cx="128" cy="128" r="100" fill="url(#b)" filter="url(#s)"/>
+  <path d="M78 128 a50 50 0 0 1 86 -35" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round"/>
+  <path d="M178 128 a50 50 0 0 1 -86 35" fill="none" stroke="#bfe0ff" stroke-width="16" stroke-linecap="round"/>
+  <path d="M170 66 v32 h-32" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M86 190 v-32 h32" fill="none" stroke="#bfe0ff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg><span>App Store</span><div class="cap"><div>&#8212;</div><div>&#9744;</div><div>&#10005;</div></div></div>
+ <div class="mid"><nav class="nav" id="nav" aria-label="Main"></nav><main class="page" id="page"></main></div>
+ <div id="layer"></div>
+</div></div>
+<script>
+const D={"apps": [{"n": "Google Chrome", "id": "Google.Chrome", "pub": "Google LLC", "old": "131.0.6778", "new": "132.0.6834", "size": "112 MB", "col": "#e8453c"}, {"n": "VLC media player", "id": "VideoLAN.VLC", "pub": "VideoLAN", "old": "3.0.21", "new": "3.0.22", "size": "41 MB", "col": "#f08a24"}, {"n": "Notepad++", "id": "Notepad++.Notepad++", "pub": "Notepad++ Team", "old": "8.7.1", "new": "8.7.4", "size": "5 MB", "col": "#3a9d4b"}, {"n": "Microsoft PowerToys", "id": "Microsoft.PowerToys", "pub": "Microsoft Corporation", "old": "0.86.0", "new": "0.87.1", "size": "248 MB", "col": "#2f6fdf"}, {"n": "7-Zip", "id": "7zip.7zip", "pub": "Igor Pavlov", "old": "24.08", "new": "24.09", "size": "2 MB", "col": "#555b66"}, {"n": "Python 3.13", "id": "Python.Python.3.13", "pub": "Python Software Foundation", "old": "3.13.0", "new": "3.13.1", "size": "27 MB", "col": "#2b6cb0"}], "search": [{"n": "Visual Studio Code", "id": "Microsoft.VisualStudioCode", "pub": "Microsoft Corporation", "ver": "1.96.2", "lic": "MIT", "col": "#2f6fdf"}, {"n": "VS Code Insiders", "id": "Microsoft.VisualStudioCode.Insiders", "pub": "Microsoft Corporation", "ver": "1.97.0", "lic": "MIT", "col": "#21a366"}, {"n": "VSCodium", "id": "VSCodium.VSCodium", "pub": "VSCodium", "ver": "1.96.2", "lic": "MIT", "col": "#2b88d8"}, {"n": "Code Writer", "id": "9WZDNCRFHZV3", "pub": "Microsoft Store app", "ver": "1.6.4", "lic": "Store", "col": "#7a5af8"}, {"n": "Cursor", "id": "Anysphere.Cursor", "pub": "Anysphere", "ver": "0.44.9", "lic": "Proprietary", "col": "#3b3b3b"}, {"n": "Sublime Text 4", "id": "SublimeHQ.SublimeText.4", "pub": "Sublime HQ", "ver": "4.0.4189", "lic": "Proprietary", "col": "#ff8a00"}, {"n": "VLC media player", "id": "VideoLAN.VLC", "pub": "VideoLAN", "ver": "3.0.22", "lic": "GPL-2.0", "col": "#f08a24"}, {"n": "OBS Studio", "id": "OBSProject.OBSStudio", "pub": "OBS Project", "ver": "31.0.0", "lic": "GPL-2.0", "col": "#4a4a4a"}, {"n": "Telegram Desktop", "id": "Telegram.TelegramDesktop", "pub": "Telegram FZ-LLC", "ver": "5.9.0", "lic": "GPL-3.0", "col": "#2aa3d8"}, {"n": "Python 3.13", "id": "Python.Python.3.13", "pub": "Python Software Foundation", "ver": "3.13.1", "lic": "PSF", "col": "#2b6cb0"}, {"n": "Brave", "id": "Brave.Brave", "pub": "Brave Software", "ver": "1.73.97", "lic": "MPL-2.0", "col": "#fb542b"}], "installed": [{"n": "7-Zip", "id": "7zip.7zip", "ver": "24.09", "src": "winget", "col": "#555b66"}, {"n": "Google Chrome", "id": "Google.Chrome", "ver": "132.0.6834", "src": "winget", "col": "#e8453c"}, {"n": "Microsoft Teams", "id": "Microsoft.Teams", "ver": "24335.206", "src": "winget", "col": "#5b5fc7"}, {"n": "Notepad++", "id": "Notepad++.Notepad++", "ver": "8.7.4", "src": "winget", "col": "#3a9d4b"}, {"n": "OBS Studio", "id": "OBSProject.OBSStudio", "ver": "30.2.3", "src": "winget", "col": "#4a4a4a"}, {"n": "Python 3.13", "id": "Python.Python.3.13", "ver": "3.13.0", "src": "winget", "col": "#2b6cb0"}, {"n": "HP Smart", "id": "", "ver": "151.3.1", "src": "Not from winget", "col": "#0096d6"}, {"n": "VLC media player", "id": "VideoLAN.VLC", "ver": "3.0.22", "src": "winget", "col": "#f08a24"}], "icons": {"updates": "<path d=\"M4 12a8 8 0 0 1 13.7-5.6M20 12a8 8 0 0 1-13.7 5.6\"/><path d=\"M18 3v4h-4M6 21v-4h4\"/>", "search": "<circle cx=\"11\" cy=\"11\" r=\"6.5\"/><path d=\"M16 16l4.5 4.5\"/>", "history": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M12 7.5V12l3 2\"/>", "queue": "<path d=\"M5 6h14M5 12h14M5 18h9\"/>", "settings": "<circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M5.6 18.4l1.6-1.6M16.8 7.2l1.6-1.6\"/>", "more": "<circle cx=\"6\" cy=\"12\" r=\"1.2\"/><circle cx=\"12\" cy=\"12\" r=\"1.2\"/><circle cx=\"18\" cy=\"12\" r=\"1.2\"/>", "refresh": "<path d=\"M20 12a8 8 0 1 1-2.3-5.7\"/><path d=\"M20 4v5h-5\"/>", "download": "<path d=\"M12 4v11m-5-5l5 5 5-5\"/><path d=\"M5 19h14\"/>", "check": "<path d=\"M5 12.5l4.5 4.5L19 7\"/>", "x": "<path d=\"M6 6l12 12M18 6L6 18\"/>", "link": "<path d=\"M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1\"/><path d=\"M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1\"/>", "eyeoff": "<path d=\"M3 3l18 18\"/><path d=\"M10.6 6.2A9.8 9.8 0 0 1 12 6c5 0 8.5 4.5 9.5 6-.5.8-1.5 2.1-2.9 3.3M6.3 7.6C4.6 8.8 3.3 10.6 2.5 12c1 1.5 4.5 6 9.5 6 1.5 0 2.8-.4 4-1\"/>", "shield": "<path d=\"M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z\"/>", "back": "<path d=\"M15 5l-7 7 7 7\"/>", "pause": "<path d=\"M9 6v12M15 6v12\"/>", "warn": "<path d=\"M12 4l9 16H3z\"/><path d=\"M12 10v4M12 17v.5\"/>", "info": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M12 11v5M12 8v.5\"/>", "chev": "<path d=\"M9 6l6 6-6 6\"/>", "filter": "<path d=\"M4 6h16M7 12h10M10 18h4\"/>", "menu": "<path d=\"M4 7h16M4 12h16M4 17h16\"/>", "installed": "<rect x=\"4\" y=\"4\" width=\"7\" height=\"7\" rx=\"1.5\"/><rect x=\"13\" y=\"4\" width=\"7\" height=\"7\" rx=\"1.5\"/><rect x=\"4\" y=\"13\" width=\"7\" height=\"7\" rx=\"1.5\"/><rect x=\"13\" y=\"13\" width=\"7\" height=\"7\" rx=\"1.5\"/>", "trash": "<path d=\"M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12\"/>", "sliders": "<path d=\"M4 7h10M18 7h2M4 17h4M12 17h8\"/><circle cx=\"16\" cy=\"7\" r=\"2\"/><circle cx=\"10\" cy=\"17\" r=\"2\"/>", "export": "<path d=\"M12 15V4m-4 4l4-4 4 4\"/><path d=\"M5 14v5h14v-5\"/>", "import": "<path d=\"M12 4v11m-4-4l4 4 4-4\"/><path d=\"M5 14v5h14v-5\"/>", "block": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M6 6l12 12\"/>", "pin": "<path d=\"M9 4h6l-1 6 3 3H7l3-3z\"/><path d=\"M12 13v7\"/>", "minus": "<path d=\"M6 12h12\"/>"}};
+const IC=D.icons;
+const ic=(n,s=16,c='currentColor',w=1.6)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" style="flex:none" aria-hidden="true">${IC[n]}</svg>`;
+const tile=(n,c,s=36)=>`<div class="tile" style="width:${s}px;height:${s}px;background:${c}1f;color:${c};font-size:${Math.round(s*.45)}px">${n[0]}</div>`;
+const S={page:'updates',state:'normal',updates:D.apps.map((a,i)=>({...a,on:i<5})),selU:0,skipped:[{n:'Zoom',v:'6.3.0'}],
+ q:'vs code',ticks:new Set(['Microsoft.VisualStudioCode','VSCodium.VSCodium']),selS:'Microsoft.VisualStudioCode',installed:new Set(['Anysphere.Cursor']),
+ queue:[],done:[],history:[{day:'Yesterday',n:'Google Chrome',col:'#e8453c',act:'Updated',det:'130.0 → 131.0.6778',tm:'10:02 PM',k:'ok'},{day:'Yesterday',n:'OBS Studio',col:'#4a4a4a',act:'Installed',det:'31.0.0',tm:'8:30 PM',k:'ok'}],
+ admin:true,checkOpen:true,showHeld:true,retry:true,showDet:false,navOpen:(()=>{try{return localStorage.getItem('as-nav')!=='closed'}catch(e){return true}})(),
+ inst:D.installed.map(x=>({...x})),selI:'Google.Chrome',uticks:new Set(['Microsoft.Teams']),opts:{'Google.Chrome':{scope:'All users',arch:'x64',ver:'Always latest',major:false,close:true,ignore:false,args:''},'OBSProject.OBSStudio':{major:true},'Python.Python.3.13':{ignore:true}},
+ held:[{n:'OBS Studio',id:'OBSProject.OBSStudio',col:'#4a4a4a',old:'30.2.3',new:'31.0.0',size:'138 MB',pub:'OBS Project'}],ignored:['Python 3.13'],running:new Set(['VideoLAN.VLC'])};
+const $=s=>document.querySelector(s);
+const NAV=[['updates','Updates'],['search','Search'],['installed','Installed'],['queue','Queue'],['history','History']];
+function navHTML(){
+ const c={updates:S.state==='normal'?S.updates.length:0,queue:S.queue.length};
+ const item=(k,l)=>`<button class="ni ${S.page===k?'sel':''}" data-nav="${k}" title="${l}">${ic(k,18)}<span class="lbl">${l}</span>${c[k]?`<span class="cnt">${c[k]}</span><span class="dot"></span>`:''}</button>`;
+ return `<button class="ni" data-act="navtoggle" title="${S.navOpen?'Collapse menu':'Expand menu'}" aria-label="Toggle menu">${ic('menu',18)}</button>`+NAV.map(([k,l])=>item(k,l)).join('')+'<div style="flex:1"></div>'+item('settings','Settings').replace('ni ','ni ')+'<div style="height:6px"></div>';
+}
+function updatesHTML(){
+ if(S.state==='loading') return `<div class="ph"><div><div class="h1">Updates</div><div class="phs"><svg class="spin" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="40 60" stroke-linecap="round"/></svg>Checking for updates…</div></div><div style="display:flex;gap:8px"><button class="btn" disabled>${ic('refresh',14)} Check again</button><button class="btn pri" disabled>Update all</button></div></div>
+ <div class="list">${[180,140,200,160,120].map(w=>`<div class="row" style="cursor:default"><div class="skel" style="width:18px;height:18px"></div><div class="skel" style="width:36px;height:36px;border-radius:8px"></div><div style="flex:1"><div class="skel" style="width:${w}px;height:12px"></div><div class="skel" style="width:${w-40}px;height:10px;margin-top:7px;opacity:.6"></div></div></div>`).join('')}</div><div class="mut" style="font-size:12.5px;margin-top:10px">You can search for apps while this runs.</div>`;
+ if(S.state==='error') return `<div class="ph"><div class="h1">Updates</div></div><div class="infobar err">${ic('warn',18,'var(--err)')}<div style="flex:1"><b>winget isn't responding</b><span class="mut"> · App Store couldn't talk to Windows Package Manager.</span></div><button class="btn" data-act="retry">Try again</button><button class="btn pri" data-act="fix">Fix winget</button></div>
+ <div class="card" style="margin-top:16px;padding:20px;font-size:13.5px;line-height:1.6"><div class="h3" style="margin-bottom:6px">What "Fix winget" does</div><div class="mut">1. Re-registers the App Installer package (asks for admin once)<br>2. Resets winget sources<br>3. Checks again — usually takes under a minute</div></div>`;
+ const U=S.updates;
+ if(S.state==='empty'||!U.length) return `<div class="ph"><div><div class="h1">Updates</div><div class="phs">Checked just now</div></div><button class="btn" data-act="check">${ic('refresh',14)} Check again</button></div>
+ <div class="empty"><div style="width:72px;height:72px;border-radius:50%;background:var(--okbg);display:grid;place-items:center">${ic('check',36,'var(--ok)',2.2)}</div><div class="h2">All your apps are up to date</div><div class="mut">142 apps checked · ${S.skipped.length} skipped updates hidden</div><div style="display:flex;gap:8px;margin-top:6px"><button class="btn" data-nav="settings">Show skipped</button><button class="btn pri" data-nav="search">${ic('search',14)} Find new apps</button></div></div>`;
+ const on=U.filter(a=>a.on).length; const a=U[Math.min(S.selU,U.length-1)];
+ const rows=U.map((x,i)=>`<div class="row ${i===S.selU?'sel':''}" tabindex="0" data-selu="${i}"><button class="cb ${x.on?'on':''}" data-ticku="${i}" aria-label="Select ${x.n}">${x.on?ic('check',12,'var(--ontext)',3):''}</button>${tile(x.n,x.col)}<div class="nm"><div class="t">${x.n}</div><div class="id">${x.id}</div></div><div class="ver"><span class="old hide-n">${x.old}</span><span class="hide-n">→</span><span class="new">${x.new}</span></div><div class="sz">${x.size}</div>${S.queue.some(q=>q.id===x.id)?'<span class="chip">In queue</span>':''}</div>`).join('');
+ return `<div class="ph"><div><div class="h1">Updates</div><div class="phs">${U.length} updates · checked just now</div></div><div style="display:flex;gap:8px"><button class="btn" data-act="check" title="Check again (F5)">${ic('refresh',14)}<span class="hide-n">Check again</span></button><button class="btn pri" data-act="updall" ${on?'':'disabled'}>Update all (${on})</button></div></div>
+ <div class="split"><div class="main"><div class="list"><div class="lh"><button class="cb ${on?'on':''}" data-act="tickall" aria-label="Select all">${on?ic(on===U.length?'check':'minus',12,'var(--ontext)',3):''}</button><span>${on} of ${U.length} selected</span></div>${rows}</div>${(S.showHeld?S.held:[]).map(h=>`<div class="card" style="margin-top:12px;padding:10px 16px;display:flex;align-items:center;gap:12px;font-size:13.5px;flex-wrap:wrap">${tile(h.n,h.col,28)}<div style="flex:1;min-width:140px"><b>${h.n}</b> <span class="mut">${h.old} → ${h.new}</span></div><span class="chip" style="background:var(--warnbg);color:var(--warn)">Major update held back</span><button class="btn sm" data-act="heldinst">Install anyway</button></div>`).join('')}</div>
+ <div class="card det ${S.showDet?'show':''}">${S.showDet?`<button class="btn sub" data-act="closedet" style="align-self:flex-start">${ic('back',14)} Back</button>`:''}
+  <div style="display:flex;gap:12px;align-items:center">${tile(a.n,a.col,48)}<div><div class="h2" style="font-size:18px">${a.n}</div><div class="mut" style="font-size:12.5px">${a.pub}</div></div></div>
+  <div class="ver" style="font-size:14px"><span class="old">${a.old}</span>→<span class="new">${a.new}</span><span class="chip plain">${a.size}</span></div>
+  <div style="display:flex;gap:8px"><button class="btn pri" style="flex:1" data-act="upd1">Update</button><button class="btn" data-act="skip">${ic('eyeoff',14)} Skip version</button></div>
+  <div style="display:flex;gap:8px"><button class="btn sm" style="flex:1" data-opts="${a.id}">${ic('sliders',14)} Install options…</button><button class="btn sm" data-act="ignore">${ic('block',14)} Ignore app</button></div>
+  <div class="h3">What's new in ${a.new}</div><div class="mut" style="font-size:13px;line-height:1.55">• Security and stability fixes<br>• Performance improvements<br>• Bug fixes from the publisher's release notes</div>
+  <div style="height:1px;background:var(--stroke)"></div>
+  <div class="kv"><span class="mut">ID</span><span>${a.id}</span><span class="mut">Source</span><span>winget</span><span class="mut">Size</span><span>${a.size}</span></div>
+  <a>${ic('link',13)} Publisher website</a></div></div>`;
+}
+function searchHTML(){
+ const q=S.q.trim().toLowerCase();
+ const res=q?D.search.filter(x=>(x.n+' '+x.id+' '+x.pub).toLowerCase().includes(q.replace('vs code','code'))||(q==='vs code'&&/code|codium/i.test(x.n))):[];
+ const head=`<div class="ph" style="margin-bottom:12px"><div class="h1">Search</div></div><div class="srch" style="margin-bottom:14px">${ic('search',16,'var(--sub)')}<input id="q" value="${S.q}" placeholder='Type an app name, e.g. "obs"' aria-label="Search apps"><span class="mut" style="font-size:12px">${q?res.length+(res.length===1?' result':' results'):''}</span></div>`;
+ if(!q) return head+`<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">${'<span class="mut" style="font-size:13px">Recent:</span>'+['vlc','obs','python','telegram'].map(r=>`<button class="btn sm" data-recent="${r}">${r}</button>`).join('')}</div><div class="empty">${ic('search',48,'var(--sub)',1.2)}<div class="h2">Search 10,000+ apps from winget</div><div class="mut">Tick several results to install them together.</div></div>`;
+ if(!res.length) return head+`<div class="empty">${ic('search',48,'var(--sub)',1.2)}<div class="h2">No apps found for "${S.q}"</div><div class="mut">Check the spelling, or try a shorter word.</div></div>`;
+ const a=res.find(x=>x.id===S.selS)||res[0];
+ const rows=res.map(x=>{const inst=S.installed.has(x.id);const on=S.ticks.has(x.id);return `<div class="row ${x.id===a.id?'sel':''}" tabindex="0" data-sels="${x.id}"><button class="cb ${on?'on':''}" data-ticks="${x.id}" ${inst?'disabled style="opacity:.3"':''} aria-label="Select ${x.n}">${on?ic('check',12,'var(--ontext)',3):''}</button>${tile(x.n,x.col)}<div class="nm"><div class="t">${x.n}</div><div class="id">${x.pub} · ${x.id}</div></div><div class="mut hide-n" style="font-size:12.5px">${x.ver}</div>${inst?`<span class="chip ok">${ic('check',12,'var(--ok)',2.4)} Installed</span>`:`<button class="btn sm" data-inst="${x.id}">Install</button>`}</div>`}).join('');
+ const n=S.ticks.size;
+ const bar=n?`<div class="card" style="margin-top:12px;padding:10px 16px;display:flex;align-items:center;gap:12px;font-size:13.5px"><b>${n} selected</b><div style="flex:1"></div><button class="btn sub" data-act="clear">Clear</button><button class="btn pri" data-act="instsel">Install selected (${n})</button></div>`:'';
+ const inst=S.installed.has(a.id);
+ return head+`<div class="split"><div class="main"><div class="list">${rows}</div>${bar}</div>
+ <div class="card det ${S.showDet?'show':''}">${S.showDet?`<button class="btn sub" data-act="closedet" style="align-self:flex-start">${ic('back',14)} Back</button>`:''}
+ <div style="display:flex;gap:12px;align-items:center">${tile(a.n,a.col,48)}<div><div class="h2" style="font-size:18px">${a.n}</div><div class="mut" style="font-size:12.5px">${a.pub}</div></div></div>
+ <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="chip">v${a.ver}</span><span class="chip plain">${a.lic}</span></div>
+ <div style="display:flex;gap:8px">${inst?`<span class="chip ok" style="padding:7px 12px">${ic('check',12,'var(--ok)',2.4)} Installed</span>`:`<button class="btn pri" style="flex:1" data-inst="${a.id}">${ic('download',14)} Install</button><select class="sel-box" style="min-width:110px" aria-label="Version"><option>Latest (${a.ver})</option><option>Older version…</option></select>`}</div>
+ <div class="mut" style="font-size:13px;line-height:1.55">Description from the winget manifest appears here.</div><div style="height:1px;background:var(--stroke)"></div>
+ <div class="kv"><span class="mut">ID</span><span>${a.id}</span><span class="mut">Source</span><span>winget</span><span class="mut">License</span><span>${a.lic}</span></div><a>${ic('link',13)} Homepage</a></div></div>`;
+}
+function queueHTML(){
+ const run=S.queue.map((x,i)=>`<div class="row" style="cursor:default">${tile(x.n,x.col)}<div class="nm"><div class="t">${x.n} <span class="mut" style="font-weight:400;font-size:12.5px">→ ${x.v}</span></div><div class="id">${i===0?(x.kind==='uni'?'Uninstalling…':x.p<60?'Downloading… '+x.p+'%':'Installing…'):'Waiting'}</div>${i===0?`<div class="bar"><div style="width:${x.p}%"></div></div>`:''}</div><button class="icob" data-cancel="${i}" aria-label="Cancel">${ic('x',16,'var(--sub)')}</button></div>`).join('');
+ const done=S.done.map(x=>`<div class="row" style="cursor:default">${tile(x.n,x.col)}<div class="nm"><div class="t">${x.n}</div><div class="id">${x.txt}</div></div><span class="chip ok">${ic('check',12,'var(--ok)',2.4)} Done</span></div>`).join('');
+ if(!run&&!done) return `<div class="ph"><div class="h1">Queue</div></div><div class="empty">${ic('queue',48,'var(--sub)',1.2)}<div class="h2">Nothing in the queue</div><div class="mut">Updates and installs you start show up here.</div><button class="btn pri" data-nav="updates">Go to Updates</button></div>`;
+ return `<div class="ph"><div><div class="h1">Queue</div><div class="phs">${S.queue.length?S.queue.length+' left'+(S.admin?' · admin approved once for this batch':''):'All done'}</div></div>${S.queue.length?'<button class="btn" data-act="cancelall">Cancel all</button>':''}</div>
+ ${run?`<div class="sec-h" style="margin-top:0">In progress</div><div class="list">${run}</div>`:''}${done?`<div class="sec-h">Finished this session</div><div class="list">${done}</div>`:''}`;
+}
+function historyHTML(){
+ const days=[...new Set(S.history.map(h=>h.day))];
+ return `<div class="ph"><div><div class="h1">History</div><div class="phs">Everything installed or updated by App Store</div></div><button class="btn">Export…</button></div>`+
+ days.map(d=>`<div class="sec-h">${d}</div><div class="list">${S.history.filter(h=>h.day===d).map(h=>`<div class="row" style="cursor:default">${tile(h.n,h.col,32)}<div class="nm"><div class="t">${h.n}</div><div class="id">${h.det}</div></div><span class="chip ${h.k==='ok'?'ok':'plain'}">${h.act}</span><div class="mut" style="width:70px;text-align:right;font-size:12.5px">${h.tm}</div></div>`).join('')}</div>`).join('');
+}
+function installedHTML(){
+ const a=S.inst.find(x=>x.id===S.selI)||S.inst[0]; const o=S.opts[a.id]||{};
+ const tag=x=>{const p=S.opts[x.id]||{};return p.ignore?'<span class="chip" style="background:var(--warnbg);color:var(--warn)">Ignored</span>':p.major?'<span class="chip plain">Skip major updates</span>':(p.scope?'<span class="chip plain">Install options saved</span>':'')};
+ const rows=S.inst.map(x=>{const on=S.uticks.has(x.id);return `<div class="row ${x.id===a.id?'sel':''}" tabindex="0" data-seli="${x.id}"><button class="cb ${on?'on':''}" data-ticki="${x.id}" aria-label="Select ${x.n}">${on?ic('check',12,'var(--ontext)',3):''}</button>${tile(x.n,x.col)}<div class="nm"><div class="t">${x.n}</div><div class="id">${x.id||'—'}</div></div><span class="hide-n">${tag(x)}</span><div class="mut" style="font-size:12.5px;width:84px;text-align:right">${x.ver}</div><div class="mut hide-n" style="font-size:12px;width:104px">${x.src}</div></div>`}).join('');
+ const n=S.uticks.size;
+ const bar=n?`<div class="card" style="margin-top:12px;padding:10px 16px;display:flex;align-items:center;gap:12px;font-size:13.5px"><b>${n} selected</b><div style="flex:1"></div><button class="btn sub" data-act="uclear">Clear</button><button class="btn pri" data-act="uninstsel">${ic('trash',14)} Uninstall selected (${n})</button></div>`:'';
+ const kv=(k,v)=>`<span class="mut">${k}</span><span>${v}</span>`;
+ return `<div class="ph"><div><div class="h1">Installed</div><div class="phs">${S.inst.length} apps shown · winget + other apps</div></div><div style="display:flex;gap:8px"><button class="btn" data-act="export">${ic('export',14)} Export list</button></div></div>
+ <div class="srch" style="height:32px;border-bottom-width:1px;margin-bottom:12px">${ic('search',14,'var(--sub)')}<input placeholder="Filter installed apps" aria-label="Filter installed apps"></div>
+ <div class="split"><div class="main"><div class="list">${rows}</div>${bar}</div>
+ <div class="card det ${S.showDet?'show':''}">${S.showDet?`<button class="btn sub" data-act="closedet" style="align-self:flex-start">${ic('back',14)} Back</button>`:''}
+ <div style="display:flex;gap:12px;align-items:center">${tile(a.n,a.col,48)}<div><div class="h2" style="font-size:18px">${a.n}</div><div class="mut" style="font-size:12.5px">${a.ver} · ${a.src}</div></div></div>
+ <div style="display:flex;gap:8px">${a.id?`<button class="btn" style="flex:1" data-opts="${a.id}">${ic('sliders',14)} Install options…</button>`:''}<button class="btn" data-act="uninst1">${ic('trash',14)} Uninstall</button></div>
+ ${a.id?`<div class="h3">Saved options</div><div class="kv">${kv('Install for',o.scope||'Default')}${kv('Architecture',o.arch||'Automatic')}${kv('Updates',o.ignore?'Ignored':o.major?'Skip major':'Normal')}${kv('Close first',o.close?'Yes':'Default')}</div>`:'<div class="mut" style="font-size:13px">Not managed by winget. You can uninstall it, but App Store can’t update it.</div>'}
+ </div></div>`;
+}
+function optsDialog(id){
+ const x=[...S.inst,...D.apps,...D.search].find(v=>v.id===id); const o={scope:'Let the installer decide',arch:'Automatic',ver:'Always latest',major:false,close:false,ignore:false,args:'',...(S.opts[id]||{})};
+ const sel=(k,opts)=>`<select class="sel-box" data-o="${k}">${opts.map(v=>`<option ${v===o[k]?'selected':''}>${v}</option>`).join('')}</select>`;
+ const tg=k=>`<button class="tog ${o[k]?'':'off'}" data-otog="${k}" role="switch" aria-checked="${o[k]}"></button>`;
+ const r=(l,c,d='')=>`<div style="display:flex;align-items:center;gap:16px;padding:10px 0;border-bottom:1px solid var(--stroke);flex-wrap:wrap"><div style="flex:1;min-width:180px"><div>${l}</div>${d?`<div class="mut" style="font-size:12px;margin-top:2px">${d}</div>`:''}</div>${c}</div>`;
+ $('#layer').innerHTML=`<div class="ovl"><div class="dlg" style="width:min(600px,94%)" role="dialog" aria-modal="true"><div class="b" style="padding-bottom:8px;max-height:70vh;overflow:auto">
+ <div style="display:flex;gap:12px;align-items:center;margin-bottom:8px">${tile(x.n,x.col,40)}<div><div class="h2">Install options</div><div class="mut" style="font-size:13px">${x.n} · used for every future update</div></div></div>
+ ${r('Install for',sel('scope',['Let the installer decide','Just me','All users']))}${r('Architecture',sel('arch',['Automatic','x64','ARM64','x86']))}
+ ${r('Version',sel('ver',['Always latest','Stay on current version']),'Pick a version to stay on it')}${r('Install folder','<button class="btn">Default ▾</button>')}
+ ${r('Skip major updates',tg('major'),'Get small fixes, hold back big version jumps')}${r('Close the app before updating',tg('close'),'Skips the update if it can’t be closed')}
+ ${r('Ignore all updates for this app',tg('ignore'))}${r('Extra installer options','<div class="srch" style="height:32px;width:190px;border-bottom-width:1px"><input data-o="args" placeholder="e.g. --no-desktop-icon" value="'+o.args+'"></div>','For advanced use')}
+ </div><div class="f"><button class="btn sub" id="oreset">Reset to defaults</button><div style="flex:1"></div><button class="btn pri" id="osave" style="width:110px">Save</button><button class="btn" id="ocancel" style="width:110px">Cancel</button></div></div></div>`;
+ document.querySelectorAll('[data-otog]').forEach(b=>b.onclick=()=>{o[b.dataset.otog]=!o[b.dataset.otog];b.classList.toggle('off');});
+ $('#ocancel').onclick=()=>$('#layer').innerHTML='';
+ $('#oreset').onclick=()=>{delete S.opts[id];$('#layer').innerHTML='';render();toast('Options reset for '+x.n);};
+ $('#osave').onclick=()=>{document.querySelectorAll('[data-o]').forEach(e=>o[e.dataset.o]=e.value);S.opts[id]=o;
+   if(o.ignore&&!S.ignored.includes(x.n)){S.ignored.push(x.n);S.updates=S.updates.filter(u=>u.id!==id);}
+   if(!o.ignore) S.ignored=S.ignored.filter(n=>n!==x.n);
+   $('#layer').innerHTML='';render();toast('Install options saved for '+x.n);};
+}
+function settingsHTML(){
+ const sc=(i,t,d,r)=>`<div class="sc">${ic(i,20)}<div class="tx"><div>${t}</div><div class="ds">${d}</div></div>${r}</div>`;
+ const tg=(k)=>`<span class="mut" style="font-size:13px">${S[k]?'On':'Off'}</span><button class="tog ${S[k]?'':'off'}" data-tog="${k}" role="switch" aria-checked="${S[k]}"></button>`;
+ const sl=(id,opts)=>`<select class="sel-box" aria-label="${id}">${opts.map(v=>`<option>${v}</option>`).join('')}</select>`;
+ return `<div class="h1" style="margin-bottom:6px">Settings</div><div style="max-width:1000px">
+ <div class="sec-h">Updates</div>
+ ${sc('refresh','Check for updates when App Store opens','Results show on the Updates page',tg('checkOpen'))}
+ ${sc('warn','Show held-back major updates','Listed as “Major update held back” so you can install them yourself',tg('showHeld'))}
+ ${sc('block','Ignored apps',S.ignored.length?S.ignored.join(', '):'None',S.ignored.length?'<button class="btn" data-act="unignore">Show updates again</button>':'')}
+ ${sc('eyeoff','Skipped versions',S.skipped.length?S.skipped.map(s=>s.n+' ('+s.v+')').join(', '):'None',S.skipped.length?'<button class="btn" data-act="unskip">Undo all</button>':'')}
+ <div class="sec-h">Installing</div>
+ ${sc('shield','Ask for admin once per batch','One Windows permission popup for a whole batch. Off: winget asks for each app that needs it.',tg('admin'))}
+ ${sc('download','Install mode','How installers run',sl('Install mode',['Silent (recommended)','Show installer windows']))}
+ ${sc('installed','Default install for','Used unless an app has its own install options',sl('Default install for',['Let the installer decide','Just me','All users']))}
+ ${sc('sliders','Default architecture','Your laptop: x64',sl('Default architecture',['Automatic','x64','ARM64']))}
+ ${sc('x','Close apps before updating','Running apps can make updates fail',sl('Close apps',['Ask me','Close automatically','Never']))}
+ ${sc('refresh','Retry a failed install once automatically','',tg('retry'))}
+ <div class="sec-h">Start & sidebar</div>
+ ${sc('pin','Open on','First page when App Store starts',sl('Open on',['Updates','Search','Installed']))}
+ ${sc('menu','Sidebar','Use the ☰ button to switch anytime',sl('Sidebar',['Remember last','Open with names','Icons only']))}
+ <div class="sec-h">Your app list</div>
+ ${sc('export','Export app list','Saves your apps and their install options to one file','<button class="btn" data-act="export">Export…</button>')}
+ ${sc('import','Import app list','Pick a file, tick what to install','<button class="btn" data-act="import">Import…</button>')}
+ <div class="sec-h">History</div>
+ ${sc('history','Keep history for','',sl('Keep history',['1 year','6 months','Forever']))}
+ ${sc('trash','Clear history','Can’t be undone','<button class="btn" data-act="clearhist">Clear…</button>')}
+ <div class="sec-h">winget</div>
+ <div class="sc">${ic('check',20,'var(--ok)',2)}<div class="tx"><div>winget is working</div><div class="ds">Version 1.9.25200 · sources OK · checked at start</div></div><button class="btn" data-act="resetsrc">Reset sources</button><button class="btn" data-act="fix">Fix winget</button></div>
+ <div class="sec-h">Appearance</div>${sc('settings','App theme','Light, Dark or match Windows','<select class="sel-box" id="themeSel"><option>Use system setting</option><option>Light</option><option>Dark</option></select>')}
+ <div class="sec-h">About & help</div>${sc('info','Diagnostics','Crash log stays on this PC','<button class="btn">Open log folder</button>')}
+ <div class="sc"><svg width="36" height="36" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><defs>
+<linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a8cf0"/><stop offset="1" stop-color="#0050a8"/></linearGradient>
+<linearGradient id="bl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc3ff"/><stop offset="1" stop-color="#3a95f0"/></linearGradient>
+<linearGradient id="w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dcebff"/></linearGradient>
+<linearGradient id="t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#36d1c4"/><stop offset="1" stop-color="#0a8f8a"/></linearGradient>
+<filter id="s" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#002a5c" flood-opacity=".28"/></filter>
+</defs>
+  <circle cx="128" cy="128" r="100" fill="url(#b)" filter="url(#s)"/>
+  <path d="M78 128 a50 50 0 0 1 86 -35" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round"/>
+  <path d="M178 128 a50 50 0 0 1 -86 35" fill="none" stroke="#bfe0ff" stroke-width="16" stroke-linecap="round"/>
+  <path d="M170 66 v32 h-32" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M86 190 v-32 h32" fill="none" stroke="#bfe0ff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="tx"><div>App Store</div><div class="ds">Version 1.0.0 · Developed by Sushant Kumar · <a href="mailto:sushant.sare@gmail.com">sushant.sare@gmail.com</a></div></div><button class="btn sub">What's new ${ic('chev',14)}</button></div></div>`;
+}
+function render(){
+ $('#nav').innerHTML=navHTML();
+ const P={installed:installedHTML,updates:updatesHTML,search:searchHTML,queue:queueHTML,history:historyHTML,settings:settingsHTML};
+ $('#page').innerHTML=P[S.page]();
+ const q=$('#q'); if(q){q.oninput=e=>{S.q=e.target.value;const pos=e.target.selectionStart;render();const n=$('#q');n.focus();n.setSelectionRange(pos,pos);};}
+ const ts=$('#themeSel'); if(ts){ts.value=document.body.classList.contains('dark')?'Dark':'Light';ts.onchange=e=>{document.body.classList.toggle('dark',e.target.value==='Dark');};}
+ adapt();
+}
+function toast(msg){$('#layer').innerHTML=`<div class="toast infobar ok card">${ic('check',16,'var(--ok)',2.2)}<span>${msg}</span></div>`;setTimeout(()=>{if($('.toast'))$('#layer').innerHTML=''},2600);}
+function dialog(title,body,okLabel,ok){
+ $('#layer').innerHTML=`<div class="ovl"><div class="dlg" role="dialog" aria-modal="true"><div class="b"><div class="h2" style="margin-bottom:10px">${title}</div><div style="line-height:1.55">${body}</div></div><div class="f"><button class="btn pri" style="flex:1" id="dok">${okLabel}</button><button class="btn" style="flex:1" id="dno">Cancel</button></div></div></div>`;
+ $('#dok').focus(); $('#dok').onclick=()=>{$('#layer').innerHTML='';ok();}; $('#dno').onclick=()=>$('#layer').innerHTML='';
+}
+function enqueue(items){S.queue.push(...items);S.page='queue';S.showDet=false;render();tick();}
+let timer=null;
+function tick(){ if(timer) return; timer=setInterval(()=>{
+ if(!S.queue.length){clearInterval(timer);timer=null;render();return;}
+ const x=S.queue[0]; x.p=Math.min(100,(x.p||0)+12);
+ if(x.p>=100){S.queue.shift();S.done.unshift({n:x.n,col:x.col,txt:x.kind==='uni'?'Uninstalled':(x.kind==='upd'?'Updated to ':'Installed ')+x.v});
+  S.history.unshift({day:'Today',n:x.n,col:x.col,act:x.kind==='upd'?'Updated':x.kind==='uni'?'Uninstalled':'Installed',det:x.v,tm:new Date().toLocaleTimeString([], {hour:'numeric',minute:'2-digit'}),k:'ok'});
+  if(x.kind==='upd') S.updates=S.updates.filter(u=>u.id!==x.id); else if(x.kind==='uni'){S.inst=S.inst.filter(i=>i.id!==x.id);S.uticks.delete(x.id);} else S.installed.add(x.id);
+  if(!S.queue.length) toast('All done — '+S.done.length+' finished');}
+ if(['queue','updates','search','history'].includes(S.page)) render(); else $('#nav').innerHTML=navHTML();
+},350);}
+const adminLine=()=>S.admin?'<div class="infobar" style="margin-top:14px;font-size:13px">'+ic('shield',16,'var(--accent)')+'<span>Windows will ask for admin permission <b>once</b> for the whole batch.</span></div>':'<div class="mut" style="margin-top:12px;font-size:13px">Some apps may show their own Windows permission popup.</div>';
+document.addEventListener('click',e=>{
+ const t=e.target.closest('[data-opts],[data-seli],[data-ticki],[data-nav],[data-act],[data-ticku],[data-selu],[data-ticks],[data-sels],[data-inst],[data-tog],[data-recent],[data-cancel],#hamb');
+ if(!t) { if($('#win').classList.contains('navopen')&&!e.target.closest('#nav')) {$('#win').classList.remove('navopen');} return; }
+ const d=t.dataset;
+ if(t.id==='hamb'){$('#win').classList.toggle('navopen');return;}
+ if(d.opts){e.stopPropagation();optsDialog(d.opts);return;}
+ if(d.ticki){e.stopPropagation();S.uticks.has(d.ticki)?S.uticks.delete(d.ticki):S.uticks.add(d.ticki);render();return;}
+ if(d.seli){S.selI=d.seli;S.showDet=$('#win').offsetWidth<1008;render();return;}
+ if(d.nav){S.page=d.nav;S.showDet=false;$('#win').classList.remove('navopen');render();return;}
+ if(d.ticku!==undefined){e.stopPropagation();const u=S.updates[+d.ticku];u.on=!u.on;render();return;}
+ if(d.selu!==undefined){S.selU=+d.selu;S.showDet=isNarrow();render();return;}
+ if(d.ticks){e.stopPropagation();S.ticks.has(d.ticks)?S.ticks.delete(d.ticks):S.ticks.add(d.ticks);render();return;}
+ if(d.sels){S.selS=d.sels;S.showDet=isNarrow()&&!e.target.closest('[data-inst]');render();return;}
+ if(d.inst){e.stopPropagation();const x=D.search.find(s=>s.id===d.inst);dialog('Install '+x.n+'?',x.n+' '+x.ver+' from winget will be installed silently.'+adminLine(),'Install',()=>{S.ticks.delete(x.id);enqueue([{...x,v:x.ver,kind:'ins',p:0}]);});return;}
+ if(d.recent){S.q=d.recent;render();return;}
+ if(d.tog){S[d.tog]=!S[d.tog];render();return;}
+ if(d.cancel!==undefined){S.queue.splice(+d.cancel,1);render();return;}
+ const a=d.act;
+ if(a==='check'||a==='retry'){S.state='loading';$('#stateSel').value='loading';render();setTimeout(()=>{S.state='normal';$('#stateSel').value='normal';render();},1400);}
+ if(a==='fix'){S.state='loading';render();setTimeout(()=>{S.state='normal';$('#stateSel').value='normal';render();toast('winget repaired');},1600);}
+ if(a==='navtoggle'){if($('#win').classList.contains('minimal')){$('#win').classList.remove('navopen');return;}S.navOpen=!S.navOpen;try{localStorage.setItem('as-nav',S.navOpen?'open':'closed')}catch(e){}render();}
+ if(a==='ignore'){const u=S.updates[S.selU];dialog('Ignore all updates for '+u.n+'?','App Store will never show updates for this app. Undo anytime in Settings › Ignored apps or in its Install options.','Ignore app',()=>{S.ignored.push(u.n);S.opts[u.id]={...(S.opts[u.id]||{}),ignore:true};S.updates.splice(S.selU,1);S.selU=0;render();toast(u.n+' ignored');});}
+ if(a==='unignore'){S.ignored=[];Object.values(S.opts).forEach(o=>o.ignore=false);render();toast('Ignored apps will show updates again');}
+ if(a==='heldinst'){const h=S.held.shift();enqueue([{...h,v:h.new,kind:'upd',p:0}]);}
+ if(a==='uclear'){S.uticks.clear();render();}
+ if(a==='uninstsel'||a==='uninst1'){const ids=a==='uninst1'?[S.selI]:[...S.uticks];const xs=S.inst.filter(x=>ids.includes(x.id));dialog(`Uninstall ${xs.length===1?xs[0].n:xs.length+' apps'}?`,xs.map(x=>x.n).join(', ')+' will be removed from this PC.'+adminLine(),'Uninstall',()=>{enqueue(xs.map(x=>({...x,v:x.ver,kind:'uni',p:0})));});}
+ if(a==='export'){toast('App list exported to Documents\AppStore-list.json');}
+ if(a==='import'){dialog('Import app list','AppStore-list.json · 38 apps<br><span class="mut">In the real app you tick which ones to install.</span>','Install 38 apps',()=>toast('38 apps added to the queue'));}
+ if(a==='clearhist'){dialog('Clear history?','All history entries will be deleted. This can’t be undone.','Clear history',()=>{S.history=[];render();});}
+ if(a==='resetsrc'){toast('winget sources reset');}
+ if(a==='tickall'){const all=S.updates.every(u=>u.on);S.updates.forEach(u=>u.on=!all);render();}
+ if(a==='updall'){const sel=S.updates.filter(u=>u.on);dialog(`Update ${sel.length} app${sel.length>1?'s':''}?`,sel.map(s=>s.n).join(', ')+' will update one after another.'+(sel.some(s=>S.running.has(s.id))?'<div class="infobar" style="margin-top:14px;font-size:13px;background:var(--warnbg)">'+ic('warn',16,'var(--warn)')+'<span><b>'+sel.filter(s=>S.running.has(s.id)).map(s=>s.n).join(', ')+'</b> is open. It will be closed before updating.</span></div>':'')+adminLine(),`Update ${sel.length} app${sel.length>1?'s':''}`,()=>enqueue(sel.map(s=>({...s,v:s.new,kind:'upd',p:0}))));}
+ if(a==='upd1'){const u=S.updates[S.selU];enqueue([{...u,v:u.new,kind:'upd',p:0}]);}
+ if(a==='skip'){const u=S.updates[S.selU];dialog('Skip '+u.n+' '+u.new+'?','You won\'t be offered this version again. A newer version will still show up. Undo anytime in Settings.','Skip version',()=>{S.skipped.push({n:u.n,v:u.new});S.updates.splice(S.selU,1);S.selU=0;S.history.unshift({day:'Today',n:u.n,col:u.col,act:'Skipped version',det:u.new,tm:'now',k:'skip'});render();toast(u.n+' '+u.new+' skipped');});}
+ if(a==='unskip'){S.skipped=[];render();toast('Skipped updates will show again');}
+ if(a==='clear'){S.ticks.clear();render();}
+ if(a==='instsel'){const sel=D.search.filter(s=>S.ticks.has(s.id));dialog(`Install ${sel.length} apps?`,sel.map(s=>s.n).join(', ')+' will install one after another.'+adminLine(),`Install ${sel.length} apps`,()=>{S.ticks.clear();enqueue(sel.map(s=>({...s,v:s.ver,kind:'ins',p:0})));});}
+ if(a==='cancelall'){S.queue=[];render();}
+ if(a==='closedet'){S.showDet=false;render();}
+});
+document.addEventListener('keydown',e=>{
+ if(e.key==='Escape'){$('#layer').innerHTML='';if(S.showDet){S.showDet=false;render();}}
+ if(e.key==='F5'){e.preventDefault();S.page='updates';document.querySelector('[data-act=check]')?.click();}
+ if(e.ctrlKey&&e.key.toLowerCase()==='f'){e.preventDefault();S.page='search';render();$('#q')?.focus();}
+ if(e.ctrlKey&&e.key===','){e.preventDefault();S.page='settings';render();}
+ if((e.key==='Enter'||e.key===' ')&&e.target.classList?.contains('row')){e.preventDefault();e.target.click();}
+});
+const isNarrow=()=>$('#win').offsetWidth<1008;
+let lastW=0;function adapt(){const w=$('#win').offsetWidth,W=$('#win');if(lastW>=1008&&w<1008)S.navOpen=false;if(lastW&&lastW<1008&&w>=1008)S.navOpen=true;lastW=w;W.classList.toggle('minimal',w<641);W.classList.toggle('compact',w>=641&&!S.navOpen);W.classList.toggle('narrow',w<1008);}
+new ResizeObserver(adapt).observe(document.getElementById('win'));
+$('#wsel').onchange=e=>{$('#win').style.width=e.target.value;setTimeout(render,50);};
+$('#themeBtn').onclick=()=>{document.body.classList.toggle('dark');render();};
+$('#stateSel').onchange=e=>{S.state=e.target.value;S.page='updates';if(S.state==='normal'&&!S.updates.length)S.updates=D.apps.map((a,i)=>({...a,on:i<5}));render();};
+if(matchMedia('(prefers-color-scheme: dark)').matches) document.body.classList.add('dark');
+render();
+</script></body></html>

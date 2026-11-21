@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="AppStore.Pages.SearchPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AppStore"
+    xmlns:m="using:AppStore.Core.Models"
+    xmlns:c="using:AppStore.Controls"
+    NavigationCacheMode="Required"
+    SizeChanged="Page_SizeChanged">
+
+  <Grid Padding="{StaticResource PagePadding}" RowSpacing="12">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <TextBlock Text="Search" Style="{StaticResource PageTitleStyle}" AutomationProperties.AutomationId="SearchTitle" />
+
+    <Grid Grid.Row="1" ColumnSpacing="12">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+      <AutoSuggestBox x:Name="SearchBox"
+                      PlaceholderText="Type an app name, e.g. &quot;obs&quot; — press Enter"
+                      QueryIcon="Find"
+                      Text="{x:Bind ViewModel.Query, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      TextChanged="SearchBox_TextChanged"
+                      QuerySubmitted="SearchBox_QuerySubmitted"
+                      AutomationProperties.Name="Search winget apps"
+                      AutomationProperties.AutomationId="SearchBox" />
+      <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{x:Bind ViewModel.ResultsText, Mode=OneWay}"
+                 Style="{StaticResource SecondaryTextStyle}" AutomationProperties.AutomationId="ResultCount" />
+    </Grid>
+
+    <Grid Grid.Row="2">
+      <!-- Start: recent searches -->
+      <Grid Visibility="{x:Bind local:X.IsStart(ViewModel.State), Mode=OneWay}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Spacing="8" Visibility="{x:Bind local:X.Positive(ViewModel.Recent.Count), Mode=OneWay}">
+          <TextBlock Text="Recent:" VerticalAlignment="Center" Style="{StaticResource SecondaryTextStyle}" />
+          <ItemsControl ItemsSource="{x:Bind ViewModel.Recent}">
+            <ItemsControl.ItemsPanel>
+              <ItemsPanelTemplate><StackPanel Orientation="Horizontal" Spacing="8" /></ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+              <DataTemplate x:DataType="x:String">
+                <Button Content="{x:Bind}" Click="Recent_Click" Tag="{x:Bind}" CornerRadius="14" Padding="12,4" />
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </StackPanel>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10" Margin="0,0,0,80">
+          <FontIcon Glyph="&#xE721;" Style="{StaticResource EmptyIconStyle}" />
+          <TextBlock HorizontalAlignment="Center" Text="Search 10,000+ apps from winget" Style="{StaticResource SubtitleTextBlockStyle}" />
+          <TextBlock HorizontalAlignment="Center" Text="Tick several results to install them together." Style="{StaticResource SecondaryTextStyle}" />
+        </StackPanel>
+      </Grid>
+
+      <!-- Searching -->
+      <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0" Spacing="12"
+                  Visibility="{x:Bind local:X.IsLoading(ViewModel.State), Mode=OneWay}">
+        <ProgressRing IsActive="True" Width="32" Height="32" />
+        <TextBlock Text="Searching winget…" Style="{StaticResource SecondaryTextStyle}" />
+      </StackPanel>
+
+      <!-- No results -->
+      <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10" Margin="0,0,0,80"
+                  Visibility="{x:Bind local:X.IsEmpty(ViewModel.State), Mode=OneWay}" AutomationProperties.AutomationId="NoResults">
+        <FontIcon Glyph="&#xE721;" Style="{StaticResource EmptyIconStyle}" />
+        <TextBlock HorizontalAlignment="Center" Text="{x:Bind ViewModel.NoResultsText, Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" />
+        <TextBlock HorizontalAlignment="Center" Text="Check the spelling, or try a shorter word." Style="{StaticResource SecondaryTextStyle}" />
+      </StackPanel>
+
+      <!-- Error -->
+      <InfoBar VerticalAlignment="Top" Severity="Error" IsClosable="False" Title="Search didn't work"
+               IsOpen="{x:Bind local:X.IsErrorBool(ViewModel.State), Mode=OneWay}" Message="{x:Bind ViewModel.ErrorText, Mode=OneWay}">
+        <InfoBar.ActionButton>
+          <Button Content="Try again" Command="{x:Bind ViewModel.SearchCommand}" />
+        </InfoBar.ActionButton>
+      </InfoBar>
+
+      <!-- Results -->
+      <Grid ColumnSpacing="16" Visibility="{x:Bind local:X.IsReady(ViewModel.State), Mode=OneWay}">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="ListPane" RowSpacing="12" Padding="0,0,0,24">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <Border Style="{StaticResource CardStyle}" VerticalAlignment="Top">
+            <ListView x:Name="List"
+                      ItemsSource="{x:Bind ViewModel.Results}"
+                      SelectionMode="Single"
+                      IsItemClickEnabled="True"
+                      ItemClick="List_ItemClick"
+                      SelectionChanged="List_SelectionChanged"
+                      PreviewKeyDown="List_PreviewKeyDown"
+                      ItemContainerStyle="{StaticResource RowListViewItemStyle}"
+                      AutomationProperties.Name="Search results"
+                      AutomationProperties.AutomationId="ResultsList">
+              <ListView.ItemTemplate>
+                <DataTemplate x:DataType="m:PackageItem">
+                  <Grid Height="56" ColumnSpacing="14" AutomationProperties.Name="{x:Bind Name}">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="Auto" />
+                      <ColumnDefinition Width="Auto" />
+                      <ColumnDefinition Width="*" MinWidth="80" />
+                      <ColumnDefinition Width="Auto" />
+                      <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <CheckBox MinWidth="0" Padding="0" VerticalAlignment="Center"
+                              IsChecked="{x:Bind IsChecked, Mode=TwoWay}"
+                              IsEnabled="{x:Bind local:X.CanTick(IsInstalled, InQueue), Mode=OneWay}"
+                              AutomationProperties.Name="{x:Bind local:X.SelectName(Name)}" />
+                    <c:AppTile Grid.Column="1" PackageId="{x:Bind Id}" PackageName="{x:Bind Name}" />
+                    <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                      <TextBlock Text="{x:Bind Name}" Style="{StaticResource RowTitleStyle}" />
+                      <TextBlock Text="{x:Bind SubLine}" Style="{StaticResource SecondaryTextStyle}" />
+                    </StackPanel>
+                    <TextBlock Grid.Column="3" Text="{x:Bind Version}" Style="{StaticResource SecondaryTextStyle}" VerticalAlignment="Center" />
+                    <Grid Grid.Column="4" MinWidth="86">
+                      <Button Content="Install" Click="Install_Click" Tag="{x:Bind}" HorizontalAlignment="Right" Padding="12,3"
+                              Visibility="{x:Bind local:X.CanInstall(IsInstalled, InQueue), Mode=OneWay}"
+                              AutomationProperties.Name="{x:Bind local:X.InstallName(Name)}" />
+                      <Border Style="{StaticResource ChipStyle}" HorizontalAlignment="Right" Background="{ThemeResource SystemFillColorSuccessBackgroundBrush}"
+                              Visibility="{x:Bind local:X.Vis(IsInstalled), Mode=OneWay}">
+                        <StackPanel Orientation="Horizontal" Spacing="4">
+                          <FontIcon Glyph="&#xE73E;" FontSize="11" Foreground="{ThemeResource SystemFillColorSuccessBrush}" />
+                          <TextBlock Text="Installed" Style="{StaticResource ChipTextStyle}" Foreground="{ThemeResource SystemFillColorSuccessBrush}" />
+                        </StackPanel>
+                      </Border>
+                      <Border Style="{StaticResource ChipStyle}" HorizontalAlignment="Right" Visibility="{x:Bind local:X.Vis(InQueue), Mode=OneWay}">
+                        <TextBlock Text="In queue" Style="{StaticResource ChipTextStyle}" />
+                      </Border>
+                    </Grid>
+                  </Grid>
+                </DataTemplate>
+              </ListView.ItemTemplate>
+            </ListView>
+          </Border>
+          <Border Grid.Row="1" Style="{StaticResource CardStyle}" Padding="16,10"
+                  Visibility="{x:Bind local:X.Positive(ViewModel.CheckedCount), Mode=OneWay}" AutomationProperties.AutomationId="SelectionBar">
+            <Grid ColumnSpacing="12">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+              </Grid.ColumnDefinitions>
+              <TextBlock VerticalAlignment="Center" Text="{x:Bind ViewModel.SelectedText, Mode=OneWay}" Style="{StaticResource BodyStrongTextBlockStyle}" />
+              <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{x:Bind ViewModel.CheckedNames, Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" />
+              <Button Grid.Column="2" Content="Clear" Background="Transparent" BorderThickness="0" Command="{x:Bind ViewModel.ClearSelectionCommand}" />
+              <Button Grid.Column="3" Style="{StaticResource AccentButtonStyle}" Content="{x:Bind ViewModel.InstallSelectedText, Mode=OneWay}"
+                      Command="{x:Bind ViewModel.InstallSelectedCommand}" AutomationProperties.AutomationId="InstallSelected">
+                <Button.KeyboardAccelerators>
+                  <KeyboardAccelerator Key="Enter" Modifiers="Control" />
+                </Button.KeyboardAccelerators>
+              </Button>
+            </Grid>
+          </Border>
+        </Grid>
+
+        <Grid x:Name="DetailsHost" Grid.Column="1">
+          <Border x:Name="DetailsPane" Style="{StaticResource CardStyle}" Width="{StaticResource DetailsWidth}" VerticalAlignment="Top" Margin="0,0,0,24"
+                  Visibility="{x:Bind local:X.HasObj(ViewModel.Selected), Mode=OneWay}"
+                  AutomationProperties.AutomationId="SearchDetails" AutomationProperties.Name="App details">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+              <StackPanel Padding="20" Spacing="14">
+                <Button x:Name="DetailsBack" Visibility="Collapsed" Background="Transparent" BorderThickness="0" Padding="4,4" AutomationProperties.Name="Back to results">
+                  <StackPanel Orientation="Horizontal" Spacing="8"><FontIcon Glyph="&#xE72B;" FontSize="14" /><TextBlock Text="Back" /></StackPanel>
+                </Button>
+                <Grid ColumnSpacing="12">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                  </Grid.ColumnDefinitions>
+                  <c:AppTile PackageId="{x:Bind local:X.Text(ViewModel.Selected.Id), Mode=OneWay}" PackageName="{x:Bind local:X.Text(ViewModel.Selected.Name), Mode=OneWay}" TileSize="48" />
+                  <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock Text="{x:Bind local:X.Text(ViewModel.Selected.Name), Mode=OneWay}" Style="{StaticResource SubtitleTextBlockStyle}" FontSize="18" TextWrapping="Wrap" AutomationProperties.HeadingLevel="Level2" />
+                    <TextBlock Text="{x:Bind local:X.Publisher(ViewModel.Details, ViewModel.Selected), Mode=OneWay}" Style="{StaticResource SecondaryTextStyle}" />
+                  </StackPanel>
+                </Grid>
+                <StackPanel Orientation="Horizontal" Spacing="6">
+                  <Border Style="{StaticResource ChipStyle}"><TextBlock Text="{x:Bind local:X.VersionChip(ViewModel.Selected), Mode=OneWay}" Style="{StaticResource ChipTextStyle}" /></Border>
+                  <Border Style="{StaticResource ChipStyle}" Background="{ThemeResource SubtleFillColorSecondaryBrush}" Visibility="{x:Bind local:X.HasLicense(ViewModel.Details), Mode=OneWay}">
+                    <TextBlock Text="{x:Bind local:X.License(ViewModel.Details), Mode=OneWay}" Style="{StaticResource ChipTextStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                  </Border>
+                </StackPanel>
+                <Grid ColumnSpacing="8" Visibility="{x:Bind local:X.NotInstalledVis(ViewModel.Selected.IsInstalled), Mode=OneWay}">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                  </Grid.ColumnDefinitions>
+                  <Button Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Stretch" Click="InstallSelectedApp_Click" AutomationProperties.AutomationId="InstallOne">
+                    <StackPanel Orientation="Horizontal" Spacing="8"><FontIcon Glyph="&#xE896;" FontSize="14" /><TextBlock Text="Install" /></StackPanel>
+                  </Button>
+                  <ComboBox x:Name="VersionBox" Grid.Column="1" MinWidth="120" ItemsSource="{x:Bind ViewModel.Versions}"
+                            PlaceholderText="Latest" SelectionChanged="VersionBox_SelectionChanged"
+                            AutomationProperties.Name="Version to install" AutomationProperties.AutomationId="VersionBox" />
+                </Grid>
+                <Border Style="{StaticResource ChipStyle}" HorizontalAlignment="Left" Background="{ThemeResource SystemFillColorSuccessBackgroundBrush}"
+                        Visibility="{x:Bind local:X.InstalledVis(ViewModel.Selected.IsInstalled), Mode=OneWay}">
+                  <TextBlock Text="Installed on this PC" Style="{StaticResource ChipTextStyle}" Foreground="{ThemeResource SystemFillColorSuccessBrush}" />
+                </Border>
+                <TextBlock Text="{x:Bind local:X.Description(ViewModel.Details, ViewModel.DetailsLoading), Mode=OneWay}" TextWrapping="Wrap" IsTextSelectionEnabled="True"
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}" MaxLines="10" TextTrimming="CharacterEllipsis" />
+                <Rectangle Height="1" Fill="{ThemeResource DividerStrokeColorDefaultBrush}" />
+                <Grid ColumnSpacing="8" RowSpacing="6">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="*" />
+                  </Grid.ColumnDefinitions>
+                  <Grid.RowDefinitions>
+                    <RowDefinition /><RowDefinition /><RowDefinition />
+                  </Grid.RowDefinitions>
+                  <TextBlock Text="ID" Style="{StaticResource SecondaryTextStyle}" />
+                  <TextBlock Grid.Column="1" Text="{x:Bind local:X.Text(ViewModel.Selected.Id), Mode=OneWay}" Style="{StaticResource CaptionTextBlockStyle}" IsTextSelectionEnabled="True" TextWrapping="Wrap" />
+                  <TextBlock Grid.Row="1" Text="Source" Style="{StaticResource SecondaryTextStyle}" />
+                  <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Bind local:X.Text(ViewModel.Selected.Source), Mode=OneWay}" Style="{StaticResource CaptionTextBlockStyle}" />
+                  <TextBlock Grid.Row="2" Text="Installer" Style="{StaticResource SecondaryTextStyle}" />
+                  <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Bind local:X.Installer(ViewModel.Details), Mode=OneWay}" Style="{StaticResource CaptionTextBlockStyle}" />
+                </Grid>
+                <HyperlinkButton Padding="0,4" NavigateUri="{x:Bind local:X.Homepage(ViewModel.Details), Mode=OneWay}"
+                                 Visibility="{x:Bind local:X.HomepageVis(ViewModel.Details), Mode=OneWay}"
+                                 Content="{x:Bind local:X.HomepageText(ViewModel.Details), Mode=OneWay}" />
+              </StackPanel>
+            </ScrollViewer>
+          </Border>
+        </Grid>
+      </Grid>
+    </Grid>
+  </Grid>
+</Page>
