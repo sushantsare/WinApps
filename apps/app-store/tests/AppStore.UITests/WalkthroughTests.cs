@@ -107,7 +107,10 @@ public class WalkthroughTests
             WaitForName(win, "Install anyway: OBS Studio");
             Shot(win, $"{theme}-01-updates");
 
-            // Install options from the details panel
+            // Open the first app's details (side panel when wide, full page when narrow), then Install options
+            list.FindAllChildren()[0].Click();
+            WaitFor(win, "UpdateDetails");
+            Shot(win, $"{theme}-01b-details");
             Activate(WaitFor(win, "UpdateOptions"));
             WaitFor(win, "OptSkipMajor");
             Shot(win, $"{theme}-02-install-options");
