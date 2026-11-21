@@ -28,6 +28,8 @@ public sealed partial class SettingsPage : Page
 internal static class WhatsNew
 {
     public const string Text =
+        "1.0.2\n" +
+        "• Queue, History and Settings now start next to the sidebar at every window size\n\n" +
         "1.0.1\n" +
         "• Queue, History and Settings no longer get cut off when the sidebar is open\n" +
         "• New \"Checking for updates\" screen that shows which step is running\n\n" +

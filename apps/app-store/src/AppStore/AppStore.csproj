@@ -27,7 +27,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <!-- Own Main: single instance + the elevated batch helper start before any window -->
     <DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <!-- Pages expose their view-model as an instance property for x:Bind -->
     <NoWarn>$(NoWarn);CA1822</NoWarn>
   </PropertyGroup>

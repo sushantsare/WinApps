@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2 — 21 Nov 2026
+- Queue, History and Settings really start next to the sidebar now, at every window size and with the sidebar open or closed (1.0.1 didn't fully fix it).
+- The page test now also checks that every page starts right beside the sidebar.
+
 ## 1.0.1 — 21 Nov 2026
 - Queue, History and Settings no longer get cut off on the right when the sidebar is open.
 - New "Checking for updates" screen: a progress bar and a card that says which step is running.

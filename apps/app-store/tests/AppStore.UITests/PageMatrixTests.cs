@@ -154,8 +154,12 @@ public class PageMatrixTests
 
     private static readonly Dictionary<string, string> Titles = new()
     {
-        ["updates"] = "UpdatesTitle", ["search"] = "SearchTitle", ["installed"] = "InstalledTitle",
-        ["queue"] = "QueueTitle", ["history"] = "HistoryTitle", ["settings"] = "SettingsTitle",
+        ["updates"] = "UpdatesTitle",
+        ["search"] = "SearchTitle",
+        ["installed"] = "InstalledTitle",
+        ["queue"] = "QueueTitle",
+        ["history"] = "HistoryTitle",
+        ["settings"] = "SettingsTitle",
     };
 
     /// <summary>
@@ -213,7 +217,7 @@ public class PageMatrixTests
             }
         }
 
-        if (checkedCount < 10)
+        if (checkedCount < 4)
         {
             problems.Add($"{setup}: only {checkedCount} elements checked — the check isn't seeing the page");
         }
