@@ -1,16 +1,15 @@
 <Project>
   <!--
-    Latest-stack rule: "*" = newest STABLE release (never preview).
-    Each build records the exact resolved versions in out/audit/packages.txt and
-    the lock files; once a set passes the full suite it is written to stack.md.
+    Proven set (see stack.md). Latest-stack rule: to refresh, set a version to "*"
+    (newest STABLE), build, check out/audit/packages.txt, then pin the new set here.
   -->
   <ItemGroup>
     <!-- App platform -->
-    <PackageVersion Include="Microsoft.WindowsAppSDK" Version="*" />
-    <PackageVersion Include="CommunityToolkit.Mvvm" Version="*" />
+    <PackageVersion Include="Microsoft.WindowsAppSDK" Version="2.7.0" />
+    <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="*" />
     <!-- Tests -->
-    <PackageVersion Include="xunit.v3" Version="*" />
-    <PackageVersion Include="FlaUI.UIA3" Version="*" />
+    <PackageVersion Include="xunit.v3" Version="4.0.3" />
+    <PackageVersion Include="FlaUI.UIA3" Version="5.0.0" />
   </ItemGroup>
 </Project>
