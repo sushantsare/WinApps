@@ -27,7 +27,7 @@ public interface IDialogs
 
     Task ShowMessageAsync(string title, string body);
 
-    void Toast(string message, bool error = false);
+    void Toast(string message, bool isError = false);
 
     void OpenUri(string uri);
 }

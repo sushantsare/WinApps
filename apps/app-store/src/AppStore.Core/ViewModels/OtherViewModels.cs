@@ -425,11 +425,11 @@ public sealed partial class SettingsViewModel : ObservableObject
                     : await _s.Pm.ResetSourcesAsync(CancellationToken.None).ConfigureAwait(true);
             if (r is null)
             {
-                _s.Dialogs.Toast("Windows' admin popup was declined, so nothing changed.", error: true);
+                _s.Dialogs.Toast("Windows' admin popup was declined, so nothing changed.", isError: true);
                 return;
             }
 
-            _s.Dialogs.Toast(r.Success ? okText : r.Message, error: !r.Success);
+            _s.Dialogs.Toast(r.Success ? okText : r.Message, isError: !r.Success);
             await _s.CheckHealthAsync().ConfigureAwait(true);
         }
         finally

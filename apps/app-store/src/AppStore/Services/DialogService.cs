@@ -163,7 +163,7 @@ public sealed class DialogService : IDialogs
         await ShowAsync(dialog).ConfigureAwait(true);
     }
 
-    public void Toast(string message, bool error = false) => _window?.ShowToast(message, error);
+    public void Toast(string message, bool isError = false) => _window?.ShowToast(message, isError);
 
     public void OpenUri(string uri)
     {
@@ -180,7 +180,7 @@ public sealed class DialogService : IDialogs
         }
         catch (Exception ex) when (ex is System.ComponentModel.Win32Exception or UriFormatException or InvalidOperationException)
         {
-            Toast("Couldn't open " + uri, error: true);
+            Toast("Couldn't open " + uri, isError: true);
         }
     }
 }

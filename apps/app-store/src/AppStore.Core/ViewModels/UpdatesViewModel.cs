@@ -383,11 +383,11 @@ public sealed partial class UpdatesViewModel : ObservableObject
                 : await _s.Pm.RepairAsync(new Progress<OpProgress>(), CancellationToken.None).ConfigureAwait(true);
             if (r is null)
             {
-                _s.Dialogs.Toast("Windows' admin popup was declined, so winget wasn't repaired.", error: true);
+                _s.Dialogs.Toast("Windows' admin popup was declined, so winget wasn't repaired.", isError: true);
                 return;
             }
 
-            _s.Dialogs.Toast(r.Success ? "winget repaired" : r.Message, error: !r.Success);
+            _s.Dialogs.Toast(r.Success ? "winget repaired" : r.Message, isError: !r.Success);
             await CheckAsync().ConfigureAwait(true);
         }
         finally

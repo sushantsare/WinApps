@@ -33,7 +33,7 @@ internal sealed class FakeDialogs : IDialogs
 
     public Task ShowMessageAsync(string title, string body) => Task.CompletedTask;
 
-    public void Toast(string message, bool error = false) => Toasts.Add(message);
+    public void Toast(string message, bool isError = false) => Toasts.Add(message);
 
     public void OpenUri(string uri)
     {
