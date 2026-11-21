@@ -142,7 +142,7 @@ public class WalkthroughTests
                 Activate(WaitForName(win, name));
             }
 
-            WaitFor(win, "SelectionBar");
+            WaitFor(win, "InstallSelected");
             Shot(win, $"{theme}-06-search");
 
             Activate(WaitFor(win, "NavInstalled"));
