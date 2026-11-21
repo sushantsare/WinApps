@@ -1,3 +1,4 @@
+using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Windows.Graphics;
@@ -25,7 +26,24 @@ public sealed partial class MainWindow : Window
             ApplyTheme(args[themeIndex + 1]);
         }
 
+        Root.ActualThemeChanged += (_, _) => UpdateCaptionButtons();
+        UpdateCaptionButtons();
         Nav.SelectedItem = NavHome;
+    }
+
+    /// <summary>Caption buttons (minimize/maximize/close) follow the app theme, including "Use system setting".</summary>
+    private void UpdateCaptionButtons()
+    {
+        var dark = Root.ActualTheme == ElementTheme.Dark;
+        var tb = AppWindow.TitleBar;
+        tb.ButtonBackgroundColor = Colors.Transparent;
+        tb.ButtonInactiveBackgroundColor = Colors.Transparent;
+        tb.ButtonForegroundColor = dark ? Colors.White : Colors.Black;
+        tb.ButtonInactiveForegroundColor = dark ? Windows.UI.Color.FromArgb(0xFF, 0x9E, 0x9E, 0x9E) : Windows.UI.Color.FromArgb(0xFF, 0x75, 0x75, 0x75);
+        tb.ButtonHoverForegroundColor = dark ? Colors.White : Colors.Black;
+        tb.ButtonHoverBackgroundColor = dark ? Windows.UI.Color.FromArgb(0x15, 0xFF, 0xFF, 0xFF) : Windows.UI.Color.FromArgb(0x0F, 0x00, 0x00, 0x00);
+        tb.ButtonPressedForegroundColor = dark ? Colors.White : Colors.Black;
+        tb.ButtonPressedBackgroundColor = dark ? Windows.UI.Color.FromArgb(0x0B, 0xFF, 0xFF, 0xFF) : Windows.UI.Color.FromArgb(0x0A, 0x00, 0x00, 0x00);
     }
 
     public void ApplyTheme(string theme) =>
