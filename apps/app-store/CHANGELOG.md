@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1 — 21 Nov 2026
+- Queue, History and Settings no longer get cut off on the right when the sidebar is open.
+- New "Checking for updates" screen: a progress bar and a card that says which step is running.
+- Removed the "You can search for apps while this runs" line.
+- Every page is now tested at three window sizes, with the sidebar open and closed, in light and dark.
+
 ## 1.0.0 — 21 Nov 2026
 First version of App Store, Sushant's own winget app.
 - Updates page: every pending winget update, Update all with one admin popup, Skip version, Ignore app, release notes and download sizes.
