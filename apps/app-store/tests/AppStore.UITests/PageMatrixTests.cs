@@ -152,25 +152,42 @@ public class PageMatrixTests
         }
     }
 
-    /// <summary>Anything inside the page that is visible top-to-bottom but sticks out past the window's right edge.</summary>
+    private static readonly Dictionary<string, string> Titles = new()
+    {
+        ["updates"] = "UpdatesTitle", ["search"] = "SearchTitle", ["installed"] = "InstalledTitle",
+        ["queue"] = "QueueTitle", ["history"] = "HistoryTitle", ["settings"] = "SettingsTitle",
+    };
+
+    /// <summary>
+    /// The page must start right next to the sidebar and nothing may stick out past the window's right edge.
+    /// Checks the whole window (not just one container) and fails if it found too few elements to be meaningful.
+    /// </summary>
     private static IEnumerable<string> Overflow(Window win, string setup)
     {
-        // Frames have no UI Automation peer, so check everything inside the NavigationView (sidebar + page).
-        var frame = win.FindFirstDescendant(cf => cf.ByAutomationId("Nav"));
-        if (frame is null)
-        {
-            yield return setup + ": navigation view not found";
-            yield break;
-        }
-
+        var problems = new List<string>();
         var w = win.BoundingRectangle;
-        var f = frame.BoundingRectangle;
-        if (f.Right > w.Right + 2)
+        var titleBarBottom = w.Top + 40;
+        var page = setup.Split('-')[0];
+        var title = win.FindFirstDescendant(cf => cf.ByAutomationId(Titles[page]));
+        if (title is null)
         {
-            yield return $"{setup}: page area ends at {f.Right}, window ends at {w.Right}";
+            problems.Add($"{setup}: page title '{Titles[page]}' not found");
+            return problems;
         }
 
-        foreach (var el in frame.FindAllDescendants())
+        // Where the page area starts: right edge of the sidebar's Settings item (or the window edge when the menu is hidden).
+        var navItem = win.FindFirstDescendant(cf => cf.ByAutomationId("NavSettings"));
+        var paneRight = navItem is { IsOffscreen: false } && navItem.BoundingRectangle.Width > 0 ? navItem.BoundingRectangle.Right : w.Left;
+        var scale = Math.Max(1.0, title.BoundingRectangle.Height / 36.0);
+        var allowedGap = (int)(80 * scale);
+        var gap = title.BoundingRectangle.Left - paneRight;
+        if (gap > allowedGap || gap < 0)
+        {
+            problems.Add($"{setup}: page content starts {gap}px from the sidebar (allowed 0–{allowedGap}) — page is shifted");
+        }
+
+        var checkedCount = 0;
+        foreach (var el in win.FindAllDescendants())
         {
             Rectangle r;
             try
@@ -182,17 +199,25 @@ public class PageMatrixTests
                 continue;
             }
 
-            if (r.Width <= 0 || r.Height <= 0 || r.Top >= w.Bottom || r.Bottom <= f.Top)
+            if (r.Width <= 0 || r.Height <= 0 || r.Top >= w.Bottom || r.Top < titleBarBottom)
             {
-                continue; // empty, or scrolled out of view vertically
+                continue;
             }
 
+            checkedCount++;
             if (r.Right > w.Right + 2)
             {
                 var id = el.Properties.AutomationId.ValueOrDefault;
                 var n = el.Properties.Name.ValueOrDefault;
-                yield return $"{setup}: '{(string.IsNullOrEmpty(id) ? n : id)}' ({el.ControlType}) right edge {r.Right} > window {w.Right}";
+                problems.Add($"{setup}: '{(string.IsNullOrEmpty(id) ? n : id)}' ({el.ControlType}) right edge {r.Right} > window {w.Right}");
             }
         }
+
+        if (checkedCount < 10)
+        {
+            problems.Add($"{setup}: only {checkedCount} elements checked — the check isn't seeing the page");
+        }
+
+        return problems;
     }
 }
