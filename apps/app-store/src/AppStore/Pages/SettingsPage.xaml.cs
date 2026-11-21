@@ -28,6 +28,9 @@ public sealed partial class SettingsPage : Page
 internal static class WhatsNew
 {
     public const string Text =
+        "1.0.1\n" +
+        "• Queue, History and Settings no longer get cut off when the sidebar is open\n" +
+        "• New \"Checking for updates\" screen that shows which step is running\n\n" +
         "1.0.0 — first version\n\n" +
         "• Updates page: every pending winget update, Update all with one admin popup, Skip version, Ignore app, release notes\n" +
         "• Search: find any winget app, tick several and install them together, pick a version\n" +
