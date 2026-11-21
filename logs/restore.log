@@ -1,0 +1,5 @@
+  Determining projects to restore...
+  Restored D:\a\WinApps\WinApps\apps\pipeline-check\src\PipelineCheck.Core\PipelineCheck.Core.csproj (in 6.11 sec).
+  Restored D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.UITests\PipelineCheck.UITests.csproj (in 29.33 sec).
+  Restored D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.Tests\PipelineCheck.Tests.csproj (in 29.28 sec).
+  Restored D:\a\WinApps\WinApps\apps\pipeline-check\src\PipelineCheck\PipelineCheck.csproj (in 48.06 sec).

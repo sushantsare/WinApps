@@ -1,0 +1,16 @@
+D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.Tests\FormattingTests.cs(13,17): warning CA1707: Remove the underscores from member name PipelineCheck.Tests.FormattingTests.Rupees_uses_indian_grouping(string, string) (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1707) [D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.Tests\PipelineCheck.Tests.csproj]
+D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.Tests\FormattingTests.cs(20,17): warning CA1707: Remove the underscores from member name PipelineCheck.Tests.FormattingTests.Greeting_by_hour(int, string) (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1707) [D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.Tests\PipelineCheck.Tests.csproj]
+D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.Tests\FormattingTests.cs(26,17): warning CA1707: Remove the underscores from member name PipelineCheck.Tests.FormattingTests.Increment_updates_count_text() (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1707) [D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.Tests\PipelineCheck.Tests.csproj]
+D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.Tests\FormattingTests.cs(23,17): warning CA1707: Remove the underscores from member name PipelineCheck.Tests.FormattingTests.Greeting_rejects_bad_hour() (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1707) [D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.Tests\PipelineCheck.Tests.csproj]
+Running tests from D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.Tests\bin\Release\net11.0\PipelineCheck.Tests.dll (net11.0|x64)
+[mD:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.Tests\bin\Release\net11.0\PipelineCheck.Tests.dll (net11.0|x64) [32mpassed[m [[32m+9[m/[31mx0[m/[33m?0[m] [90m(443ms)[m
+
+  In process file artifacts produced:
+    - D:\a\WinApps\WinApps\out\unit\runneradmin_runnervmbpeip_2026-11-21_16_10_53.650256.trx
+
+[32mTest run summary: Passed!
+[m  total: 9
+  failed: 0
+[32m  succeeded: 9
+[m  skipped: 0
+  duration: 708ms

@@ -1,0 +1,93 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+Project 'PipelineCheck.Core' has the following package references
+   [net11.0]: 
+   Top-level Package                    Requested    Resolved
+   > CommunityToolkit.Mvvm              8.4.2        8.4.2   
+   > Microsoft.NET.ILLink.Tasks   (A)   [11.0.0, )   11.0.0  
+
+Project 'PipelineCheck' has the following package references
+   [net11.0-windows10.0.26100.0]: 
+   Top-level Package                    Requested    Resolved
+   > Microsoft.NET.ILLink.Tasks   (A)   [11.0.0, )   11.0.0  
+   > Microsoft.WindowsAppSDK            2.7.0        2.7.0   
+
+   Transitive Package                                    Resolved       
+   > CommunityToolkit.Mvvm                               8.4.2          
+   > Microsoft.Web.WebView2                              1.0.3719.77    
+   > Microsoft.Windows.AI.MachineLearning                2.5.96         
+   > Microsoft.Windows.SDK.BuildTools                    10.0.26100.4654
+   > Microsoft.Windows.SDK.BuildTools.MSIX               1.7.251221100  
+   > Microsoft.WindowsAppSDK.AI                          2.7.0          
+   > Microsoft.WindowsAppSDK.Base                        2.7.0          
+   > Microsoft.WindowsAppSDK.DWrite                      2.7.0          
+   > Microsoft.WindowsAppSDK.Foundation                  2.7.0          
+   > Microsoft.WindowsAppSDK.InteractiveExperiences      2.7.0          
+   > Microsoft.WindowsAppSDK.ML                          2.7.0          
+   > Microsoft.WindowsAppSDK.Runtime                     2.7.0          
+   > Microsoft.WindowsAppSDK.Search                      2.7.0          
+   > Microsoft.WindowsAppSDK.Widgets                     2.7.0          
+   > Microsoft.WindowsAppSDK.WinUI                       2.7.0          
+   > System.Numerics.Tensors                             9.0.0          
+
+Project 'PipelineCheck.Tests' has the following package references
+   [net11.0]: 
+   Top-level Package      Requested   Resolved
+   > xunit.v3             4.0.3       4.0.3   
+
+   Transitive Package                                         Resolved
+   > CommunityToolkit.Mvvm                                    8.4.2   
+   > Microsoft.ApplicationInsights                            2.23.0  
+   > Microsoft.Bcl.AsyncInterfaces                            6.0.0   
+   > Microsoft.Testing.Extensions.Telemetry                   2.5.2   
+   > Microsoft.Testing.Extensions.TrxReport.Abstractions      2.5.2   
+   > Microsoft.Testing.Platform                               2.5.2   
+   > Microsoft.Testing.Platform.MSBuild                       2.5.2   
+   > Microsoft.Win32.Registry                                 5.0.0   
+   > System.Security.AccessControl                            6.0.1   
+   > xunit.analyzers                                          2.3.0   
+   > xunit.v3.assert                                          4.0.3   
+   > xunit.v3.common                                          4.0.3   
+   > xunit.v3.core.mtp-v2                                     4.0.3   
+   > xunit.v3.extensibility.core                              4.0.3   
+   > xunit.v3.mtp-v2                                          4.0.3   
+   > xunit.v3.runner.common                                   4.0.3   
+   > xunit.v3.runner.inproc.console                           4.0.3   
+
+Project 'PipelineCheck.UITests' has the following package references
+   [net11.0-windows]: 
+   Top-level Package      Requested   Resolved
+   > FlaUI.UIA3           5.0.0       5.0.0   
+   > xunit.v3             4.0.3       4.0.3   
+
+   Transitive Package                                         Resolved  
+   > FlaUI.Core                                               5.0.0     
+   > Interop.UIAutomationClient                               10.19041.0
+   > Microsoft.ApplicationInsights                            2.23.0    
+   > Microsoft.Bcl.AsyncInterfaces                            6.0.0     
+   > Microsoft.Testing.Extensions.Telemetry                   2.5.2     
+   > Microsoft.Testing.Extensions.TrxReport.Abstractions      2.5.2     
+   > Microsoft.Testing.Platform                               2.5.2     
+   > Microsoft.Testing.Platform.MSBuild                       2.5.2     
+   > Microsoft.Win32.Registry                                 5.0.0     
+   > Microsoft.Win32.SystemEvents                             8.0.0     
+   > System.CodeDom                                           8.0.0     
+   > System.Configuration.ConfigurationManager                8.0.1     
+   > System.Diagnostics.EventLog                              8.0.1     
+   > System.Diagnostics.PerformanceCounter                    8.0.1     
+   > System.Drawing.Common                                    8.0.10    
+   > System.Management                                        8.0.0     
+   > System.Security.AccessControl                            6.0.1     
+   > System.Security.Cryptography.ProtectedData               8.0.0     
+   > System.Security.Permissions                              8.0.0     
+   > System.Windows.Extensions                                8.0.0     
+   > xunit.analyzers                                          2.3.0     
+   > xunit.v3.assert                                          4.0.3     
+   > xunit.v3.common                                          4.0.3     
+   > xunit.v3.core.mtp-v2                                     4.0.3     
+   > xunit.v3.extensibility.core                              4.0.3     
+   > xunit.v3.mtp-v2                                          4.0.3     
+   > xunit.v3.runner.common                                   4.0.3     
+   > xunit.v3.runner.inproc.console                           4.0.3     
+
+(A) : Auto-referenced package.

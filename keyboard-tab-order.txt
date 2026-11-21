@@ -1,0 +1,12 @@
+TogglePaneButton|Close Navigation
+NavHome|Home
+NavSettings|Settings
+ClickButton|Click me
+AppTitleBar|Pipeline Check
+TogglePaneButton|Close Navigation
+NavHome|Home
+NavSettings|Settings
+ClickButton|Click me
+AppTitleBar|Pipeline Check
+TogglePaneButton|Close Navigation
+NavHome|Home

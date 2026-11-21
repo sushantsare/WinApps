@@ -1,0 +1,355 @@
+Inno Setup 6 Command-Line Compiler
+Copyright (C) 1997-2026 Jordan Russell. All rights reserved.
+Portions Copyright (C) 2000-2026 Martijn Laan. All rights reserved.
+Portions Copyright (C) 2001-2004 Alex Yackimoff. All rights reserved.
+https://www.innosetup.com
+
+Compiler engine version: Inno Setup 6.7.1
+Non-commercial use only
+
+Preprocessing
+   Reading file: C:\Program Files (x86)\Inno Setup 6\ISPPBuiltins.iss
+Parsing [Setup] section, line 14
+Parsing [Setup] section, line 15
+Parsing [Setup] section, line 16
+Parsing [Setup] section, line 17
+Parsing [Setup] section, line 18
+Parsing [Setup] section, line 19
+Parsing [Setup] section, line 20
+Parsing [Setup] section, line 21
+Parsing [Setup] section, line 22
+Parsing [Setup] section, line 23
+Parsing [Setup] section, line 24
+Parsing [Setup] section, line 25
+Parsing [Setup] section, line 26
+Parsing [Setup] section, line 27
+Parsing [Setup] section, line 28
+Parsing [Setup] section, line 29
+Parsing [Setup] section, line 30
+Parsing [Setup] section, line 31
+Parsing [Setup] section, line 32
+Parsing [Setup] section, line 33
+Parsing [Setup] section, line 34
+Parsing [Setup] section, line 35
+Parsing [Setup] section, line 36
+Parsing [Setup] section, line 37
+Parsing [Setup] section, line 38
+Reading file (WizardImageFile)
+Reading file (WizardSmallImageFile)
+Preparing Setup program executable
+   Verification successful
+   Updating icons (Setup.e32)
+   Updating version info (Setup.e32)
+Determining language code pages
+Parsing [Languages] section, line 41
+   Reading file: C:\Program Files (x86)\Inno Setup 6\Default.isl
+   Messages in script file
+Reading default messages from Default.isl
+Parsing [Languages] section, line 41
+   Reading file: C:\Program Files (x86)\Inno Setup 6\Default.isl
+Parsing [LangOptions], [Messages], and [CustomMessages] sections
+   Messages in script file
+Reading [Code] section
+Parsing [Tasks] section, line 44
+Parsing [Icons] section, line 50
+Parsing [Icons] section, line 51
+Parsing [Run] section, line 54
+Parsing [Files] section, line 47
+Creating setup files
+   Verification successful
+   Updating icons (Setup.exe)
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\CoreMessagingXP.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\dcompi.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\DirectML.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\dwmcorei.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\DwmSceneI.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\DWriteCore.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\marshal.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Asg.SemanticIndex.AiFabric.Compatibility.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.DirectManipulation.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Foundation.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Graphics.Display.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Graphics.Imaging.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Graphics.Imaging.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Graphics.ImagingInternal.ImageObjectRemover.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Graphics.ImagingInternal.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Graphics.Internal.Imaging.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Graphics.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.InputStateManager.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Internal.FrameworkUdk.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Security.Authentication.OAuth.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.Composition.OSSupport.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.Designer.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.Input.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.pri
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.Text.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.Windowing.Core.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.Windowing.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.Xaml.Controls.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.Xaml.Controls.pri
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.ui.xaml.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.Xaml.Internal.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.Xaml.Phone.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.ui.xaml.resources.19h1.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.ui.xaml.resources.common.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.Xaml.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Web.WebView2.Core.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.AICapabilities.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.ContentModerationInternal.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.ContentSafety.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.ContentSafety.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.Foundation.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.FoundationInternal.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.GenerativeInternal.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.Imaging.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.Imaging.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.MachineLearning.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.Search.Experimental.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.Text.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.Text.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.Video.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.Video.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AI.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.ApplicationModel.Background.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.ApplicationModel.DynamicDependency.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.ApplicationModel.Resources.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.ApplicationModel.Resources.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AppLifecycle.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AppNotifications.Builder.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.AppNotifications.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.BadgeNotifications.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Foundation.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Globalization.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.ImageCreationInternal.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Internal.AI.ContentModeration.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Internal.AI.Generative.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Internal.ImageCreation.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Internal.SemanticSearch.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Internal.Vision.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Management.Deployment.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Media.Capture.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Private.Workloads.SessionManager.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.PrivateCommon.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.PushNotifications.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Search.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Search.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Security.AccessControl.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.SemanticSearch.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.SemanticSearchInternal.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Storage.Pickers.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Storage.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.System.Power.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.System.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Vision.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.VisionInternal.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Widgets.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Widgets.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Workloads.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Workloads.pri
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Workloads.Resources.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.Windows.Workloads.winmd
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.WindowsAppRuntime.Bootstrap.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.WindowsAppRuntime.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.WindowsAppRuntime.pri
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\MRM.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\NPUDetect.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\onnxruntime.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\PerceptiveStreaming.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\PipelineCheck.exe
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\PipelineCheck.pri
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\PushNotificationsLongRunningTask.ProxyStub.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\RestartAgent.exe
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\SessionHandleIPCProxyStub.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\WebView2Loader.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\WinUIEdit.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\workloads.j32.json
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\workloads.json
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\workloads.qnn.json
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\wuceffectsi.dll
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\af-ZA\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\af-ZA\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\am-ET\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\am-ET\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ar-SA\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ar-SA\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\as-IN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\as-IN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Assets\AppIcon.ico
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\az-Latn-AZ\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\az-Latn-AZ\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\bg-BG\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\bg-BG\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\bn-IN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\bn-IN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\bs-Latn-BA\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\bs-Latn-BA\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ca-ES\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ca-ES\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ca-Es-VALENCIA\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ca-Es-VALENCIA\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\cs-CZ\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\cs-CZ\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\cy-GB\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\cy-GB\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\da-DK\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\da-DK\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\de-DE\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\de-DE\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\el-GR\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\el-GR\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\en-GB\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\en-GB\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\en-us\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\en-us\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\es-ES\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\es-ES\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\es-MX\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\es-MX\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\et-EE\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\et-EE\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\eu-ES\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\eu-ES\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\fa-IR\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\fa-IR\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\fi-FI\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\fi-FI\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\fil-PH\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\fil-PH\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\fr-CA\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\fr-CA\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\fr-FR\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\fr-FR\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ga-IE\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ga-IE\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\gd-gb\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\gd-gb\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\gl-ES\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\gl-ES\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\gu-IN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\gu-IN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\he-IL\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\he-IL\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\hi-IN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\hi-IN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\hr-HR\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\hr-HR\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\hu-HU\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\hu-HU\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\hy-AM\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\hy-AM\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\id-ID\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\id-ID\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\is-IS\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\is-IS\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\it-IT\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\it-IT\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ja-JP\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ja-JP\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ka-GE\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ka-GE\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\kk-KZ\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\kk-KZ\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\km-KH\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\km-KH\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\kn-IN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\kn-IN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ko-KR\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ko-KR\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\kok-IN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\kok-IN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\lb-LU\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\lb-LU\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\lo-LA\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\lo-LA\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\lt-LT\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\lt-LT\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\lv-LV\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\lv-LV\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\mi-NZ\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\mi-NZ\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.Xaml\Assets\map.html
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\Microsoft.UI.Xaml\Assets\NoiseAsset_256x256_PNG.png
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\mk-MK\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\mk-MK\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ml-IN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ml-IN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\mr-IN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\mr-IN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ms-MY\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ms-MY\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\mt-MT\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\mt-MT\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\nb-NO\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\nb-NO\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ne-NP\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ne-NP\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\nl-NL\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\nl-NL\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\nn-NO\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\nn-NO\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\or-IN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\or-IN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\pa-IN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\pa-IN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\pl-PL\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\pl-PL\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\pt-BR\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\pt-BR\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\pt-PT\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\pt-PT\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\quz-PE\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\quz-PE\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ro-RO\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ro-RO\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ru-RU\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ru-RU\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\sk-SK\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\sk-SK\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\sl-SI\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\sl-SI\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\sq-AL\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\sq-AL\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\sr-Cyrl-BA\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\sr-Cyrl-BA\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\sr-Cyrl-RS\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\sr-Cyrl-RS\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\sr-Latn-RS\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\sr-Latn-RS\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\sv-SE\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\sv-SE\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ta-IN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ta-IN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\te-IN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\te-IN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\th-TH\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\th-TH\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\tr-TR\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\tr-TR\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\tt-RU\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\tt-RU\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ug-CN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ug-CN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\uk-UA\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\uk-UA\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ur-PK\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\ur-PK\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\uz-Latn-UZ\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\uz-Latn-UZ\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\vi-VN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\vi-VN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\zh-CN\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\zh-CN\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\zh-TW\Microsoft.ui.xaml.dll.mui
+   Compressing: D:\a\WinApps\WinApps\out-arm64\publish\zh-TW\Microsoft.UI.Xaml.Phone.dll.mui
+   Compressing Setup program executable
+   Updating version info (Setup.exe)
+   Updating manifest (Setup.exe)
+
+
+Successful compile (34.000 sec). Resulting Setup program filename is:
+D:\a\WinApps\WinApps\out-arm64\PipelineCheck-0.1.0-arm64-Setup.exe

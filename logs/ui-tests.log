@@ -1,0 +1,15 @@
+D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.UITests\WalkthroughTests.cs(108,13): warning CS8602: Dereference of a possibly null reference. [D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.UITests\PipelineCheck.UITests.csproj]
+D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.UITests\WalkthroughTests.cs(61,17): warning CA1707: Remove the underscores from member name PipelineCheck.UITests.WalkthroughTests.Walkthrough_every_page(string) (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1707) [D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.UITests\PipelineCheck.UITests.csproj]
+D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.UITests\WalkthroughTests.cs(101,17): warning CA1707: Remove the underscores from member name PipelineCheck.UITests.WalkthroughTests.Keyboard_tab_moves_focus_through_controls() (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1707) [D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.UITests\PipelineCheck.UITests.csproj]
+Running tests from D:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.UITests\bin\Release\net11.0-windows\PipelineCheck.UITests.dll (net11.0|x64)
+[mD:\a\WinApps\WinApps\apps\pipeline-check\tests\PipelineCheck.UITests\bin\Release\net11.0-windows\PipelineCheck.UITests.dll (net11.0|x64) [32mpassed[m [[32m+3[m/[31mx0[m/[33m?0[m] [90m(12s 653ms)[m
+
+  In process file artifacts produced:
+    - D:\a\WinApps\WinApps\out\ui\runneradmin_runnervmbpeip_2026-11-21_16_12_29.751518.trx
+
+[32mTest run summary: Passed!
+[m  total: 3
+  failed: 0
+[32m  succeeded: 3
+[m  skipped: 0
+  duration: 12s 864ms

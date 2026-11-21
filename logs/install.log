@@ -1,0 +1,1594 @@
+﻿2026-11-21 16:11:58.822   Log opened. (Time zone: UTC+00:00)
+2026-11-21 16:11:58.822   Setup version: Inno Setup version 6.7.1
+2026-11-21 16:11:58.822   Original Setup EXE: D:\a\WinApps\WinApps\out\PipelineCheck-0.1.0-x64-Setup.exe
+2026-11-21 16:11:58.822   Setup command line: /SL5="$200A6,33600637,865280,D:\a\WinApps\WinApps\out\PipelineCheck-0.1.0-x64-Setup.exe" /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /LOG=D:\a\WinApps\WinApps\out\logs\install.log
+2026-11-21 16:11:58.822   Windows version: 10.0.26100
+2026-11-21 16:11:58.822   Windows architecture: x64 (64-bit)
+2026-11-21 16:11:58.822   Machine types supported by system: x86 x64
+2026-11-21 16:11:58.822   User privileges: Administrative
+2026-11-21 16:11:58.826   Administrative install mode: No
+2026-11-21 16:11:58.826   Install mode root key: HKEY_CURRENT_USER
+2026-11-21 16:11:58.826   64-bit install mode: Yes
+2026-11-21 16:11:58.826   RedirectionGuard status for current process: Enabled in enforcing mode
+2026-11-21 16:11:58.828   Created protected temporary directory: C:\Users\RUNNER~1\AppData\Local\Temp\is-Y2HC1OPOBK.tmp
+2026-11-21 16:11:59.703   Found 53 files to register with RestartManager.
+2026-11-21 16:11:59.703   Calling RestartManager's RmGetList.
+2026-11-21 16:11:59.709   RmGetList finished successfully.
+2026-11-21 16:11:59.709   RestartManager found no applications using one of our files.
+2026-11-21 16:11:59.711   Starting the installation process.
+2026-11-21 16:11:59.712   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check
+2026-11-21 16:11:59.713   Directory for uninstall files: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check
+2026-11-21 16:11:59.713   Creating new uninstall log: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\unins000.dat
+2026-11-21 16:11:59.799   -- File entry --
+2026-11-21 16:11:59.799   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\unins000.exe
+2026-11-21 16:11:59.799   Non-default bitness: 32-bit
+2026-11-21 16:11:59.888   Time stamp of our file: 2026-11-21 16:11:58.467
+2026-11-21 16:11:59.888   Installing the file.
+2026-11-21 16:11:59.898   Successfully installed the file.
+2026-11-21 16:11:59.898   -- File entry --
+2026-11-21 16:11:59.898   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\CoreMessagingXP.dll
+2026-11-21 16:11:59.898   Time stamp of our file: 2026-11-10 23:24:48.000
+2026-11-21 16:11:59.898   Installing the file.
+2026-11-21 16:11:59.926   Successfully installed the file.
+2026-11-21 16:11:59.926   -- File entry --
+2026-11-21 16:11:59.926   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\dcompi.dll
+2026-11-21 16:11:59.926   Time stamp of our file: 2026-11-10 23:24:38.000
+2026-11-21 16:11:59.926   Installing the file.
+2026-11-21 16:11:59.980   Successfully installed the file.
+2026-11-21 16:11:59.980   -- File entry --
+2026-11-21 16:11:59.980   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\DirectML.dll
+2026-11-21 16:11:59.980   Time stamp of our file: 2026-10-23 21:04:04.000
+2026-11-21 16:11:59.980   Installing the file.
+2026-11-21 16:12:00.233   Successfully installed the file.
+2026-11-21 16:12:00.233   -- File entry --
+2026-11-21 16:12:00.233   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\dwmcorei.dll
+2026-11-21 16:12:00.233   Time stamp of our file: 2026-11-10 23:24:38.000
+2026-11-21 16:12:00.233   Installing the file.
+2026-11-21 16:12:00.295   Successfully installed the file.
+2026-11-21 16:12:00.295   -- File entry --
+2026-11-21 16:12:00.295   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\DwmSceneI.dll
+2026-11-21 16:12:00.295   Time stamp of our file: 2026-11-10 23:24:38.000
+2026-11-21 16:12:00.295   Installing the file.
+2026-11-21 16:12:00.337   Successfully installed the file.
+2026-11-21 16:12:00.337   -- File entry --
+2026-11-21 16:12:00.337   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\DWriteCore.dll
+2026-11-21 16:12:00.337   Time stamp of our file: 2026-11-10 19:36:30.000
+2026-11-21 16:12:00.337   Installing the file.
+2026-11-21 16:12:00.402   Successfully installed the file.
+2026-11-21 16:12:00.402   -- File entry --
+2026-11-21 16:12:00.402   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\marshal.dll
+2026-11-21 16:12:00.403   Time stamp of our file: 2026-11-10 23:24:38.000
+2026-11-21 16:12:00.403   Installing the file.
+2026-11-21 16:12:00.417   Successfully installed the file.
+2026-11-21 16:12:00.417   -- File entry --
+2026-11-21 16:12:00.417   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Asg.SemanticIndex.AiFabric.Compatibility.dll
+2026-11-21 16:12:00.417   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:00.417   Installing the file.
+2026-11-21 16:12:00.483   Successfully installed the file.
+2026-11-21 16:12:00.483   -- File entry --
+2026-11-21 16:12:00.483   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.DirectManipulation.dll
+2026-11-21 16:12:00.484   Time stamp of our file: 2026-11-10 23:24:38.000
+2026-11-21 16:12:00.484   Installing the file.
+2026-11-21 16:12:00.497   Successfully installed the file.
+2026-11-21 16:12:00.497   -- File entry --
+2026-11-21 16:12:00.497   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Foundation.winmd
+2026-11-21 16:12:00.497   Time stamp of our file: 2026-11-10 23:53:08.000
+2026-11-21 16:12:00.497   Installing the file.
+2026-11-21 16:12:00.498   Successfully installed the file.
+2026-11-21 16:12:00.498   -- File entry --
+2026-11-21 16:12:00.498   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Graphics.Display.dll
+2026-11-21 16:12:00.499   Time stamp of our file: 2026-11-10 23:24:38.000
+2026-11-21 16:12:00.499   Installing the file.
+2026-11-21 16:12:00.502   Successfully installed the file.
+2026-11-21 16:12:00.502   -- File entry --
+2026-11-21 16:12:00.502   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Graphics.Imaging.dll
+2026-11-21 16:12:00.503   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:00.503   Installing the file.
+2026-11-21 16:12:00.505   Successfully installed the file.
+2026-11-21 16:12:00.505   -- File entry --
+2026-11-21 16:12:00.505   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Graphics.Imaging.winmd
+2026-11-21 16:12:00.505   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:00.505   Installing the file.
+2026-11-21 16:12:00.506   Successfully installed the file.
+2026-11-21 16:12:00.507   -- File entry --
+2026-11-21 16:12:00.507   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Graphics.ImagingInternal.ImageObjectRemover.winmd
+2026-11-21 16:12:00.507   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:00.507   Installing the file.
+2026-11-21 16:12:00.507   Successfully installed the file.
+2026-11-21 16:12:00.507   -- File entry --
+2026-11-21 16:12:00.507   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Graphics.ImagingInternal.winmd
+2026-11-21 16:12:00.507   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:00.507   Installing the file.
+2026-11-21 16:12:00.508   Successfully installed the file.
+2026-11-21 16:12:00.508   -- File entry --
+2026-11-21 16:12:00.508   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Graphics.Internal.Imaging.winmd
+2026-11-21 16:12:00.509   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:00.509   Installing the file.
+2026-11-21 16:12:00.509   Successfully installed the file.
+2026-11-21 16:12:00.509   -- File entry --
+2026-11-21 16:12:00.509   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Graphics.winmd
+2026-11-21 16:12:00.509   Time stamp of our file: 2026-11-10 23:52:36.000
+2026-11-21 16:12:00.509   Installing the file.
+2026-11-21 16:12:00.513   Successfully installed the file.
+2026-11-21 16:12:00.513   -- File entry --
+2026-11-21 16:12:00.513   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.InputStateManager.dll
+2026-11-21 16:12:00.513   Time stamp of our file: 2026-11-10 23:24:38.000
+2026-11-21 16:12:00.513   Installing the file.
+2026-11-21 16:12:00.520   Successfully installed the file.
+2026-11-21 16:12:00.520   -- File entry --
+2026-11-21 16:12:00.522   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Internal.FrameworkUdk.dll
+2026-11-21 16:12:00.522   Time stamp of our file: 2026-11-10 23:50:50.000
+2026-11-21 16:12:00.522   Installing the file.
+2026-11-21 16:12:00.530   Successfully installed the file.
+2026-11-21 16:12:00.530   -- File entry --
+2026-11-21 16:12:00.531   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Security.Authentication.OAuth.winmd
+2026-11-21 16:12:00.531   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:00.531   Installing the file.
+2026-11-21 16:12:00.531   Successfully installed the file.
+2026-11-21 16:12:00.531   -- File entry --
+2026-11-21 16:12:00.531   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Composition.OSSupport.dll
+2026-11-21 16:12:00.531   Time stamp of our file: 2026-11-10 23:24:38.000
+2026-11-21 16:12:00.531   Installing the file.
+2026-11-21 16:12:00.532   Successfully installed the file.
+2026-11-21 16:12:00.532   -- File entry --
+2026-11-21 16:12:00.532   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Designer.dll
+2026-11-21 16:12:00.532   Time stamp of our file: 2026-11-10 23:24:38.000
+2026-11-21 16:12:00.532   Installing the file.
+2026-11-21 16:12:00.534   Successfully installed the file.
+2026-11-21 16:12:00.534   -- File entry --
+2026-11-21 16:12:00.534   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.dll
+2026-11-21 16:12:00.534   Time stamp of our file: 2026-11-10 23:24:38.000
+2026-11-21 16:12:00.534   Installing the file.
+2026-11-21 16:12:00.537   Successfully installed the file.
+2026-11-21 16:12:00.537   -- File entry --
+2026-11-21 16:12:00.537   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Input.dll
+2026-11-21 16:12:00.537   Time stamp of our file: 2026-11-10 23:24:38.000
+2026-11-21 16:12:00.537   Installing the file.
+2026-11-21 16:12:00.563   Successfully installed the file.
+2026-11-21 16:12:00.563   -- File entry --
+2026-11-21 16:12:00.563   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.pri
+2026-11-21 16:12:00.563   Time stamp of our file: 2026-11-10 23:48:10.000
+2026-11-21 16:12:00.563   Installing the file.
+2026-11-21 16:12:00.566   Successfully installed the file.
+2026-11-21 16:12:00.566   -- File entry --
+2026-11-21 16:12:00.566   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Text.winmd
+2026-11-21 16:12:00.566   Time stamp of our file: 2026-11-11 09:51:06.000
+2026-11-21 16:12:00.566   Installing the file.
+2026-11-21 16:12:00.567   Successfully installed the file.
+2026-11-21 16:12:00.568   -- File entry --
+2026-11-21 16:12:00.568   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Windowing.Core.dll
+2026-11-21 16:12:00.568   Time stamp of our file: 2026-11-10 23:24:38.000
+2026-11-21 16:12:00.568   Installing the file.
+2026-11-21 16:12:00.577   Successfully installed the file.
+2026-11-21 16:12:00.577   -- File entry --
+2026-11-21 16:12:00.577   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Windowing.dll
+2026-11-21 16:12:00.577   Time stamp of our file: 2026-11-10 23:24:38.000
+2026-11-21 16:12:00.577   Installing the file.
+2026-11-21 16:12:00.590   Successfully installed the file.
+2026-11-21 16:12:00.590   -- File entry --
+2026-11-21 16:12:00.590   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.winmd
+2026-11-21 16:12:00.590   Time stamp of our file: 2026-11-10 23:52:40.000
+2026-11-21 16:12:00.590   Installing the file.
+2026-11-21 16:12:00.596   Successfully installed the file.
+2026-11-21 16:12:00.596   -- File entry --
+2026-11-21 16:12:00.596   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Xaml.Controls.dll
+2026-11-21 16:12:00.596   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:00.596   Installing the file.
+2026-11-21 16:12:00.740   Successfully installed the file.
+2026-11-21 16:12:00.740   -- File entry --
+2026-11-21 16:12:00.740   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Xaml.Controls.pri
+2026-11-21 16:12:00.742   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:00.742   Installing the file.
+2026-11-21 16:12:00.769   Successfully installed the file.
+2026-11-21 16:12:00.769   -- File entry --
+2026-11-21 16:12:00.769   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.ui.xaml.dll
+2026-11-21 16:12:00.769   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:00.769   Installing the file.
+2026-11-21 16:12:01.037   Successfully installed the file.
+2026-11-21 16:12:01.037   -- File entry --
+2026-11-21 16:12:01.037   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Xaml.Internal.dll
+2026-11-21 16:12:01.037   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:01.037   Installing the file.
+2026-11-21 16:12:01.057   Successfully installed the file.
+2026-11-21 16:12:01.057   -- File entry --
+2026-11-21 16:12:01.057   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Xaml.Phone.dll
+2026-11-21 16:12:01.057   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:01.057   Installing the file.
+2026-11-21 16:12:01.077   Successfully installed the file.
+2026-11-21 16:12:01.077   -- File entry --
+2026-11-21 16:12:01.077   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.ui.xaml.resources.19h1.dll
+2026-11-21 16:12:01.077   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:01.077   Installing the file.
+2026-11-21 16:12:01.088   Successfully installed the file.
+2026-11-21 16:12:01.088   -- File entry --
+2026-11-21 16:12:01.088   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.ui.xaml.resources.common.dll
+2026-11-21 16:12:01.088   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:01.088   Installing the file.
+2026-11-21 16:12:01.090   Successfully installed the file.
+2026-11-21 16:12:01.090   -- File entry --
+2026-11-21 16:12:01.090   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Xaml.winmd
+2026-11-21 16:12:01.090   Time stamp of our file: 2026-11-11 09:51:08.000
+2026-11-21 16:12:01.090   Installing the file.
+2026-11-21 16:12:01.114   Successfully installed the file.
+2026-11-21 16:12:01.114   -- File entry --
+2026-11-21 16:12:01.114   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Web.WebView2.Core.dll
+2026-11-21 16:12:01.114   Time stamp of our file: 2026-01-14 10:12:50.000
+2026-11-21 16:12:01.114   Installing the file.
+2026-11-21 16:12:01.126   Successfully installed the file.
+2026-11-21 16:12:01.126   -- File entry --
+2026-11-21 16:12:01.126   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.AICapabilities.dll
+2026-11-21 16:12:01.126   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.126   Installing the file.
+2026-11-21 16:12:01.128   Successfully installed the file.
+2026-11-21 16:12:01.128   -- File entry --
+2026-11-21 16:12:01.130   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.ContentModerationInternal.winmd
+2026-11-21 16:12:01.130   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.130   Installing the file.
+2026-11-21 16:12:01.130   Successfully installed the file.
+2026-11-21 16:12:01.130   -- File entry --
+2026-11-21 16:12:01.130   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.ContentSafety.dll
+2026-11-21 16:12:01.130   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.130   Installing the file.
+2026-11-21 16:12:01.137   Successfully installed the file.
+2026-11-21 16:12:01.137   -- File entry --
+2026-11-21 16:12:01.137   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.ContentSafety.winmd
+2026-11-21 16:12:01.137   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.137   Installing the file.
+2026-11-21 16:12:01.140   Successfully installed the file.
+2026-11-21 16:12:01.140   -- File entry --
+2026-11-21 16:12:01.140   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.Foundation.winmd
+2026-11-21 16:12:01.140   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.140   Installing the file.
+2026-11-21 16:12:01.140   Successfully installed the file.
+2026-11-21 16:12:01.140   -- File entry --
+2026-11-21 16:12:01.140   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.FoundationInternal.winmd
+2026-11-21 16:12:01.140   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.140   Installing the file.
+2026-11-21 16:12:01.142   Successfully installed the file.
+2026-11-21 16:12:01.142   -- File entry --
+2026-11-21 16:12:01.142   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.GenerativeInternal.winmd
+2026-11-21 16:12:01.142   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.142   Installing the file.
+2026-11-21 16:12:01.142   Successfully installed the file.
+2026-11-21 16:12:01.142   -- File entry --
+2026-11-21 16:12:01.142   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.Imaging.dll
+2026-11-21 16:12:01.142   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.142   Installing the file.
+2026-11-21 16:12:01.158   Successfully installed the file.
+2026-11-21 16:12:01.158   -- File entry --
+2026-11-21 16:12:01.158   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.Imaging.winmd
+2026-11-21 16:12:01.158   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.158   Installing the file.
+2026-11-21 16:12:01.160   Successfully installed the file.
+2026-11-21 16:12:01.160   -- File entry --
+2026-11-21 16:12:01.160   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.MachineLearning.dll
+2026-11-21 16:12:01.160   Time stamp of our file: 2026-10-23 21:04:04.000
+2026-11-21 16:12:01.160   Installing the file.
+2026-11-21 16:12:01.177   Successfully installed the file.
+2026-11-21 16:12:01.177   -- File entry --
+2026-11-21 16:12:01.177   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.Search.Experimental.dll
+2026-11-21 16:12:01.177   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.177   Installing the file.
+2026-11-21 16:12:01.191   Successfully installed the file.
+2026-11-21 16:12:01.191   -- File entry --
+2026-11-21 16:12:01.191   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.Text.dll
+2026-11-21 16:12:01.191   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.191   Installing the file.
+2026-11-21 16:12:01.205   Successfully installed the file.
+2026-11-21 16:12:01.205   -- File entry --
+2026-11-21 16:12:01.205   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.Text.winmd
+2026-11-21 16:12:01.205   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.205   Installing the file.
+2026-11-21 16:12:01.207   Successfully installed the file.
+2026-11-21 16:12:01.207   -- File entry --
+2026-11-21 16:12:01.207   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.Video.dll
+2026-11-21 16:12:01.207   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.207   Installing the file.
+2026-11-21 16:12:01.218   Successfully installed the file.
+2026-11-21 16:12:01.218   -- File entry --
+2026-11-21 16:12:01.218   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.Video.winmd
+2026-11-21 16:12:01.218   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.218   Installing the file.
+2026-11-21 16:12:01.218   Successfully installed the file.
+2026-11-21 16:12:01.218   -- File entry --
+2026-11-21 16:12:01.218   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AI.winmd
+2026-11-21 16:12:01.219   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.219   Installing the file.
+2026-11-21 16:12:01.219   Successfully installed the file.
+2026-11-21 16:12:01.220   -- File entry --
+2026-11-21 16:12:01.220   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll
+2026-11-21 16:12:01.220   Time stamp of our file: 2026-11-11 03:55:48.000
+2026-11-21 16:12:01.220   Installing the file.
+2026-11-21 16:12:01.223   Successfully installed the file.
+2026-11-21 16:12:01.223   -- File entry --
+2026-11-21 16:12:01.223   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.winmd
+2026-11-21 16:12:01.223   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.223   Installing the file.
+2026-11-21 16:12:01.223   Successfully installed the file.
+2026-11-21 16:12:01.223   -- File entry --
+2026-11-21 16:12:01.223   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.ApplicationModel.Background.winmd
+2026-11-21 16:12:01.223   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.223   Installing the file.
+2026-11-21 16:12:01.223   Successfully installed the file.
+2026-11-21 16:12:01.223   -- File entry --
+2026-11-21 16:12:01.223   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.ApplicationModel.DynamicDependency.winmd
+2026-11-21 16:12:01.223   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.223   Installing the file.
+2026-11-21 16:12:01.225   Successfully installed the file.
+2026-11-21 16:12:01.225   -- File entry --
+2026-11-21 16:12:01.225   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.ApplicationModel.Resources.dll
+2026-11-21 16:12:01.225   Time stamp of our file: 2026-11-11 03:56:52.000
+2026-11-21 16:12:01.225   Installing the file.
+2026-11-21 16:12:01.229   Successfully installed the file.
+2026-11-21 16:12:01.229   -- File entry --
+2026-11-21 16:12:01.229   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.ApplicationModel.Resources.winmd
+2026-11-21 16:12:01.229   Time stamp of our file: 2026-11-11 03:56:54.000
+2026-11-21 16:12:01.229   Installing the file.
+2026-11-21 16:12:01.230   Successfully installed the file.
+2026-11-21 16:12:01.230   -- File entry --
+2026-11-21 16:12:01.230   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.winmd
+2026-11-21 16:12:01.230   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.230   Installing the file.
+2026-11-21 16:12:01.231   Successfully installed the file.
+2026-11-21 16:12:01.231   -- File entry --
+2026-11-21 16:12:01.231   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AppLifecycle.winmd
+2026-11-21 16:12:01.231   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.231   Installing the file.
+2026-11-21 16:12:01.232   Successfully installed the file.
+2026-11-21 16:12:01.232   -- File entry --
+2026-11-21 16:12:01.232   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AppNotifications.Builder.winmd
+2026-11-21 16:12:01.232   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.232   Installing the file.
+2026-11-21 16:12:01.233   Successfully installed the file.
+2026-11-21 16:12:01.233   -- File entry --
+2026-11-21 16:12:01.233   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.AppNotifications.winmd
+2026-11-21 16:12:01.233   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.233   Installing the file.
+2026-11-21 16:12:01.235   Successfully installed the file.
+2026-11-21 16:12:01.235   -- File entry --
+2026-11-21 16:12:01.235   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.BadgeNotifications.winmd
+2026-11-21 16:12:01.235   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.235   Installing the file.
+2026-11-21 16:12:01.236   Successfully installed the file.
+2026-11-21 16:12:01.236   -- File entry --
+2026-11-21 16:12:01.237   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Foundation.winmd
+2026-11-21 16:12:01.237   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.237   Installing the file.
+2026-11-21 16:12:01.237   Successfully installed the file.
+2026-11-21 16:12:01.237   -- File entry --
+2026-11-21 16:12:01.237   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Globalization.winmd
+2026-11-21 16:12:01.237   Time stamp of our file: 2026-11-11 03:56:54.000
+2026-11-21 16:12:01.237   Installing the file.
+2026-11-21 16:12:01.237   Successfully installed the file.
+2026-11-21 16:12:01.237   -- File entry --
+2026-11-21 16:12:01.238   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.ImageCreationInternal.winmd
+2026-11-21 16:12:01.238   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.238   Installing the file.
+2026-11-21 16:12:01.239   Successfully installed the file.
+2026-11-21 16:12:01.239   -- File entry --
+2026-11-21 16:12:01.239   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Internal.AI.ContentModeration.winmd
+2026-11-21 16:12:01.239   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.239   Installing the file.
+2026-11-21 16:12:01.241   Successfully installed the file.
+2026-11-21 16:12:01.241   -- File entry --
+2026-11-21 16:12:01.241   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Internal.AI.Generative.winmd
+2026-11-21 16:12:01.241   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.241   Installing the file.
+2026-11-21 16:12:01.241   Successfully installed the file.
+2026-11-21 16:12:01.241   -- File entry --
+2026-11-21 16:12:01.241   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Internal.ImageCreation.winmd
+2026-11-21 16:12:01.241   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.241   Installing the file.
+2026-11-21 16:12:01.243   Successfully installed the file.
+2026-11-21 16:12:01.243   -- File entry --
+2026-11-21 16:12:01.243   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Internal.SemanticSearch.winmd
+2026-11-21 16:12:01.243   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.243   Installing the file.
+2026-11-21 16:12:01.243   Successfully installed the file.
+2026-11-21 16:12:01.243   -- File entry --
+2026-11-21 16:12:01.243   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Internal.Vision.winmd
+2026-11-21 16:12:01.244   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.244   Installing the file.
+2026-11-21 16:12:01.245   Successfully installed the file.
+2026-11-21 16:12:01.245   -- File entry --
+2026-11-21 16:12:01.245   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Management.Deployment.winmd
+2026-11-21 16:12:01.245   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.245   Installing the file.
+2026-11-21 16:12:01.246   Successfully installed the file.
+2026-11-21 16:12:01.246   -- File entry --
+2026-11-21 16:12:01.247   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Media.Capture.winmd
+2026-11-21 16:12:01.247   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.247   Installing the file.
+2026-11-21 16:12:01.247   Successfully installed the file.
+2026-11-21 16:12:01.247   -- File entry --
+2026-11-21 16:12:01.248   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Private.Workloads.SessionManager.winmd
+2026-11-21 16:12:01.248   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.248   Installing the file.
+2026-11-21 16:12:01.251   Successfully installed the file.
+2026-11-21 16:12:01.251   -- File entry --
+2026-11-21 16:12:01.251   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.PrivateCommon.winmd
+2026-11-21 16:12:01.251   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.251   Installing the file.
+2026-11-21 16:12:01.252   Successfully installed the file.
+2026-11-21 16:12:01.252   -- File entry --
+2026-11-21 16:12:01.252   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.PushNotifications.winmd
+2026-11-21 16:12:01.252   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.252   Installing the file.
+2026-11-21 16:12:01.252   Successfully installed the file.
+2026-11-21 16:12:01.253   -- File entry --
+2026-11-21 16:12:01.253   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Search.dll
+2026-11-21 16:12:01.253   Time stamp of our file: 2026-11-11 07:02:32.000
+2026-11-21 16:12:01.253   Installing the file.
+2026-11-21 16:12:01.335   Successfully installed the file.
+2026-11-21 16:12:01.335   -- File entry --
+2026-11-21 16:12:01.335   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Search.winmd
+2026-11-21 16:12:01.336   Time stamp of our file: 2026-11-11 07:02:32.000
+2026-11-21 16:12:01.336   Installing the file.
+2026-11-21 16:12:01.337   Successfully installed the file.
+2026-11-21 16:12:01.337   -- File entry --
+2026-11-21 16:12:01.337   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Security.AccessControl.winmd
+2026-11-21 16:12:01.337   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.337   Installing the file.
+2026-11-21 16:12:01.337   Successfully installed the file.
+2026-11-21 16:12:01.337   -- File entry --
+2026-11-21 16:12:01.337   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.SemanticSearch.winmd
+2026-11-21 16:12:01.337   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.337   Installing the file.
+2026-11-21 16:12:01.338   Successfully installed the file.
+2026-11-21 16:12:01.338   -- File entry --
+2026-11-21 16:12:01.338   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.SemanticSearchInternal.winmd
+2026-11-21 16:12:01.338   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.338   Installing the file.
+2026-11-21 16:12:01.339   Successfully installed the file.
+2026-11-21 16:12:01.339   -- File entry --
+2026-11-21 16:12:01.339   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Storage.Pickers.winmd
+2026-11-21 16:12:01.339   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.339   Installing the file.
+2026-11-21 16:12:01.340   Successfully installed the file.
+2026-11-21 16:12:01.340   -- File entry --
+2026-11-21 16:12:01.340   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Storage.winmd
+2026-11-21 16:12:01.340   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.340   Installing the file.
+2026-11-21 16:12:01.341   Successfully installed the file.
+2026-11-21 16:12:01.341   -- File entry --
+2026-11-21 16:12:01.341   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.System.Power.winmd
+2026-11-21 16:12:01.341   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.341   Installing the file.
+2026-11-21 16:12:01.343   Successfully installed the file.
+2026-11-21 16:12:01.343   -- File entry --
+2026-11-21 16:12:01.343   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.System.winmd
+2026-11-21 16:12:01.344   Time stamp of our file: 2026-11-11 03:56:36.000
+2026-11-21 16:12:01.344   Installing the file.
+2026-11-21 16:12:01.344   Successfully installed the file.
+2026-11-21 16:12:01.345   -- File entry --
+2026-11-21 16:12:01.345   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Vision.winmd
+2026-11-21 16:12:01.345   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.345   Installing the file.
+2026-11-21 16:12:01.345   Successfully installed the file.
+2026-11-21 16:12:01.345   -- File entry --
+2026-11-21 16:12:01.345   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.VisionInternal.winmd
+2026-11-21 16:12:01.345   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.345   Installing the file.
+2026-11-21 16:12:01.346   Successfully installed the file.
+2026-11-21 16:12:01.346   -- File entry --
+2026-11-21 16:12:01.347   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Widgets.dll
+2026-11-21 16:12:01.347   Time stamp of our file: 2026-11-10 19:29:38.000
+2026-11-21 16:12:01.347   Installing the file.
+2026-11-21 16:12:01.376   Successfully installed the file.
+2026-11-21 16:12:01.376   -- File entry --
+2026-11-21 16:12:01.376   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Widgets.winmd
+2026-11-21 16:12:01.376   Time stamp of our file: 2026-11-10 19:29:34.000
+2026-11-21 16:12:01.376   Installing the file.
+2026-11-21 16:12:01.378   Successfully installed the file.
+2026-11-21 16:12:01.378   -- File entry --
+2026-11-21 16:12:01.378   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Workloads.dll
+2026-11-21 16:12:01.378   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.378   Installing the file.
+2026-11-21 16:12:01.385   Successfully installed the file.
+2026-11-21 16:12:01.385   -- File entry --
+2026-11-21 16:12:01.385   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Workloads.pri
+2026-11-21 16:12:01.385   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.385   Installing the file.
+2026-11-21 16:12:01.386   Successfully installed the file.
+2026-11-21 16:12:01.387   -- File entry --
+2026-11-21 16:12:01.387   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Workloads.Resources.dll
+2026-11-21 16:12:01.387   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.387   Installing the file.
+2026-11-21 16:12:01.389   Successfully installed the file.
+2026-11-21 16:12:01.389   -- File entry --
+2026-11-21 16:12:01.389   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Workloads.Resources_ec.dll
+2026-11-21 16:12:01.389   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.389   Installing the file.
+2026-11-21 16:12:01.391   Successfully installed the file.
+2026-11-21 16:12:01.391   -- File entry --
+2026-11-21 16:12:01.391   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.Windows.Workloads.winmd
+2026-11-21 16:12:01.391   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.391   Installing the file.
+2026-11-21 16:12:01.391   Successfully installed the file.
+2026-11-21 16:12:01.391   -- File entry --
+2026-11-21 16:12:01.391   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.WindowsAppRuntime.Bootstrap.dll
+2026-11-21 16:12:01.391   Time stamp of our file: 2026-11-11 03:55:48.000
+2026-11-21 16:12:01.391   Installing the file.
+2026-11-21 16:12:01.397   Successfully installed the file.
+2026-11-21 16:12:01.397   -- File entry --
+2026-11-21 16:12:01.397   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.WindowsAppRuntime.dll
+2026-11-21 16:12:01.397   Time stamp of our file: 2026-11-11 03:55:48.000
+2026-11-21 16:12:01.397   Installing the file.
+2026-11-21 16:12:01.436   Successfully installed the file.
+2026-11-21 16:12:01.436   -- File entry --
+2026-11-21 16:12:01.437   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.WindowsAppRuntime.pri
+2026-11-21 16:12:01.437   Time stamp of our file: 2026-11-11 03:55:48.000
+2026-11-21 16:12:01.437   Installing the file.
+2026-11-21 16:12:01.437   Successfully installed the file.
+2026-11-21 16:12:01.437   -- File entry --
+2026-11-21 16:12:01.438   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\MRM.dll
+2026-11-21 16:12:01.438   Time stamp of our file: 2026-11-11 03:56:52.000
+2026-11-21 16:12:01.438   Installing the file.
+2026-11-21 16:12:01.443   Successfully installed the file.
+2026-11-21 16:12:01.443   -- File entry --
+2026-11-21 16:12:01.444   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\NPUDetect.dll
+2026-11-21 16:12:01.444   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.444   Installing the file.
+2026-11-21 16:12:01.449   Successfully installed the file.
+2026-11-21 16:12:01.449   -- File entry --
+2026-11-21 16:12:01.449   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\onnxruntime.dll
+2026-11-21 16:12:01.449   Time stamp of our file: 2026-10-23 21:04:04.000
+2026-11-21 16:12:01.449   Installing the file.
+2026-11-21 16:12:01.798   Successfully installed the file.
+2026-11-21 16:12:01.798   -- File entry --
+2026-11-21 16:12:01.798   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\PerceptiveStreaming.dll
+2026-11-21 16:12:01.798   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.798   Installing the file.
+2026-11-21 16:12:01.821   Successfully installed the file.
+2026-11-21 16:12:01.821   -- File entry --
+2026-11-21 16:12:01.821   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\PipelineCheck.exe
+2026-11-21 16:12:01.821   Time stamp of our file: 2026-11-21 16:11:20.000
+2026-11-21 16:12:01.823   Installing the file.
+2026-11-21 16:12:01.932   Successfully installed the file.
+2026-11-21 16:12:01.932   -- File entry --
+2026-11-21 16:12:01.932   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\PipelineCheck.pri
+2026-11-21 16:12:01.932   Time stamp of our file: 2026-11-21 16:11:08.000
+2026-11-21 16:12:01.932   Installing the file.
+2026-11-21 16:12:01.959   Successfully installed the file.
+2026-11-21 16:12:01.959   -- File entry --
+2026-11-21 16:12:01.959   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\PushNotificationsLongRunningTask.ProxyStub.dll
+2026-11-21 16:12:01.959   Time stamp of our file: 2026-11-11 03:55:40.000
+2026-11-21 16:12:01.959   Installing the file.
+2026-11-21 16:12:01.961   Successfully installed the file.
+2026-11-21 16:12:01.961   -- File entry --
+2026-11-21 16:12:01.961   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\RestartAgent.exe
+2026-11-21 16:12:01.961   Time stamp of our file: 2026-11-11 03:55:36.000
+2026-11-21 16:12:01.961   Installing the file.
+2026-11-21 16:12:01.963   Successfully installed the file.
+2026-11-21 16:12:01.963   -- File entry --
+2026-11-21 16:12:01.963   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\SessionHandleIPCProxyStub.dll
+2026-11-21 16:12:01.963   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:01.963   Installing the file.
+2026-11-21 16:12:01.963   Successfully installed the file.
+2026-11-21 16:12:01.963   -- File entry --
+2026-11-21 16:12:01.963   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\WebView2Loader.dll
+2026-11-21 16:12:01.963   Time stamp of our file: 2026-01-14 10:12:50.000
+2026-11-21 16:12:01.963   Installing the file.
+2026-11-21 16:12:01.967   Successfully installed the file.
+2026-11-21 16:12:01.967   -- File entry --
+2026-11-21 16:12:01.967   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\WinUIEdit.dll
+2026-11-21 16:12:01.967   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:01.967   Installing the file.
+2026-11-21 16:12:02.085   Successfully installed the file.
+2026-11-21 16:12:02.085   -- File entry --
+2026-11-21 16:12:02.085   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\workloads.365.json
+2026-11-21 16:12:02.085   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:02.085   Installing the file.
+2026-11-21 16:12:02.087   Successfully installed the file.
+2026-11-21 16:12:02.087   -- File entry --
+2026-11-21 16:12:02.087   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\workloads.cpg.json
+2026-11-21 16:12:02.087   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:02.087   Installing the file.
+2026-11-21 16:12:02.087   Successfully installed the file.
+2026-11-21 16:12:02.087   -- File entry --
+2026-11-21 16:12:02.087   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\workloads.j32.json
+2026-11-21 16:12:02.087   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:02.087   Installing the file.
+2026-11-21 16:12:02.089   Successfully installed the file.
+2026-11-21 16:12:02.089   -- File entry --
+2026-11-21 16:12:02.089   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\workloads.json
+2026-11-21 16:12:02.089   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:02.089   Installing the file.
+2026-11-21 16:12:02.089   Successfully installed the file.
+2026-11-21 16:12:02.089   -- File entry --
+2026-11-21 16:12:02.089   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\workloads.lnl.json
+2026-11-21 16:12:02.089   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:02.089   Installing the file.
+2026-11-21 16:12:02.089   Successfully installed the file.
+2026-11-21 16:12:02.089   -- File entry --
+2026-11-21 16:12:02.089   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\workloads.qnn.json
+2026-11-21 16:12:02.089   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:02.089   Installing the file.
+2026-11-21 16:12:02.091   Successfully installed the file.
+2026-11-21 16:12:02.091   -- File entry --
+2026-11-21 16:12:02.091   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\workloads.stx.json
+2026-11-21 16:12:02.091   Time stamp of our file: 2026-11-11 05:34:18.000
+2026-11-21 16:12:02.091   Installing the file.
+2026-11-21 16:12:02.091   Successfully installed the file.
+2026-11-21 16:12:02.091   -- File entry --
+2026-11-21 16:12:02.091   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\wuceffectsi.dll
+2026-11-21 16:12:02.091   Time stamp of our file: 2026-11-10 23:24:38.000
+2026-11-21 16:12:02.091   Installing the file.
+2026-11-21 16:12:02.101   Successfully installed the file.
+2026-11-21 16:12:02.101   -- File entry --
+2026-11-21 16:12:02.101   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\af-ZA\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.101   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.101   Installing the file.
+2026-11-21 16:12:02.101   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\af-ZA
+2026-11-21 16:12:02.103   Successfully installed the file.
+2026-11-21 16:12:02.103   -- File entry --
+2026-11-21 16:12:02.103   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\af-ZA\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.103   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.103   Installing the file.
+2026-11-21 16:12:02.103   Successfully installed the file.
+2026-11-21 16:12:02.103   -- File entry --
+2026-11-21 16:12:02.103   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\am-ET\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.103   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.103   Installing the file.
+2026-11-21 16:12:02.103   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\am-ET
+2026-11-21 16:12:02.105   Successfully installed the file.
+2026-11-21 16:12:02.105   -- File entry --
+2026-11-21 16:12:02.105   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\am-ET\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.105   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.105   Installing the file.
+2026-11-21 16:12:02.105   Successfully installed the file.
+2026-11-21 16:12:02.105   -- File entry --
+2026-11-21 16:12:02.105   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ar-SA\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.105   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.105   Installing the file.
+2026-11-21 16:12:02.105   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ar-SA
+2026-11-21 16:12:02.107   Successfully installed the file.
+2026-11-21 16:12:02.107   -- File entry --
+2026-11-21 16:12:02.107   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ar-SA\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.107   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.107   Installing the file.
+2026-11-21 16:12:02.107   Successfully installed the file.
+2026-11-21 16:12:02.107   -- File entry --
+2026-11-21 16:12:02.107   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\as-IN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.107   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.107   Installing the file.
+2026-11-21 16:12:02.107   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\as-IN
+2026-11-21 16:12:02.109   Successfully installed the file.
+2026-11-21 16:12:02.109   -- File entry --
+2026-11-21 16:12:02.109   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\as-IN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.109   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.109   Installing the file.
+2026-11-21 16:12:02.109   Successfully installed the file.
+2026-11-21 16:12:02.109   -- File entry --
+2026-11-21 16:12:02.109   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Assets\AppIcon.ico
+2026-11-21 16:12:02.109   Time stamp of our file: 2026-11-21 16:09:16.000
+2026-11-21 16:12:02.109   Installing the file.
+2026-11-21 16:12:02.109   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Assets
+2026-11-21 16:12:02.109   Successfully installed the file.
+2026-11-21 16:12:02.109   -- File entry --
+2026-11-21 16:12:02.111   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\az-Latn-AZ\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.111   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.111   Installing the file.
+2026-11-21 16:12:02.111   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\az-Latn-AZ
+2026-11-21 16:12:02.111   Successfully installed the file.
+2026-11-21 16:12:02.111   -- File entry --
+2026-11-21 16:12:02.111   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\az-Latn-AZ\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.111   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.111   Installing the file.
+2026-11-21 16:12:02.111   Successfully installed the file.
+2026-11-21 16:12:02.111   -- File entry --
+2026-11-21 16:12:02.111   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\bg-BG\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.111   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.111   Installing the file.
+2026-11-21 16:12:02.113   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\bg-BG
+2026-11-21 16:12:02.113   Successfully installed the file.
+2026-11-21 16:12:02.113   -- File entry --
+2026-11-21 16:12:02.113   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\bg-BG\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.113   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.113   Installing the file.
+2026-11-21 16:12:02.113   Successfully installed the file.
+2026-11-21 16:12:02.115   -- File entry --
+2026-11-21 16:12:02.115   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\bn-IN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.115   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.115   Installing the file.
+2026-11-21 16:12:02.115   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\bn-IN
+2026-11-21 16:12:02.115   Successfully installed the file.
+2026-11-21 16:12:02.115   -- File entry --
+2026-11-21 16:12:02.115   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\bn-IN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.115   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.115   Installing the file.
+2026-11-21 16:12:02.115   Successfully installed the file.
+2026-11-21 16:12:02.115   -- File entry --
+2026-11-21 16:12:02.117   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\bs-Latn-BA\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.117   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.117   Installing the file.
+2026-11-21 16:12:02.117   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\bs-Latn-BA
+2026-11-21 16:12:02.117   Successfully installed the file.
+2026-11-21 16:12:02.117   -- File entry --
+2026-11-21 16:12:02.117   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\bs-Latn-BA\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.117   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.117   Installing the file.
+2026-11-21 16:12:02.117   Successfully installed the file.
+2026-11-21 16:12:02.117   -- File entry --
+2026-11-21 16:12:02.117   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ca-ES\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.119   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.119   Installing the file.
+2026-11-21 16:12:02.119   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ca-ES
+2026-11-21 16:12:02.119   Successfully installed the file.
+2026-11-21 16:12:02.119   -- File entry --
+2026-11-21 16:12:02.119   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ca-ES\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.119   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.119   Installing the file.
+2026-11-21 16:12:02.119   Successfully installed the file.
+2026-11-21 16:12:02.119   -- File entry --
+2026-11-21 16:12:02.119   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ca-Es-VALENCIA\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.119   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.119   Installing the file.
+2026-11-21 16:12:02.121   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ca-Es-VALENCIA
+2026-11-21 16:12:02.121   Successfully installed the file.
+2026-11-21 16:12:02.121   -- File entry --
+2026-11-21 16:12:02.121   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ca-Es-VALENCIA\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.121   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.121   Installing the file.
+2026-11-21 16:12:02.121   Successfully installed the file.
+2026-11-21 16:12:02.121   -- File entry --
+2026-11-21 16:12:02.121   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\cs-CZ\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.121   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.121   Installing the file.
+2026-11-21 16:12:02.121   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\cs-CZ
+2026-11-21 16:12:02.123   Successfully installed the file.
+2026-11-21 16:12:02.123   -- File entry --
+2026-11-21 16:12:02.124   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\cs-CZ\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.124   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.124   Installing the file.
+2026-11-21 16:12:02.124   Successfully installed the file.
+2026-11-21 16:12:02.124   -- File entry --
+2026-11-21 16:12:02.124   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\cy-GB\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.124   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.124   Installing the file.
+2026-11-21 16:12:02.124   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\cy-GB
+2026-11-21 16:12:02.125   Successfully installed the file.
+2026-11-21 16:12:02.125   -- File entry --
+2026-11-21 16:12:02.125   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\cy-GB\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.125   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.125   Installing the file.
+2026-11-21 16:12:02.126   Successfully installed the file.
+2026-11-21 16:12:02.126   -- File entry --
+2026-11-21 16:12:02.126   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\da-DK\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.126   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.126   Installing the file.
+2026-11-21 16:12:02.126   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\da-DK
+2026-11-21 16:12:02.127   Successfully installed the file.
+2026-11-21 16:12:02.127   -- File entry --
+2026-11-21 16:12:02.127   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\da-DK\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.127   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.127   Installing the file.
+2026-11-21 16:12:02.128   Successfully installed the file.
+2026-11-21 16:12:02.128   -- File entry --
+2026-11-21 16:12:02.128   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\de-DE\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.128   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.128   Installing the file.
+2026-11-21 16:12:02.128   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\de-DE
+2026-11-21 16:12:02.129   Successfully installed the file.
+2026-11-21 16:12:02.129   -- File entry --
+2026-11-21 16:12:02.129   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\de-DE\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.129   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.129   Installing the file.
+2026-11-21 16:12:02.130   Successfully installed the file.
+2026-11-21 16:12:02.130   -- File entry --
+2026-11-21 16:12:02.130   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\el-GR\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.130   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.130   Installing the file.
+2026-11-21 16:12:02.130   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\el-GR
+2026-11-21 16:12:02.131   Successfully installed the file.
+2026-11-21 16:12:02.131   -- File entry --
+2026-11-21 16:12:02.131   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\el-GR\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.131   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.131   Installing the file.
+2026-11-21 16:12:02.131   Successfully installed the file.
+2026-11-21 16:12:02.131   -- File entry --
+2026-11-21 16:12:02.131   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\en-GB\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.132   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.132   Installing the file.
+2026-11-21 16:12:02.132   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\en-GB
+2026-11-21 16:12:02.136   Successfully installed the file.
+2026-11-21 16:12:02.136   -- File entry --
+2026-11-21 16:12:02.136   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\en-GB\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.137   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.137   Installing the file.
+2026-11-21 16:12:02.137   Successfully installed the file.
+2026-11-21 16:12:02.137   -- File entry --
+2026-11-21 16:12:02.137   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\en-us\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.137   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.137   Installing the file.
+2026-11-21 16:12:02.137   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\en-us
+2026-11-21 16:12:02.138   Successfully installed the file.
+2026-11-21 16:12:02.138   -- File entry --
+2026-11-21 16:12:02.138   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\en-us\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.139   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.139   Installing the file.
+2026-11-21 16:12:02.139   Successfully installed the file.
+2026-11-21 16:12:02.139   -- File entry --
+2026-11-21 16:12:02.139   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\es-ES\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.139   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.139   Installing the file.
+2026-11-21 16:12:02.140   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\es-ES
+2026-11-21 16:12:02.179   Successfully installed the file.
+2026-11-21 16:12:02.180   -- File entry --
+2026-11-21 16:12:02.180   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\es-ES\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.180   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.180   Installing the file.
+2026-11-21 16:12:02.180   Successfully installed the file.
+2026-11-21 16:12:02.180   -- File entry --
+2026-11-21 16:12:02.180   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\es-MX\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.180   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.180   Installing the file.
+2026-11-21 16:12:02.180   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\es-MX
+2026-11-21 16:12:02.182   Successfully installed the file.
+2026-11-21 16:12:02.182   -- File entry --
+2026-11-21 16:12:02.182   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\es-MX\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.182   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.182   Installing the file.
+2026-11-21 16:12:02.182   Successfully installed the file.
+2026-11-21 16:12:02.182   -- File entry --
+2026-11-21 16:12:02.182   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\et-EE\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.182   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.182   Installing the file.
+2026-11-21 16:12:02.182   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\et-EE
+2026-11-21 16:12:02.184   Successfully installed the file.
+2026-11-21 16:12:02.184   -- File entry --
+2026-11-21 16:12:02.184   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\et-EE\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.184   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.184   Installing the file.
+2026-11-21 16:12:02.184   Successfully installed the file.
+2026-11-21 16:12:02.184   -- File entry --
+2026-11-21 16:12:02.184   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\eu-ES\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.184   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.184   Installing the file.
+2026-11-21 16:12:02.184   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\eu-ES
+2026-11-21 16:12:02.186   Successfully installed the file.
+2026-11-21 16:12:02.186   -- File entry --
+2026-11-21 16:12:02.186   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\eu-ES\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.186   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.186   Installing the file.
+2026-11-21 16:12:02.186   Successfully installed the file.
+2026-11-21 16:12:02.186   -- File entry --
+2026-11-21 16:12:02.186   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fa-IR\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.187   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.187   Installing the file.
+2026-11-21 16:12:02.187   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fa-IR
+2026-11-21 16:12:02.188   Successfully installed the file.
+2026-11-21 16:12:02.188   -- File entry --
+2026-11-21 16:12:02.188   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fa-IR\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.188   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.188   Installing the file.
+2026-11-21 16:12:02.188   Successfully installed the file.
+2026-11-21 16:12:02.188   -- File entry --
+2026-11-21 16:12:02.188   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fi-FI\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.188   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.188   Installing the file.
+2026-11-21 16:12:02.189   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fi-FI
+2026-11-21 16:12:02.190   Successfully installed the file.
+2026-11-21 16:12:02.190   -- File entry --
+2026-11-21 16:12:02.190   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fi-FI\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.190   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.190   Installing the file.
+2026-11-21 16:12:02.190   Successfully installed the file.
+2026-11-21 16:12:02.190   -- File entry --
+2026-11-21 16:12:02.191   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fil-PH\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.191   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.191   Installing the file.
+2026-11-21 16:12:02.191   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fil-PH
+2026-11-21 16:12:02.192   Successfully installed the file.
+2026-11-21 16:12:02.192   -- File entry --
+2026-11-21 16:12:02.192   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fil-PH\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.192   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.192   Installing the file.
+2026-11-21 16:12:02.192   Successfully installed the file.
+2026-11-21 16:12:02.192   -- File entry --
+2026-11-21 16:12:02.192   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fr-CA\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.192   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.193   Installing the file.
+2026-11-21 16:12:02.193   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fr-CA
+2026-11-21 16:12:02.193   Successfully installed the file.
+2026-11-21 16:12:02.193   -- File entry --
+2026-11-21 16:12:02.193   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fr-CA\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.193   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.193   Installing the file.
+2026-11-21 16:12:02.241   Successfully installed the file.
+2026-11-21 16:12:02.241   -- File entry --
+2026-11-21 16:12:02.241   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fr-FR\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.241   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.241   Installing the file.
+2026-11-21 16:12:02.241   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fr-FR
+2026-11-21 16:12:02.242   Successfully installed the file.
+2026-11-21 16:12:02.242   -- File entry --
+2026-11-21 16:12:02.242   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\fr-FR\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.242   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.242   Installing the file.
+2026-11-21 16:12:02.243   Successfully installed the file.
+2026-11-21 16:12:02.243   -- File entry --
+2026-11-21 16:12:02.243   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ga-IE\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.243   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.243   Installing the file.
+2026-11-21 16:12:02.243   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ga-IE
+2026-11-21 16:12:02.244   Successfully installed the file.
+2026-11-21 16:12:02.244   -- File entry --
+2026-11-21 16:12:02.244   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ga-IE\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.244   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.244   Installing the file.
+2026-11-21 16:12:02.245   Successfully installed the file.
+2026-11-21 16:12:02.245   -- File entry --
+2026-11-21 16:12:02.245   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\gd-gb\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.245   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.245   Installing the file.
+2026-11-21 16:12:02.245   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\gd-gb
+2026-11-21 16:12:02.246   Successfully installed the file.
+2026-11-21 16:12:02.246   -- File entry --
+2026-11-21 16:12:02.246   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\gd-gb\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.246   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.246   Installing the file.
+2026-11-21 16:12:02.247   Successfully installed the file.
+2026-11-21 16:12:02.247   -- File entry --
+2026-11-21 16:12:02.247   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\gl-ES\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.247   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.247   Installing the file.
+2026-11-21 16:12:02.247   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\gl-ES
+2026-11-21 16:12:02.248   Successfully installed the file.
+2026-11-21 16:12:02.248   -- File entry --
+2026-11-21 16:12:02.248   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\gl-ES\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.248   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.248   Installing the file.
+2026-11-21 16:12:02.249   Successfully installed the file.
+2026-11-21 16:12:02.249   -- File entry --
+2026-11-21 16:12:02.249   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\gu-IN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.249   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.249   Installing the file.
+2026-11-21 16:12:02.249   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\gu-IN
+2026-11-21 16:12:02.250   Successfully installed the file.
+2026-11-21 16:12:02.250   -- File entry --
+2026-11-21 16:12:02.250   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\gu-IN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.250   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.250   Installing the file.
+2026-11-21 16:12:02.251   Successfully installed the file.
+2026-11-21 16:12:02.251   -- File entry --
+2026-11-21 16:12:02.251   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\he-IL\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.251   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.251   Installing the file.
+2026-11-21 16:12:02.251   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\he-IL
+2026-11-21 16:12:02.252   Successfully installed the file.
+2026-11-21 16:12:02.252   -- File entry --
+2026-11-21 16:12:02.252   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\he-IL\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.252   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.252   Installing the file.
+2026-11-21 16:12:02.253   Successfully installed the file.
+2026-11-21 16:12:02.253   -- File entry --
+2026-11-21 16:12:02.253   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\hi-IN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.253   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.253   Installing the file.
+2026-11-21 16:12:02.253   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\hi-IN
+2026-11-21 16:12:02.254   Successfully installed the file.
+2026-11-21 16:12:02.254   -- File entry --
+2026-11-21 16:12:02.254   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\hi-IN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.254   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.254   Installing the file.
+2026-11-21 16:12:02.255   Successfully installed the file.
+2026-11-21 16:12:02.255   -- File entry --
+2026-11-21 16:12:02.255   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\hr-HR\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.255   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.255   Installing the file.
+2026-11-21 16:12:02.255   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\hr-HR
+2026-11-21 16:12:02.256   Successfully installed the file.
+2026-11-21 16:12:02.256   -- File entry --
+2026-11-21 16:12:02.256   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\hr-HR\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.256   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.256   Installing the file.
+2026-11-21 16:12:02.256   Successfully installed the file.
+2026-11-21 16:12:02.256   -- File entry --
+2026-11-21 16:12:02.256   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\hu-HU\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.256   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.256   Installing the file.
+2026-11-21 16:12:02.256   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\hu-HU
+2026-11-21 16:12:02.258   Successfully installed the file.
+2026-11-21 16:12:02.258   -- File entry --
+2026-11-21 16:12:02.258   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\hu-HU\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.258   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.258   Installing the file.
+2026-11-21 16:12:02.258   Successfully installed the file.
+2026-11-21 16:12:02.258   -- File entry --
+2026-11-21 16:12:02.258   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\hy-AM\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.258   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.258   Installing the file.
+2026-11-21 16:12:02.258   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\hy-AM
+2026-11-21 16:12:02.260   Successfully installed the file.
+2026-11-21 16:12:02.260   -- File entry --
+2026-11-21 16:12:02.260   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\hy-AM\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.260   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.260   Installing the file.
+2026-11-21 16:12:02.260   Successfully installed the file.
+2026-11-21 16:12:02.260   -- File entry --
+2026-11-21 16:12:02.260   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\id-ID\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.260   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.260   Installing the file.
+2026-11-21 16:12:02.260   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\id-ID
+2026-11-21 16:12:02.262   Successfully installed the file.
+2026-11-21 16:12:02.262   -- File entry --
+2026-11-21 16:12:02.262   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\id-ID\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.262   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.262   Installing the file.
+2026-11-21 16:12:02.262   Successfully installed the file.
+2026-11-21 16:12:02.262   -- File entry --
+2026-11-21 16:12:02.262   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\is-IS\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.262   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.262   Installing the file.
+2026-11-21 16:12:02.262   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\is-IS
+2026-11-21 16:12:02.264   Successfully installed the file.
+2026-11-21 16:12:02.264   -- File entry --
+2026-11-21 16:12:02.264   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\is-IS\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.264   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.264   Installing the file.
+2026-11-21 16:12:02.264   Successfully installed the file.
+2026-11-21 16:12:02.264   -- File entry --
+2026-11-21 16:12:02.264   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\it-IT\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.264   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.264   Installing the file.
+2026-11-21 16:12:02.264   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\it-IT
+2026-11-21 16:12:02.448   Successfully installed the file.
+2026-11-21 16:12:02.448   -- File entry --
+2026-11-21 16:12:02.448   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\it-IT\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.448   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.448   Installing the file.
+2026-11-21 16:12:02.449   Successfully installed the file.
+2026-11-21 16:12:02.449   -- File entry --
+2026-11-21 16:12:02.449   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ja-JP\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.450   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.450   Installing the file.
+2026-11-21 16:12:02.450   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ja-JP
+2026-11-21 16:12:02.450   Successfully installed the file.
+2026-11-21 16:12:02.450   -- File entry --
+2026-11-21 16:12:02.450   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ja-JP\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.450   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.450   Installing the file.
+2026-11-21 16:12:02.451   Successfully installed the file.
+2026-11-21 16:12:02.451   -- File entry --
+2026-11-21 16:12:02.451   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ka-GE\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.451   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.451   Installing the file.
+2026-11-21 16:12:02.451   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ka-GE
+2026-11-21 16:12:02.452   Successfully installed the file.
+2026-11-21 16:12:02.452   -- File entry --
+2026-11-21 16:12:02.452   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ka-GE\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.452   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.452   Installing the file.
+2026-11-21 16:12:02.453   Successfully installed the file.
+2026-11-21 16:12:02.453   -- File entry --
+2026-11-21 16:12:02.453   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\kk-KZ\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.453   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.453   Installing the file.
+2026-11-21 16:12:02.453   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\kk-KZ
+2026-11-21 16:12:02.454   Successfully installed the file.
+2026-11-21 16:12:02.454   -- File entry --
+2026-11-21 16:12:02.454   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\kk-KZ\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.454   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.454   Installing the file.
+2026-11-21 16:12:02.455   Successfully installed the file.
+2026-11-21 16:12:02.455   -- File entry --
+2026-11-21 16:12:02.455   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\km-KH\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.455   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.455   Installing the file.
+2026-11-21 16:12:02.455   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\km-KH
+2026-11-21 16:12:02.456   Successfully installed the file.
+2026-11-21 16:12:02.456   -- File entry --
+2026-11-21 16:12:02.456   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\km-KH\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.456   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.456   Installing the file.
+2026-11-21 16:12:02.457   Successfully installed the file.
+2026-11-21 16:12:02.457   -- File entry --
+2026-11-21 16:12:02.457   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\kn-IN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.457   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.457   Installing the file.
+2026-11-21 16:12:02.457   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\kn-IN
+2026-11-21 16:12:02.458   Successfully installed the file.
+2026-11-21 16:12:02.458   -- File entry --
+2026-11-21 16:12:02.458   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\kn-IN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.458   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.458   Installing the file.
+2026-11-21 16:12:02.459   Successfully installed the file.
+2026-11-21 16:12:02.459   -- File entry --
+2026-11-21 16:12:02.459   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ko-KR\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.459   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.459   Installing the file.
+2026-11-21 16:12:02.459   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ko-KR
+2026-11-21 16:12:02.459   Successfully installed the file.
+2026-11-21 16:12:02.459   -- File entry --
+2026-11-21 16:12:02.459   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ko-KR\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.459   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.459   Installing the file.
+2026-11-21 16:12:02.459   Successfully installed the file.
+2026-11-21 16:12:02.459   -- File entry --
+2026-11-21 16:12:02.461   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\kok-IN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.461   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.461   Installing the file.
+2026-11-21 16:12:02.461   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\kok-IN
+2026-11-21 16:12:02.462   Successfully installed the file.
+2026-11-21 16:12:02.462   -- File entry --
+2026-11-21 16:12:02.462   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\kok-IN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.462   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.462   Installing the file.
+2026-11-21 16:12:02.462   Successfully installed the file.
+2026-11-21 16:12:02.462   -- File entry --
+2026-11-21 16:12:02.462   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\lb-LU\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.463   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.463   Installing the file.
+2026-11-21 16:12:02.463   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\lb-LU
+2026-11-21 16:12:02.464   Successfully installed the file.
+2026-11-21 16:12:02.464   -- File entry --
+2026-11-21 16:12:02.464   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\lb-LU\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.464   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.464   Installing the file.
+2026-11-21 16:12:02.464   Successfully installed the file.
+2026-11-21 16:12:02.464   -- File entry --
+2026-11-21 16:12:02.464   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\lo-LA\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.464   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.464   Installing the file.
+2026-11-21 16:12:02.464   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\lo-LA
+2026-11-21 16:12:02.465   Successfully installed the file.
+2026-11-21 16:12:02.465   -- File entry --
+2026-11-21 16:12:02.466   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\lo-LA\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.466   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.466   Installing the file.
+2026-11-21 16:12:02.466   Successfully installed the file.
+2026-11-21 16:12:02.466   -- File entry --
+2026-11-21 16:12:02.466   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\lt-LT\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.466   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.466   Installing the file.
+2026-11-21 16:12:02.466   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\lt-LT
+2026-11-21 16:12:02.467   Successfully installed the file.
+2026-11-21 16:12:02.467   -- File entry --
+2026-11-21 16:12:02.467   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\lt-LT\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.467   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.467   Installing the file.
+2026-11-21 16:12:02.468   Successfully installed the file.
+2026-11-21 16:12:02.468   -- File entry --
+2026-11-21 16:12:02.468   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\lv-LV\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.468   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.468   Installing the file.
+2026-11-21 16:12:02.468   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\lv-LV
+2026-11-21 16:12:02.469   Successfully installed the file.
+2026-11-21 16:12:02.469   -- File entry --
+2026-11-21 16:12:02.469   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\lv-LV\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.469   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.469   Installing the file.
+2026-11-21 16:12:02.470   Successfully installed the file.
+2026-11-21 16:12:02.470   -- File entry --
+2026-11-21 16:12:02.470   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\mi-NZ\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.470   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.470   Installing the file.
+2026-11-21 16:12:02.470   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\mi-NZ
+2026-11-21 16:12:02.471   Successfully installed the file.
+2026-11-21 16:12:02.471   -- File entry --
+2026-11-21 16:12:02.471   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\mi-NZ\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.471   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.471   Installing the file.
+2026-11-21 16:12:02.472   Successfully installed the file.
+2026-11-21 16:12:02.472   -- File entry --
+2026-11-21 16:12:02.472   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Xaml\Assets\map.html
+2026-11-21 16:12:02.472   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.472   Installing the file.
+2026-11-21 16:12:02.472   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Xaml
+2026-11-21 16:12:02.472   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Xaml\Assets
+2026-11-21 16:12:02.473   Successfully installed the file.
+2026-11-21 16:12:02.473   -- File entry --
+2026-11-21 16:12:02.473   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\Microsoft.UI.Xaml\Assets\NoiseAsset_256x256_PNG.png
+2026-11-21 16:12:02.473   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.473   Installing the file.
+2026-11-21 16:12:02.474   Successfully installed the file.
+2026-11-21 16:12:02.474   -- File entry --
+2026-11-21 16:12:02.474   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\mk-MK\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.474   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.474   Installing the file.
+2026-11-21 16:12:02.474   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\mk-MK
+2026-11-21 16:12:02.475   Successfully installed the file.
+2026-11-21 16:12:02.475   -- File entry --
+2026-11-21 16:12:02.475   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\mk-MK\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.475   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.475   Installing the file.
+2026-11-21 16:12:02.476   Successfully installed the file.
+2026-11-21 16:12:02.476   -- File entry --
+2026-11-21 16:12:02.476   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ml-IN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.476   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.476   Installing the file.
+2026-11-21 16:12:02.476   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ml-IN
+2026-11-21 16:12:02.477   Successfully installed the file.
+2026-11-21 16:12:02.477   -- File entry --
+2026-11-21 16:12:02.477   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ml-IN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.477   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.477   Installing the file.
+2026-11-21 16:12:02.478   Successfully installed the file.
+2026-11-21 16:12:02.478   -- File entry --
+2026-11-21 16:12:02.478   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\mr-IN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.478   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.478   Installing the file.
+2026-11-21 16:12:02.478   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\mr-IN
+2026-11-21 16:12:02.479   Successfully installed the file.
+2026-11-21 16:12:02.479   -- File entry --
+2026-11-21 16:12:02.479   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\mr-IN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.479   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.479   Installing the file.
+2026-11-21 16:12:02.480   Successfully installed the file.
+2026-11-21 16:12:02.480   -- File entry --
+2026-11-21 16:12:02.480   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ms-MY\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.480   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.480   Installing the file.
+2026-11-21 16:12:02.480   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ms-MY
+2026-11-21 16:12:02.481   Successfully installed the file.
+2026-11-21 16:12:02.481   -- File entry --
+2026-11-21 16:12:02.481   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ms-MY\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.481   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.481   Installing the file.
+2026-11-21 16:12:02.481   Successfully installed the file.
+2026-11-21 16:12:02.482   -- File entry --
+2026-11-21 16:12:02.482   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\mt-MT\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.482   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.482   Installing the file.
+2026-11-21 16:12:02.482   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\mt-MT
+2026-11-21 16:12:02.483   Successfully installed the file.
+2026-11-21 16:12:02.483   -- File entry --
+2026-11-21 16:12:02.483   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\mt-MT\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.483   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.483   Installing the file.
+2026-11-21 16:12:02.483   Successfully installed the file.
+2026-11-21 16:12:02.483   -- File entry --
+2026-11-21 16:12:02.484   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\nb-NO\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.484   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.484   Installing the file.
+2026-11-21 16:12:02.484   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\nb-NO
+2026-11-21 16:12:02.485   Successfully installed the file.
+2026-11-21 16:12:02.485   -- File entry --
+2026-11-21 16:12:02.485   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\nb-NO\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.485   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.485   Installing the file.
+2026-11-21 16:12:02.485   Successfully installed the file.
+2026-11-21 16:12:02.485   -- File entry --
+2026-11-21 16:12:02.485   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ne-NP\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.485   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.485   Installing the file.
+2026-11-21 16:12:02.485   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ne-NP
+2026-11-21 16:12:02.486   Successfully installed the file.
+2026-11-21 16:12:02.486   -- File entry --
+2026-11-21 16:12:02.487   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ne-NP\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.487   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.487   Installing the file.
+2026-11-21 16:12:02.487   Successfully installed the file.
+2026-11-21 16:12:02.487   -- File entry --
+2026-11-21 16:12:02.487   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\nl-NL\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.487   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.487   Installing the file.
+2026-11-21 16:12:02.487   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\nl-NL
+2026-11-21 16:12:02.488   Successfully installed the file.
+2026-11-21 16:12:02.488   -- File entry --
+2026-11-21 16:12:02.488   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\nl-NL\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.488   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.488   Installing the file.
+2026-11-21 16:12:02.489   Successfully installed the file.
+2026-11-21 16:12:02.489   -- File entry --
+2026-11-21 16:12:02.489   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\nn-NO\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.489   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.489   Installing the file.
+2026-11-21 16:12:02.489   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\nn-NO
+2026-11-21 16:12:02.491   Successfully installed the file.
+2026-11-21 16:12:02.491   -- File entry --
+2026-11-21 16:12:02.491   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\nn-NO\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.491   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.491   Installing the file.
+2026-11-21 16:12:02.491   Successfully installed the file.
+2026-11-21 16:12:02.491   -- File entry --
+2026-11-21 16:12:02.491   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\or-IN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.491   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.491   Installing the file.
+2026-11-21 16:12:02.491   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\or-IN
+2026-11-21 16:12:02.492   Successfully installed the file.
+2026-11-21 16:12:02.492   -- File entry --
+2026-11-21 16:12:02.492   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\or-IN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.493   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.493   Installing the file.
+2026-11-21 16:12:02.493   Successfully installed the file.
+2026-11-21 16:12:02.493   -- File entry --
+2026-11-21 16:12:02.493   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\pa-IN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.493   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.493   Installing the file.
+2026-11-21 16:12:02.493   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\pa-IN
+2026-11-21 16:12:02.494   Successfully installed the file.
+2026-11-21 16:12:02.494   -- File entry --
+2026-11-21 16:12:02.494   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\pa-IN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.494   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.494   Installing the file.
+2026-11-21 16:12:02.495   Successfully installed the file.
+2026-11-21 16:12:02.495   -- File entry --
+2026-11-21 16:12:02.495   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\pl-PL\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.495   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.495   Installing the file.
+2026-11-21 16:12:02.495   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\pl-PL
+2026-11-21 16:12:02.496   Successfully installed the file.
+2026-11-21 16:12:02.496   -- File entry --
+2026-11-21 16:12:02.496   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\pl-PL\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.496   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.496   Installing the file.
+2026-11-21 16:12:02.497   Successfully installed the file.
+2026-11-21 16:12:02.497   -- File entry --
+2026-11-21 16:12:02.497   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\pt-BR\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.497   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.497   Installing the file.
+2026-11-21 16:12:02.497   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\pt-BR
+2026-11-21 16:12:02.498   Successfully installed the file.
+2026-11-21 16:12:02.498   -- File entry --
+2026-11-21 16:12:02.498   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\pt-BR\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.498   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.498   Installing the file.
+2026-11-21 16:12:02.499   Successfully installed the file.
+2026-11-21 16:12:02.499   -- File entry --
+2026-11-21 16:12:02.499   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\pt-PT\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.499   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.499   Installing the file.
+2026-11-21 16:12:02.499   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\pt-PT
+2026-11-21 16:12:02.500   Successfully installed the file.
+2026-11-21 16:12:02.500   -- File entry --
+2026-11-21 16:12:02.500   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\pt-PT\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.500   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.500   Installing the file.
+2026-11-21 16:12:02.501   Successfully installed the file.
+2026-11-21 16:12:02.501   -- File entry --
+2026-11-21 16:12:02.501   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\quz-PE\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.501   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.501   Installing the file.
+2026-11-21 16:12:02.501   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\quz-PE
+2026-11-21 16:12:02.501   Successfully installed the file.
+2026-11-21 16:12:02.501   -- File entry --
+2026-11-21 16:12:02.501   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\quz-PE\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.501   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.501   Installing the file.
+2026-11-21 16:12:02.502   Successfully installed the file.
+2026-11-21 16:12:02.502   -- File entry --
+2026-11-21 16:12:02.502   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ro-RO\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.502   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.502   Installing the file.
+2026-11-21 16:12:02.502   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ro-RO
+2026-11-21 16:12:02.503   Successfully installed the file.
+2026-11-21 16:12:02.503   -- File entry --
+2026-11-21 16:12:02.503   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ro-RO\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.503   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.503   Installing the file.
+2026-11-21 16:12:02.505   Successfully installed the file.
+2026-11-21 16:12:02.505   -- File entry --
+2026-11-21 16:12:02.505   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ru-RU\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.505   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.505   Installing the file.
+2026-11-21 16:12:02.505   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ru-RU
+2026-11-21 16:12:02.506   Successfully installed the file.
+2026-11-21 16:12:02.506   -- File entry --
+2026-11-21 16:12:02.506   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ru-RU\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.506   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.506   Installing the file.
+2026-11-21 16:12:02.507   Successfully installed the file.
+2026-11-21 16:12:02.507   -- File entry --
+2026-11-21 16:12:02.507   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sk-SK\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.507   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.507   Installing the file.
+2026-11-21 16:12:02.507   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sk-SK
+2026-11-21 16:12:02.507   Successfully installed the file.
+2026-11-21 16:12:02.507   -- File entry --
+2026-11-21 16:12:02.507   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sk-SK\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.507   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.507   Installing the file.
+2026-11-21 16:12:02.508   Successfully installed the file.
+2026-11-21 16:12:02.508   -- File entry --
+2026-11-21 16:12:02.509   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sl-SI\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.509   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.509   Installing the file.
+2026-11-21 16:12:02.509   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sl-SI
+2026-11-21 16:12:02.511   Successfully installed the file.
+2026-11-21 16:12:02.511   -- File entry --
+2026-11-21 16:12:02.511   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sl-SI\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.511   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.511   Installing the file.
+2026-11-21 16:12:02.512   Successfully installed the file.
+2026-11-21 16:12:02.513   -- File entry --
+2026-11-21 16:12:02.513   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sq-AL\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.513   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.513   Installing the file.
+2026-11-21 16:12:02.513   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sq-AL
+2026-11-21 16:12:02.513   Successfully installed the file.
+2026-11-21 16:12:02.513   -- File entry --
+2026-11-21 16:12:02.513   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sq-AL\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.513   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.513   Installing the file.
+2026-11-21 16:12:02.514   Successfully installed the file.
+2026-11-21 16:12:02.514   -- File entry --
+2026-11-21 16:12:02.514   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sr-Cyrl-BA\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.515   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.515   Installing the file.
+2026-11-21 16:12:02.515   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sr-Cyrl-BA
+2026-11-21 16:12:02.515   Successfully installed the file.
+2026-11-21 16:12:02.515   -- File entry --
+2026-11-21 16:12:02.515   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sr-Cyrl-BA\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.515   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.515   Installing the file.
+2026-11-21 16:12:02.516   Successfully installed the file.
+2026-11-21 16:12:02.516   -- File entry --
+2026-11-21 16:12:02.516   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sr-Cyrl-RS\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.516   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.516   Installing the file.
+2026-11-21 16:12:02.516   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sr-Cyrl-RS
+2026-11-21 16:12:02.517   Successfully installed the file.
+2026-11-21 16:12:02.517   -- File entry --
+2026-11-21 16:12:02.517   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sr-Cyrl-RS\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.517   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.517   Installing the file.
+2026-11-21 16:12:02.517   Successfully installed the file.
+2026-11-21 16:12:02.517   -- File entry --
+2026-11-21 16:12:02.518   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sr-Latn-RS\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.518   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.518   Installing the file.
+2026-11-21 16:12:02.518   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sr-Latn-RS
+2026-11-21 16:12:02.519   Successfully installed the file.
+2026-11-21 16:12:02.519   -- File entry --
+2026-11-21 16:12:02.519   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sr-Latn-RS\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.519   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.519   Installing the file.
+2026-11-21 16:12:02.519   Successfully installed the file.
+2026-11-21 16:12:02.519   -- File entry --
+2026-11-21 16:12:02.519   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sv-SE\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.519   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.519   Installing the file.
+2026-11-21 16:12:02.519   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sv-SE
+2026-11-21 16:12:02.521   Successfully installed the file.
+2026-11-21 16:12:02.521   -- File entry --
+2026-11-21 16:12:02.521   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\sv-SE\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.521   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.521   Installing the file.
+2026-11-21 16:12:02.521   Successfully installed the file.
+2026-11-21 16:12:02.521   -- File entry --
+2026-11-21 16:12:02.521   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ta-IN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.521   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.521   Installing the file.
+2026-11-21 16:12:02.521   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ta-IN
+2026-11-21 16:12:02.522   Successfully installed the file.
+2026-11-21 16:12:02.522   -- File entry --
+2026-11-21 16:12:02.523   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ta-IN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.523   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.523   Installing the file.
+2026-11-21 16:12:02.523   Successfully installed the file.
+2026-11-21 16:12:02.523   -- File entry --
+2026-11-21 16:12:02.523   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\te-IN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.523   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.523   Installing the file.
+2026-11-21 16:12:02.523   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\te-IN
+2026-11-21 16:12:02.524   Successfully installed the file.
+2026-11-21 16:12:02.524   -- File entry --
+2026-11-21 16:12:02.524   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\te-IN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.524   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.524   Installing the file.
+2026-11-21 16:12:02.525   Successfully installed the file.
+2026-11-21 16:12:02.525   -- File entry --
+2026-11-21 16:12:02.525   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\th-TH\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.525   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.525   Installing the file.
+2026-11-21 16:12:02.525   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\th-TH
+2026-11-21 16:12:02.526   Successfully installed the file.
+2026-11-21 16:12:02.526   -- File entry --
+2026-11-21 16:12:02.526   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\th-TH\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.526   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.526   Installing the file.
+2026-11-21 16:12:02.527   Successfully installed the file.
+2026-11-21 16:12:02.527   -- File entry --
+2026-11-21 16:12:02.527   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\tr-TR\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.527   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.527   Installing the file.
+2026-11-21 16:12:02.528   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\tr-TR
+2026-11-21 16:12:02.528   Successfully installed the file.
+2026-11-21 16:12:02.528   -- File entry --
+2026-11-21 16:12:02.528   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\tr-TR\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.528   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.528   Installing the file.
+2026-11-21 16:12:02.529   Successfully installed the file.
+2026-11-21 16:12:02.529   -- File entry --
+2026-11-21 16:12:02.529   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\tt-RU\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.529   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.529   Installing the file.
+2026-11-21 16:12:02.529   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\tt-RU
+2026-11-21 16:12:02.530   Successfully installed the file.
+2026-11-21 16:12:02.530   -- File entry --
+2026-11-21 16:12:02.530   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\tt-RU\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.530   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.530   Installing the file.
+2026-11-21 16:12:02.531   Successfully installed the file.
+2026-11-21 16:12:02.531   -- File entry --
+2026-11-21 16:12:02.531   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ug-CN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.531   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.531   Installing the file.
+2026-11-21 16:12:02.531   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ug-CN
+2026-11-21 16:12:02.531   Successfully installed the file.
+2026-11-21 16:12:02.531   -- File entry --
+2026-11-21 16:12:02.532   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ug-CN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.532   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.532   Installing the file.
+2026-11-21 16:12:02.533   Successfully installed the file.
+2026-11-21 16:12:02.533   -- File entry --
+2026-11-21 16:12:02.533   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\uk-UA\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.533   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.533   Installing the file.
+2026-11-21 16:12:02.533   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\uk-UA
+2026-11-21 16:12:02.533   Successfully installed the file.
+2026-11-21 16:12:02.533   -- File entry --
+2026-11-21 16:12:02.533   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\uk-UA\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.534   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.534   Installing the file.
+2026-11-21 16:12:02.534   Successfully installed the file.
+2026-11-21 16:12:02.534   -- File entry --
+2026-11-21 16:12:02.534   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ur-PK\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.534   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.534   Installing the file.
+2026-11-21 16:12:02.534   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ur-PK
+2026-11-21 16:12:02.534   Successfully installed the file.
+2026-11-21 16:12:02.534   -- File entry --
+2026-11-21 16:12:02.534   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\ur-PK\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.534   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.534   Installing the file.
+2026-11-21 16:12:02.536   Successfully installed the file.
+2026-11-21 16:12:02.536   -- File entry --
+2026-11-21 16:12:02.536   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\uz-Latn-UZ\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.536   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.536   Installing the file.
+2026-11-21 16:12:02.536   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\uz-Latn-UZ
+2026-11-21 16:12:02.536   Successfully installed the file.
+2026-11-21 16:12:02.536   -- File entry --
+2026-11-21 16:12:02.536   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\uz-Latn-UZ\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.536   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.536   Installing the file.
+2026-11-21 16:12:02.539   Successfully installed the file.
+2026-11-21 16:12:02.539   -- File entry --
+2026-11-21 16:12:02.539   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\vi-VN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.539   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.539   Installing the file.
+2026-11-21 16:12:02.539   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\vi-VN
+2026-11-21 16:12:02.539   Successfully installed the file.
+2026-11-21 16:12:02.539   -- File entry --
+2026-11-21 16:12:02.539   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\vi-VN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.539   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.539   Installing the file.
+2026-11-21 16:12:02.541   Successfully installed the file.
+2026-11-21 16:12:02.541   -- File entry --
+2026-11-21 16:12:02.541   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\zh-CN\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.541   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.541   Installing the file.
+2026-11-21 16:12:02.541   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\zh-CN
+2026-11-21 16:12:02.542   Successfully installed the file.
+2026-11-21 16:12:02.542   -- File entry --
+2026-11-21 16:12:02.542   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\zh-CN\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.542   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.542   Installing the file.
+2026-11-21 16:12:02.542   Successfully installed the file.
+2026-11-21 16:12:02.542   -- File entry --
+2026-11-21 16:12:02.543   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\zh-TW\Microsoft.ui.xaml.dll.mui
+2026-11-21 16:12:02.543   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.543   Installing the file.
+2026-11-21 16:12:02.543   Creating directory: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\zh-TW
+2026-11-21 16:12:02.544   Successfully installed the file.
+2026-11-21 16:12:02.544   -- File entry --
+2026-11-21 16:12:02.544   Dest filename: C:\Users\runneradmin\AppData\Local\Programs\Pipeline Check\zh-TW\Microsoft.UI.Xaml.Phone.dll.mui
+2026-11-21 16:12:02.544   Time stamp of our file: 2026-11-11 09:51:18.000
+2026-11-21 16:12:02.544   Installing the file.
+2026-11-21 16:12:02.544   Successfully installed the file.
+2026-11-21 16:12:02.544   -- Icon entry --
+2026-11-21 16:12:02.544   Dest filename: C:\Users\runneradmin\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Pipeline Check.lnk
+2026-11-21 16:12:02.545   Creating the icon.
+2026-11-21 16:12:03.211   Successfully created the icon.
+2026-11-21 16:12:03.216   Saving uninstall information.
+2026-11-21 16:12:03.216   Creating new uninstall key: HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Uninstall\{6F1C2B7E-4A3D-4C59-9E2B-7D1A0C3F5B21}_is1
+2026-11-21 16:12:03.216   Writing uninstall key values.
+2026-11-21 16:12:03.217   Detected previous administrative 64-bit install? No
+2026-11-21 16:12:03.217   Detected previous administrative 32-bit install? No
+2026-11-21 16:12:03.237   Installation process succeeded.
+2026-11-21 16:12:03.237   Need to restart Windows? No
+2026-11-21 16:12:03.239   Deinitializing Setup.
+2026-11-21 16:12:03.249   Log closed.

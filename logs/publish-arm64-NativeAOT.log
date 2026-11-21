@@ -1,0 +1,7 @@
+  Determining projects to restore...
+  Restored D:\a\WinApps\WinApps\apps\pipeline-check\src\PipelineCheck.Core\PipelineCheck.Core.csproj (in 42.91 sec).
+  Restored D:\a\WinApps\WinApps\apps\pipeline-check\src\PipelineCheck\PipelineCheck.csproj (in 47.25 sec).
+  PipelineCheck.Core -> D:\a\WinApps\WinApps\apps\pipeline-check\src\PipelineCheck.Core\bin\ARM64\Release\net11.0\PipelineCheck.Core.dll
+  PipelineCheck -> D:\a\WinApps\WinApps\apps\pipeline-check\src\PipelineCheck\bin\ARM64\Release\net11.0-windows10.0.26100.0\win-arm64\PipelineCheck.dll
+  Generating native code
+  PipelineCheck -> D:\a\WinApps\WinApps\out-arm64\publish\
