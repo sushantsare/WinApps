@@ -12,11 +12,10 @@
               Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
               BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
         <RadioButtons x:Name="ThemeChoice" Header="App theme"
-                      AutomationProperties.AutomationId="ThemeChoice"
-                      SelectionChanged="ThemeChoice_SelectionChanged">
-          <RadioButton Content="Light" Tag="light" AutomationProperties.AutomationId="ThemeLight" />
-          <RadioButton Content="Dark" Tag="dark" AutomationProperties.AutomationId="ThemeDark" />
-          <RadioButton Content="Use system setting" Tag="system" AutomationProperties.AutomationId="ThemeSystem" />
+                      AutomationProperties.AutomationId="ThemeChoice">
+          <RadioButton Content="Light" Tag="light" AutomationProperties.AutomationId="ThemeLight" Checked="Theme_Checked" />
+          <RadioButton Content="Dark" Tag="dark" AutomationProperties.AutomationId="ThemeDark" Checked="Theme_Checked" />
+          <RadioButton Content="Use system setting" Tag="system" AutomationProperties.AutomationId="ThemeSystem" Checked="Theme_Checked" />
         </RadioButtons>
       </Border>
     </StackPanel>

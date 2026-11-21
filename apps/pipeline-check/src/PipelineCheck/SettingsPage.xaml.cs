@@ -1,3 +1,4 @@
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
 namespace PipelineCheck;
@@ -14,9 +15,10 @@ public sealed partial class SettingsPage : Page
         _ready = true;
     }
 
-    private void ThemeChoice_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    // Each option applies the moment it is checked (mouse, keyboard or UI Automation).
+    private void Theme_Checked(object sender, RoutedEventArgs e)
     {
-        if (_ready && ThemeChoice.SelectedItem is RadioButton { Tag: string theme })
+        if (_ready && sender is RadioButton { Tag: string theme })
         {
             App.Window?.ApplyTheme(theme);
         }
