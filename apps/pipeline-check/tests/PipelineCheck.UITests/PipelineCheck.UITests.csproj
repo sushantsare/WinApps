@@ -9,4 +9,7 @@
     <PackageReference Include="xunit.v3" />
     <PackageReference Include="FlaUI.UIA3" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>
