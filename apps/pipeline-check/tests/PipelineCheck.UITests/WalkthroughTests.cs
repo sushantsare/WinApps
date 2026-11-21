@@ -8,8 +8,6 @@ using FlaUI.Core.WindowsAPI;
 using FlaUI.UIA3;
 using Xunit;
 
-[assembly: CollectionBehavior(DisableTestParallelization = true)]
-
 namespace PipelineCheck.UITests;
 
 /// <summary>Launches the published app like a user and walks every page, saving screenshots.</summary>
